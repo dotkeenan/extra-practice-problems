@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    s = "hApPy"
+    const splitString = s.split("");
+    const uppercase = [];
+    const lowercase = [];
+    let result = '';
+    for (let i = 0; i < splitString.length; i++)  {
+      if(splitString[i] === splitString[i].toUpperCase()) {
+        uppercase.push(splitString[i])
+      } else {
+        lowercase.push(splitString[i])
+      }
+      result = uppercase.concat(lowercase).join('');
+    }
+    return result;
+  </script>
+</body>
+</html>
