@@ -10,6 +10,20 @@
     function numberSquares(n) {
         return n * (n + 1) * (2 * n + 1) / 6
       }
+/* more understandable way
+The formula is basically the sum of the squares of all the previous integers until 0.
+so if n = 3, it would be 1*1 + 2*2 + 3*3 = 15.
+function numberSquares(n) {
+	var calcVar = 0;
+	for (var i=n; i > 0; i--) {
+				calcVar += (i*i);
+	}
+	return calcVar;
+}
+
+*/
+
+
       /* https://edabit.com/challenge/RGQXN4TG2CQoBAReQ
       Create a function that calculates the number of different squares in an n * n square grid. Check the Resources tab.
 
