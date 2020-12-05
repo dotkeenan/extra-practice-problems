@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* Your task is, given an object, prevent new properties from being added to
+     that object, but you should still be able to change the value of the existing properties. */
+    function signYourName(obj) {
+        Object.seal(obj);
+
+
+        // DON'T CHANGE OR REMOVE THE LINES BELOW
+        obj.yourSignature = "Whatever";
+        obj.spouseSignature = "Nice Try"
+        return obj;
+      }
+  </script>
+</body>
+</html>
