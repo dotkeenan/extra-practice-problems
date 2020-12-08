@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isFirstSuperior(arr1, arr2) {
+        for (let i = 0; i < arr1.length; i++) {
+          if (arr1[i] > arr2[i]) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      /*
+      cool way:
+      function isFirstSuperior(arr1, arr2) {
+        return arr1 > arr2;
+      }
+
+      Slightly Superior
+      You will be given two extremely similar arrays, but exactly one of the items in an array will be valued slightly higher than its counterpart (which means that evaluating the value > the other value will return true).
+
+      Create a function that returns whether the first array is slightly superior to that of the second.
+
+      Worked Example
+      isFirstSuperior([1, 2, 4], [1, 2, 3]) ➞ true
+      // The pair of items at each index are compared in turn.
+      // 1 from the first array is the same as 1 from the second array.
+      // 2 is the same as 2.
+      // However, 4 is greater than 3, so first array is superior.
+      Examples
+      isFirstSuperior(["a", "d", "c"], ["a", "b", "c"]) ➞ true
+
+      isFirstSuperior(["zebra", "ostrich", "whale"], ["ant", "ostrich", "whale"]) ➞ true
+
+      isFirstSuperior([1, 2, 3, 4], [1, 2, 4, 4]) ➞ false
+
+      isFirstSuperior([true, 10, "zebra"], [true, 10, "zebra"]) ➞ false
+      */
+  </script>
+</body>
+</html>
