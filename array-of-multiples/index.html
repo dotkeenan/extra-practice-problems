@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function arrayOfMultiples(num, length) {
+        const multiplesArr = [];
+        for (i = 1; i <= length; i++) {
+          multiplesArr.push(num * i)
+        }
+        return multiplesArr;
+      }
+
+      /*
+      function arrayOfMultiples (num, length) {
+        const multiplesArr = [];
+        let result = null;
+        for (i = 0; i < length; i++) {
+          result += num;
+          multiplesArr.push(result);
+        }
+        return multiplesArr;
+      }
+
+
+      array of multiples
+      create func that takes 2 nums as args
+      1st is a num, 2nd length
+      returns an array of multiples of num, until the array.length = length arg
+
+      i/o
+      7, 5 => [7,14,21,28,35]
+      17, 6 => [17,34,51,68,85,102]
+      create storage empty array named multiplesArr
+      create a storage for the result named result
+      create a for loop that runs 'length' amt of times, increments by 1, starts at 0.
+      on each iteration, add 'num' to result storage and push result into array
+
+
+      */
+  </script>
+</body>
+</html>
