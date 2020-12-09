@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function error(n) {
+        const errors = [
+          'Check the fan: e1',
+          'Emergency stop: e2',
+          'Pump Error: e3',
+          'c: e4',
+          'Temperature Sensor Error: e5'
+        ]
+        let a, b, c, d, e;
+        [a, b, c, d, e] = errors;
+        return n === 1 ? a
+          : n === 2 ? b
+            : n === 3 ? c
+              : n === 4 ? d
+                : n === 5 ? e
+                  : 101
+      }
+  </script>
+</body>
+</html>
