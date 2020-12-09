@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isRepdigit(num) {
+        if (num === 0) {
+          return true;
+        }
+        if (!num) { return false }
+        let stringNum = num.toString();
+        let firstNum = stringNum[0]
+        for (let i = 1; i < stringNum.length; i++) {
+          if (firstNum !== stringNum[i]) {
+            return false
+          }
+        }
+        return true;
+      }
+
+      /*
+      first check if the number is negative.  If it is, return false
+
+      convert num into a string
+      iterate over the string
+      create storage for first digit num[0]
+      on each iteration checking if storage === num[i]
+      return true if all iterations  === storage.
+
+      function that takes integer and return whether its a rep digit or not.
+
+      positive number composed of the same digit.
+      66 = true
+      0 = true
+      -11 = false
+
+      */
+  </script>
+</body>
+</html>
