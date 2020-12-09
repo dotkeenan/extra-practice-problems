@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function timeSum(times) {
+        if (times.length === 0) {
+          return [0, 0, 0];
+        }
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        for (let i = 0; i < times.length; i++) {
+          const arr = times[i].split(':');
+          hours += Number(arr[0])
+          minutes += Number(arr[1]);
+          seconds += Number(arr[2]);
+        }
+        const incrementMinutes = Math.floor(seconds / 60)
+        const incrementHours = Math.floor(minutes / 60)
+        return [hours + incrementHours, (minutes % 60) + incrementMinutes, seconds % 60]
+      }
+
+      /*
+      Sum of an Array of Times
+      Create a function that takes an array of strings representing times ('hours:minutes:seconds') and returns their sum as an array of integers ([hours, minutes, seconds]).
+
+      Examples
+      timeSum(["1:23:45"]) ➞ [1, 23, 45]
+
+      timeSum(["1:03:45", "1:23:05"]) ➞ [2, 26, 50]
+
+      timeSum(["5:39:42", "10:02:08", "8:26:33"]) ➞ [24, 8, 23]
+      Notes
+      If the input is an empty array, return [0, 0, 0].
+      */
+  </script>
+</body>
+</html>
