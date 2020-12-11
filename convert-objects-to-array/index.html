@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function toArray(obj) {
+        let arr1 = [];
+        const result = [];
+        for (const prop in obj) {
+          arr1 = [];
+          arr1.push(prop);
+          arr1.push(obj[prop]);
+          result.push(arr1)
+        }
+        return result;
+      }
+/*
+      one liner:
+      function toArray(obj) {
+      return Object.entries(obj);
+      }
+
+      check if object is empty, if it is, return an empty array.
+      need to loop through the object
+      get the key and value of each iteration, push them into their own array.
+
+      maybe use map
+      obj.map(element)
+
+      convert objects to arrays
+      create func that converts an object to an array
+      where each element represetns a key value pair in the form of an array
+
+      return empty array if object is empty
+
+      toArray({a: 1, b: 2}) => [['a', 1],['b', 2]]
+      */
+  </script>
+</body>
+</html>
