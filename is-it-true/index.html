@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isTrue(relation) {
+        const regex = /=/gi;
+        if (relation.match(regex)) {
+          return eval(relation.replace(regex, '==='))
+        }
+        return eval(relation)
+      }
+/*
+      one liner:
+      return eval(relation.replace('=', '===')
+
+      Is it True?
+      In this challenge you will be given a relation between two numbers, written as a string. Write a function that determines if the relation is true or false.
+
+      Examples
+      isTrue("2=2") ➞ true
+
+      isTrue("8<7") ➞ false
+
+      isTrue("5=13") ➞ false
+
+      isTrue("15>4") ➞ true
+      Notes
+      Tests will only have three types of relations: =, >, and <
+      Many approaches work here, but the eval() function is particularly useful!
+      */
+
+  </script>
+</body>
+</html>
