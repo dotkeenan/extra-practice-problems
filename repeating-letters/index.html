@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function doubleChar(str) {
+        let doubledStr = '';
+        const strArr = str.split('');
+        strArr.map(char => {
+          for (let i = 0; i < 2; i++) {
+            doubledStr += char;
+          }
+        })
+        return doubledStr;
+      }
+/*
+      Repeating Letters
+      Create a function that takes a string and returns a string in which each character is repeated once.
+
+      Examples
+      doubleChar("String") ➞ "SSttrriinngg"
+
+      doubleChar("Hello World!") ➞ "HHeelllloo  WWoorrlldd!!"
+
+      doubleChar("1234!_ ") ➞ "11223344!!__  "
+      Notes
+      All test cases contain valid strings. Don't worry about spaces, special characters or numbers. They're all considered valid characters.
+      */
+  </script>
+</body>
+</html>
