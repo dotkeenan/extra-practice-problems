@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const centuryFromYear = (year) => {
+        return Math.ceil(year / 100)
+      }
+// Old way before I found out about Math.ceil()
+// function centuryFromYear(year) {
+//     if (year.toString().length === 4) {
+//         if (year % 100 === 0) {
+//             return year / 100;
+//         } else {
+//             let digits = year.toString().split('');
+//             return Number(digits[0] + digits[1]) + 1
+//             // return digits[0] + (Number(digits[1] + 1).toString())
+//         }
+//     }
+//     if (year.toString().length === 3) {
+//         if (year % 100 === 0) {
+//             return year / 100;
+//         } else {
+//             let digits = year.toString().split('');
+//             return Number(digits[0]) + 1
+//         }
+//     }
+//     return 1;
+// }
+
+/* https://app.codesignal.com/arcade/intro/level-1/egbueTZRRL5Mm4TXN
+Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc.
+
+Example
+
+For year = 1905, the output should be
+centuryFromYear(year) = 20;
+For year = 1700, the output should be
+centuryFromYear(year) = 17.
+Input/Output
+
+[execution time limit] 4 seconds (js)
+
+[input] integer year
+
+A positive integer, designating the year.
+
+Guaranteed constraints:
+1 ≤ year ≤ 2005.
+
+[output] integer
+
+The number of the century the year is in.
+*/
+  </script>
+</body>
+</html>
