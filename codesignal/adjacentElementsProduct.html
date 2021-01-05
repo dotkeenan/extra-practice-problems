@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function adjacentElementsProduct(inputArray) {
+        let lastPairProduct = -Infinity;
+        for (let i = 0; i < inputArray.length - 1; i++) {
+          let currentPairProduct = inputArray[i] * inputArray[i + 1];
+          if (currentPairProduct > lastPairProduct) {
+            lastPairProduct = currentPairProduct
+          }
+        }
+        return lastPairProduct;
+      }
+
+/* https://app.codesignal.com/arcade/intro/level-2/xzKiBHjhoinnpdh6m
+Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
+
+Example
+
+For inputArray = [3, 6, -2, -5, 7, 3], the output should be
+adjacentElementsProduct(inputArray) = 21.
+
+7 and 3 produce the largest product.
+
+Input/Output
+
+[execution time limit] 4 seconds (js)
+
+[input] array.integer inputArray
+
+An array of integers containing at least two elements.
+
+Guaranteed constraints:
+2 ≤ inputArray.length ≤ 10,
+-1000 ≤ inputArray[i] ≤ 1000.
+
+[output] integer
+
+The largest product of adjacent elements.
+
+
+One Liner:
+function adjacentElementsProduct(arr) {
+  return Math.max(...arr.slice(1).map((x,i)=>[x*arr[i]]))
+}
+
+More readable solution:
+function adjacentElementsProduct(inputArray) {
+    var prod = inputArray[0] * inputArray[1];
+
+    for (var i = 1; i<inputArray.length - 1;i++) {
+        prod = Math.max(prod, inputArray[i] * inputArray[i+1]);
+    }
+
+    return prod
+}
+
+*/
+  </script>
+</body>
+</html>
