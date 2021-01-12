@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+        'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const nearestVowel = s => {
+      const dFromVowel = vowels.map(x => Math.abs(letters.indexOf(s) - letters.indexOf(x)));
+      const minVowelIndex = dFromVowel.indexOf(Math.min(...dFromVowel));
+      return vowels[minVowelIndex];
+    }
+
+/*Nearest Vowel
+https://edabit.com/challenge/62BAcgsNSdwYmE9ty
+Given a letter, created a function which returns the nearest vowel to the letter. If two vowels are equidistant to the given letter, return the earlier vowel.
+
+Examples
+nearestVowel("b") ➞ "a"
+
+nearestVowel("s") ➞ "u"
+
+nearestVowel("c") ➞ "a"
+
+nearestVowel("i") ➞ "i"
+Notes
+All letters will be given in lowercase.
+There will be no alphabet wrapping involved, meaning the closest vowel to "z" should return "u", not "a".
+
+NOTES:
+      create an array of alphabet
+      create an array of vowels
+
+      For each vowel, find it's distance from 's', add it to an array.
+      Use absolute value of it.
+      Find the INDEX of the smallest value in new mapped array.
+      return the vowels array at the above index position.
+
+      */
+
+      // const nearestVowel = s => {
+      //   const nearestDiff = vowels.map((x, i) => Math.abs(letters.indexOf(s) - letters.indexOf(x)));
+      //   const minIndex = nearestDiff.indexOf(Math.min(...nearestDiff));
+      //   return vowels[minIndex]
+      // }
+  </script>
+</body>
+</html>

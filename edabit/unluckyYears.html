@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function howUnlucky(y) {
+        let count = 0;
+        for (let month = 0; month < 12; month++) {
+          const date = new Date(y, month, 13);
+          if (date.getDay() === 5) {
+            count++;
+          }
+        }
+        return count;
+      }
+      /* https://edabit.com/challenge/JnbkJAxA3woPFHYMm
+      Unlucky Years
+Create a function which returns how many Friday 13ths there are in a given year.
+
+Examples
+howUnlucky(2020) ➞ 2
+
+howUnlucky(2026) ➞ 3
+
+howUnlucky(2016) ➞ 1
+Notes
+Check Resources for some helpful tutorials on the JavaScript Date object.
+       */
+  </script>
+</body>
+</html>
