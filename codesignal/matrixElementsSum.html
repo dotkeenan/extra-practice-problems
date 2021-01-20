@@ -51,6 +51,27 @@ Notes:
       if not, add that number to the cost variable
       if it is zero, get the index position of that 0 and store it in a array named haunted
 
+Clear solution:  iterates the arrays as columns (in a sense) instead of rows
+function matrixElementsSum(matrix) {
+    var total = 0;
+
+    // Navigate each column of rooms
+    // i = current column, j = current floor in column
+    for (var i = 0; i < matrix[0].length; i++) {
+
+        for (var j = 0; j < matrix.length; j++) {
+            if (matrix[j][i] === 0) {
+                // This room is haunted, so we don't care about the rooms below it.
+                // Continue to the next column of rooms
+                break;
+            }
+            total += matrix[j][i];
+        }
+
+    }
+
+    return total;
+}
        */
   </script>
 </body>
