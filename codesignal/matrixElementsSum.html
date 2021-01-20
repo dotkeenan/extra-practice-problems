@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function matrixElementsSum(matrix) {
+        let cost = 0;
+        const haunted = [];
+        for (let i = 0; i < matrix.length; i++) {
+          matrix[i].forEach((v, i, a) => {
+            if (haunted.includes(i)) {
+              return;
+            }
+            if (v === 0) {
+              haunted.push(i);
+            } else {
+              cost += v;
+            }
+          })
+        }
+        return cost;
+      }
+/* https://app.codesignal.com/arcade/intro/level-2/xskq4ZxLyqQMCLshr/solutions
+After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, or any of the rooms below any of the free rooms.
+
+Given matrix, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don't appear below a 0).
+
+Example
+
+For
+
+matrix = [[0, 1, 1, 2],
+          [0, 5, 0, 0],
+          [2, 0, 3, 3]]
+the output should be
+matrixElementsSum(matrix) = 9.
+
+
+Notes:
+      iterate over 'matrix'.
+      iterate over each subarray
+
+      If there is a non-zero value in the index position that includes the indexes
+      stored in the haunted array, ignore it and do not add it to the cost variable.
+
+      check if a value is 0 or not
+      if not, add that number to the cost variable
+      if it is zero, get the index position of that 0 and store it in a array named haunted
+
+       */
+  </script>
+</body>
+</html>
