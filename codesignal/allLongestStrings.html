@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function allLongestStrings(inputArray) {
+        const sortedArr = inputArray.sort((a, b) => b.length - a.length);
+        const mostChars = sortedArr[0].length
+        return inputArray.filter(word => word.length === mostChars);
+      }
+
+      /* https://app.codesignal.com/arcade/intro/level-3/fzsCQGYbxaEcTr2bL
+      Given an array of strings, return another array containing all of its longest strings.
+
+Example
+
+For inputArray = ["aba", "aa", "ad", "vcd", "aba"], the output should be
+allLongestStrings(inputArray) = ["aba", "vcd", "aba"].
+
+best solution:
+map over inputArray and turn each element into their length value.
+find the Math.max() of the results.
+return an array using filter to find all elements where their length === maxSize
+function allLongestStrings(inputArray) {
+    'use strict'; //dunno why this is needed
+    let maxSize = Math.max(...inputArray.map(x => x.length));
+    return inputArray.filter(x => x.length === maxSize);
+}
+       */
+  </script>
+</body>
+</html>
