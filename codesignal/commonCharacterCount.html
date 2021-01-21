@@ -35,41 +35,53 @@ commonCharacterCount(s1, s2) = 3.
 
 Strings have 3 common characters - 2 "a"s and 1 "c".
   */
-    // 1st attempt - works but very ugly.
-    // made two objects to store the characters in each string, and how many appearances of each
-    //used a for...in loop to iterate over s1Obj and check if s2Obj contains
-    // the same character, and if it does, increase 'count' by the lesser of the
-    // amt of the two object's values.
+    /* 1st attempt - works but very ugly.
+    made two objects to store the characters in each string, and how many appearances of each
+    used a for...in loop to iterate over s1Obj and check if s2Obj contains
+    the same character, and if it does, increase 'count' by the lesser of the
+    amt of the two object's values.
 
 
-    // let count = 0;
-    //   const s1Obj = {};
-    //   const s2Obj = {};
-    //   for (let i = 0; i < s1.length; i++) {
-    //     // console.log(s1[i])
-    //     if (!(s1[i] in s1Obj)) {
-    //       s1Obj[s1[i]] = 1;
-    //     } else {
-    //       // console.log(s1Obj.s1)
-    //       s1Obj[s1[i]]++
-    //     }
-    //   }
-    //   for (let j = 0; j < s2.length; j++) {
-    //     // console.log(s1[i])
-    //     if (!(s2[j] in s2Obj)) {
-    //       s2Obj[s2[j]] = 1;
-    //     } else {
-    //       // console.log(s1Obj.s1)
-    //       s2Obj[s2[j]]++
-    //     }
-    //   }
+    let count = 0;
+      const s1Obj = {};
+      const s2Obj = {};
+      for (let i = 0; i < s1.length; i++) {
+        // console.log(s1[i])
+        if (!(s1[i] in s1Obj)) {
+          s1Obj[s1[i]] = 1;
+        } else {
+          // console.log(s1Obj.s1)
+          s1Obj[s1[i]]++
+        }
+      }
+      for (let j = 0; j < s2.length; j++) {
+        // console.log(s1[i])
+        if (!(s2[j] in s2Obj)) {
+          s2Obj[s2[j]] = 1;
+        } else {
+          // console.log(s1Obj.s1)
+          s2Obj[s2[j]]++
+        }
+      }
 
-    //   for (let k in s1Obj) {
-    //     if (s2Obj.hasOwnProperty(k)) {
-    //       count += (s1Obj[k] > s2Obj[k] ? s2Obj[k] : s1Obj[k])
-    //     }
-    //   }
-    //   return count;
+      for (let k in s1Obj) {
+        if (s2Obj.hasOwnProperty(k)) {
+          count += (s1Obj[k] > s2Obj[k] ? s2Obj[k] : s1Obj[k])
+        }
+      }
+      return count;
+
+    best solution:
+      iterate over s1 and replace all values in s2, with '!', just to indicate that
+      it is a shared value.
+      then in s2, replace all NON '!' values with '', aka delete them.  then return the length of that array.  Aka the # of '!'s
+
+    function commonCharacterCount(s1, s2) {
+        for (var i = 0; i < s1.length; i++) {
+          s2 = s2.replace(s1[i], "!");
+        }
+        return s2.replace(/[^!]/g, "").length;
+      } */
   </script>
 </body>
 </html>
