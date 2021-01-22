@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isLucky(n) {
+        let first = 0;
+        let second = 0;
+        const stringNum = n.toString();
+        for (let i = 0; i < stringNum.length / 2; i++) {
+          first += Number(stringNum[i]);
+        }
+        for (let j = stringNum.length / 2; j < stringNum.length; j++) {
+          second += Number(stringNum[j]);
+        }
+        return first === second
+      }
+
+      /* https://app.codesignal.com/arcade/intro/level-3/3AdBC97QNuhF6RwsQ
+      Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.
+
+Given a ticket number n, determine if it's lucky or not.
+
+Example
+
+For n = 1230, the output should be
+isLucky(n) = true;
+For n = 239017, the output should be
+isLucky(n) = false.
+       */
+  </script>
+</body>
+</html>
