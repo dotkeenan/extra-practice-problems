@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function reverseCase(str) {
+        const strArr = str.split('')
+        for (let i = 0; i < strArr.length; i++) {
+          if (strArr[i] === strArr[i].toLowerCase()) {
+            strArr.splice(i, 1, strArr[i].toUpperCase())
+          } else {
+            strArr.splice(i, 1, strArr[i].toLowerCase())
+          }
+        }
+        return strArr.join('')
+      }
+
+      /*
+      Reverse the Case
+      Given a string, create a function to reverse the case. All lower-cased letters should be upper-cased, and vice versa.
+
+      Examples
+      reverseCase("Happy Birthday") ➞ "hAPPY bIRTHDAY"
+
+      reverseCase("MANY THANKS") ➞ "many thanks"
+
+      reverseCase("sPoNtAnEoUs") ➞ "SpOnTaNeOuS"
+      */
+  </script>
+</body>
+</html>
