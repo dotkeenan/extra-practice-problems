@@ -29,6 +29,11 @@
       reverseCase("MANY THANKS") ➞ "many thanks"
 
       reverseCase("sPoNtAnEoUs") ➞ "SpOnTaNeOuS"
+
+      best solution:
+      function reverseCase(str) {
+	      return [...str].map(c => c.toLowerCase() == c ? c.toUpperCase() : c.toLowerCase()).join("")
+}
       */
   </script>
 </body>
