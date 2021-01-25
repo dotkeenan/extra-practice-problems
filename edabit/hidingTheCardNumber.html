@@ -27,6 +27,14 @@
       Examples
       Ensure you return a string.
       The length of the string must remain the same as the input.
+
+Top result that uses regex:
+function cardHide(card) {
+	return card.replace(/.(?=.{4,}$)/g, '*')
+}
+
+2nd top result that uses repeat() and slice() // better way of what I did.  No loop necessary.
+const cardHide = card => '*'.repeat(card.length - 4) + card.slice(-4);
       */
   </script>
 </body>
