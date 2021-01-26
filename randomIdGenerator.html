@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function userIdGeneratedByUser() {
+        let id = '';
+        let chrAmt = prompt('Amount of Characters')
+        let idAmt = prompt('Amount of IDs')
+        let chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        const ids = [];
+        let i = 0;
+        while (i < idAmt) {
+          id = '';
+          for (let j = 0; j < chrAmt; j++) {
+            id += chars.charAt(Math.floor(Math.random() * chars.length))
+          }
+          ids.push(id)
+          i++
+        }
+        return ids;
+      }
+  </script>
+</body>
+</html>
