@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function generateColors(type, amount) {
+        const hex = [];
+        const rgb = [];
+        const rgbResult = [];
+        if (type === 'hexa') {
+          for (let i = 0; i < amount; i++) {
+            var x = Math.round(0xffffff * Math.random()).toString(16);
+            var y = (6 - x.length);
+            var z = '000000';
+            var z1 = z.substring(0, y);
+            var color = '#' + z1 + x;
+            hex.push(color)
+          }
+          return hex
+        }
+
+        if (type === 'rgb') {
+          for (let j = 0; j < amount; j++) {
+            let colorSet = [];
+            for (k = 0; k < 3; k++) {
+              let randomNum = Math.floor(Math.random() * 255 + 1)
+              colorSet.push(randomNum)
+              //         rgb.push(rgbColor)
+            }
+            rgb.push(colorSet);
+          }
+          rgb.forEach((v, i, a) => {
+            rgbResult.push(`rgb(${v[0]}, ${v[1]}, ${v[2]})`)
+          })
+          return rgbResult;
+        }
+      }
+
+      console.log(generateColors('rgb', 5))
+      /*
+      first argument can either be 'hexa' or 'rgb', second argument is the amount of colors you want
+      first try, dirty, could use a lot of tweaking and making simpler
+      */
+  </script>
+</body>
+</html>
