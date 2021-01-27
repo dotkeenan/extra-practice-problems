@@ -29,6 +29,14 @@
       getMiddle("A") ➞ "A"
       Notes
       All test cases contain a single word (as a string).
+
+top result:
+it uses ceil and floor effectively to be able to handle an odd or even number string length.
+      function getMiddle(str) {
+  var start = Math.ceil(str.length / 2) - 1;
+  var end = Math.floor(str.length / 2) + 1;
+  return str.substring(start, end);
+}
       */
 
   </script>
