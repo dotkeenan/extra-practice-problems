@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function reverseOdd(str) {
+        const resultArr = [];
+
+        str.split(' ').forEach(element => {
+          if (element.length % 2 === 0) {
+            resultArr.push(element);
+          } else {
+            let reversedStr = element.split('').reverse().join('')
+            resultArr.push(reversedStr)
+          }
+        })
+        return resultArr.join(' ');
+      }
+
+      /*
+      Reverse the Odd Length Words
+      Given a string, reverse all the words which have odd length. The even length words are not changed.
+
+      Examples
+      reverseOdd("Bananas") ➞ "sananaB"
+
+      reverseOdd("One two three four") ➞ "enO owt eerht four"
+
+      reverseOdd("Make sure uoy only esrever sdrow of ddo length")
+      ➞ "Make sure you only reverse words of odd length"
+      */
+  </script>
+</body>
+</html>
