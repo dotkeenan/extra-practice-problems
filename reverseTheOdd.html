@@ -35,7 +35,9 @@
 
       top solution:
       split the str at each 'white space' and map over each array element.
-      if the element's length is even,
+      if the element's length is even, create an array of letters for the current iteration's word.
+      reverse the array's order.  join them back.
+      if lenght is odd, just return the word.  then join the whole str.split back together.
 
       function reverseOdd(str) {
         return str.split(" ").map(w => w.length%2 ? [...w].reverse().join("") : w).join(" ");
