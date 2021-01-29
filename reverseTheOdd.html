@@ -32,6 +32,14 @@
 
       reverseOdd("Make sure uoy only esrever sdrow of ddo length")
       ➞ "Make sure you only reverse words of odd length"
+
+      top solution:
+      split the str at each 'white space' and map over each array element.
+      if the element's length is even,
+
+      function reverseOdd(str) {
+        return str.split(" ").map(w => w.length%2 ? [...w].reverse().join("") : w).join(" ");
+      }
       */
   </script>
 </body>
