@@ -9,8 +9,17 @@
   <script>
     function correctTitle(str) {
         const banned = ['and', 'the', 'of', 'in'];
+        const cap = word => word[0].toUpperCase() + word.slice(1);
         const splitStr = str.toLowerCase().split(' ');
-        return splitStr.map(word => !banned.includes(word) ? word[0].toUpperCase() + word.slice(1) : word).join(' ')
+        return splitStr
+          .map(word =>
+            word.split('-')
+              .map(subword =>
+                banned.includes(subword) ?
+                  subword :
+                  cap(subword))
+              .join('-'))
+          .join(' ');
       }
 /*
 Game of Thrones: Character Titles
