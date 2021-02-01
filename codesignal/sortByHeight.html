@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sortByHeight(a) {
+        const trees = [];
+        const heights = a.filter(v => v !== -1).sort((a, b) => a - b)
+        a.forEach((v, i) => {
+          if (v === -1) trees.push(i);
+        })
+        trees.forEach(v => heights.splice(v, 0, -1))
+        return heights;
+      }
+/*
+      Sort by height:
+      Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!
+
+      Example
+
+      For a = [-1, 150, 190, 170, -1, -1, 160, 180], the output should be
+      sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190].
+
+      pseudo code:
+      find index of all trees and store the value of the index's into an array named 'trees'
+      extract non tree values and put into an array named 'heights'
+      sort the array
+
+      iterate over 'trees' and splice '-1' into the 'heights' array at the appropriate indexes.
+*/
+  </script>
+</body>
+</html>
