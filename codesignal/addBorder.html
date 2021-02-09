@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function addBorder(picture) {
+        const picLength = picture[0].length;
+        const result = picture.map(v => '*' + v + '*');
+        let frame = '';
+        for (let i = 0; i < picLength + 2; i++) {
+          frame += '*'
+        }
+        result.unshift(frame);
+        result.push(frame);
+        return result;
+      }
+
+/*
+iterate over 'picture' and add a '*' to the front and end of each string
+add an array element to the beginning and end of the picture array
+use for loop to add right amount of '*' to the top and bottom frame elements.
+The amount of '*'s should be oneof the string's length + 2.
+
+
+  */
+  </script>
+</body>
+</html>
