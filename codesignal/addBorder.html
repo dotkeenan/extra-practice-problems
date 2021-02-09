@@ -26,6 +26,11 @@ add an array element to the beginning and end of the picture array
 use for loop to add right amount of '*' to the top and bottom frame elements.
 The amount of '*'s should be oneof the string's length + 2.
 
+top solution:
+used repeat() method.
+returns an array and constructs the matrix in the return instead of pushing and unshifting
+spread operator to extract and manipulate the array elements in 'picture'.
+
 function addBorder(picture) {
     var width = picture[0].length + 2;
     return [
