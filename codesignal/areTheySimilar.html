@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function areSimilar(a, b) {
+        const indexes = [];
+        const values = [];
+        let switchCount = 0;
+        const checkEquality = () => {
+          for (let k = 0; k < a.length; k++) {
+            if (a[k] !== b[k]) {
+              switchCount++
+            }
+          }
+        }
+
+        for (let h = 0; h < a.length; h++) {
+          if (!b.includes(a[h])) {
+            return false;
+          }
+        }
+
+        for (let i = 0; i < a.length; i++) {
+          if (a[i] !== b[i]) {
+            indexes.push(i)
+            values.push(a[i])
+          }
+        }
+        for (let j = 0; j < indexes.length; j++) {
+          b.splice(b.indexOf(values[j]), 1)
+          b.splice(indexes[j], 0, values[j])
+          checkEquality();
+        }
+
+        console.log(indexes, values)
+        console.log('switchCount:', switchCount)
+        return switchCount <= 2 ? true : false;
+
+      }
+
+/*
+First attempt above.  Very messy.  Passes 9/10 tests.
+Probably need to implement actual swapping instead of just splicing something out, and splicing something in.
+
+ */
+  </script>
+</body>
+</html>
