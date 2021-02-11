@@ -9,6 +9,31 @@
 <body>
   <script>
     function areSimilar(a, b) {
+        if (a.toString() === b.toString()) {
+          return true;
+        }
+
+        const aVals = [];
+        let bVals = [];
+
+        for (let i = 0; i < a.length; i++) {
+          if (a[i] !== b[i]) {
+            aVals.push(a[i])
+            bVals.push(b[i])
+          }
+        }
+        bVals = bVals.reverse()
+
+        if (aVals.length <= 2 && (aVals.toString() === bVals.toString())) {
+          return true;
+        }
+        return false;
+      }
+
+/*
+First attempt  Very messy.  Passes 9/10 tests.
+Probably need to implement actual swapping instead of just splicing something out, and splicing something in.
+function areSimilar(a, b) {
         const indexes = [];
         const values = [];
         let switchCount = 0;
@@ -43,11 +68,6 @@
         return switchCount <= 2 ? true : false;
 
       }
-
-/*
-First attempt above.  Very messy.  Passes 9/10 tests.
-Probably need to implement actual swapping instead of just splicing something out, and splicing something in.
-
  */
   </script>
 </body>
