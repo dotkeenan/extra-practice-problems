@@ -37,6 +37,10 @@ Reverse bVals (a way to swap.  works because there are only two values in the ar
 If length of either aVals or bVals is > 2, that means it requires more than 1 swap, and fails.
 If by reversing bvals, and if it is equal to avals, then that means they can by similar with 1 swap.
 
+Additional explanation:
+by nature, if a[i] !== b[i], then by nature, atleast 2 digits are out of place.
+So aVals.length should be 2 at most, if the test will pass.
+if the legnth is > 2, that means it would require more than 1 swap and therefore fail.
 */
 
 
