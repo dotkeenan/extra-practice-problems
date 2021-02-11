@@ -24,11 +24,21 @@
         }
         bVals = bVals.reverse()
 
-        if (aVals.length <= 2 && (aVals.toString() === bVals.toString())) {
+        if (aVals.length === 2 && (aVals.toString() === bVals.toString())) {
           return true;
         }
         return false;
       }
+/*
+First have a conditional to check if the arrays are already the same
+create empty arrays to store current iteration values of a and b when they aren't equal.
+Iterate over a/b and push values into their respective empty arrays when a[i] !== b[i]
+Reverse bVals (a way to swap.  works because there are only two values in the array)
+If length of either aVals or bVals is > 2, that means it requires more than 1 swap, and fails.
+If by reversing bvals, and if it is equal to avals, then that means they can by similar with 1 swap.
+
+*/
+
 
 /*
 Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
@@ -89,6 +99,13 @@ function areSimilar(a, b) {
         return switchCount <= 2 ? true : false;
 
       }
+
+Top solution:
+function areSimilar(a, b) {
+    const ad = a.filter((v,i)=>v!=b[i])
+    const bd = b.filter((v,i)=>v!=a[i])
+    return ad.length == 0 || (ad.length == 2 && ad.join('') == bd.reverse().join(''))
+}
  */
   </script>
 </body>
