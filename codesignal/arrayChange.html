@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function arrayChange(inputArray) {
+        let prev = inputArray[0];
+        let count = 0;
+        for (let i = 1; i < inputArray.length; i++) {
+          if (inputArray[i] <= prev) {
+            count += prev - inputArray[i] + 1;
+            prev++
+          } else {
+            prev = inputArray[i]
+          }
+        }
+        return count;
+      }
+
+      /*
+      store the previous element in a variable named prev.
+      initiliaze the variable 'count' with the value of 0;
+      iterate over each element.
+      if the element is less than or equal to prev, find out how many numbers it takes to get it to become 1 more than the previous.
+      add that new number to count, and increment prev.
+      if the element is already higher than it, set that element as the value of prev.
+
+      return count
+      /*
+      You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
+
+      Example
+
+      For inputArray = [1, 1, 1], the output should be
+      arrayChange(inputArray) = 3.
+       */
+  </script>
+</body>
+</html>
