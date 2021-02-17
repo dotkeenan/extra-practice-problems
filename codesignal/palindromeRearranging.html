@@ -45,6 +45,24 @@ For inputString = "aabb", the output should be
 palindromeRearranging(inputString) = true.
 
 We can rearrange "aabb" to make "abba", which is a palindrome.
+
+Top Solution:
+function palindromeRearranging(inputString) {
+    return inputString.split('').sort().join('').replace(/(\w)\1/g,'').length < 2;
+}
+
+Split the string into individual letters, sort them by alphabetical order, join
+them back into a string.
+Use replace() to replace all instances of a match followed by an identical letter, with ''
+      -basicaly it deletes it.
+The regex is the meat of it.
+First is a capture group of: \w matches any letter a-z, A-Z, 0-9, _
+then \1 matches the same text as most recently matched by the first capture group.
+example string: aabddc
+so basically (\w) will match the first 'a' then \1 matches the next 'a'
+it will NOT match b since \1 doesn't find another b.
+It matches 'dd'
+It doesn't match 'c'.
  */
   </script>
 </body>
