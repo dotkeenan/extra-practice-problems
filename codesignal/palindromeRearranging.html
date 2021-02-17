@@ -63,6 +63,17 @@ so basically (\w) will match the first 'a' then \1 matches the next 'a'
 it will NOT match b since \1 doesn't find another b.
 It matches 'dd'
 It doesn't match 'c'.
+
+The theory behind it, is the same as my solution:
+There can only be one odd numbered amount of characters.
+This accomplishes it in a bit of a different way.  Since it sorts the array, he/she
+basically pairs up the repeating characters and then deletes them from the string
+by using replace(pair, '').  So even if there are 3 b's, it will delete 2 of the b's
+and all that will be left is a single b in the entire string.  So at the end, it
+checks if the length of the string is less than 2, becaus there should only be
+a single letter left, if it can be a palindrome.  If there were 2 odd numbered
+unique character amounts, the length of the string would be 2 or more, and fail.
+
  */
   </script>
 </body>
