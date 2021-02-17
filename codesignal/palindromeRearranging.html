@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function palindromeRearranging(inputString) {
+        const letters = [];
+        let oddArrAmt = 0;
+        inputString.split('').forEach(v => (!letters.includes(v) && letters.push(v)))
+        letters.forEach(v => inputString.split('').filter(val => val === v).length % 2 === 1 && oddArrAmt++)
+        if (letters.length === 1) {
+          return true;
+        } else if (oddArrAmt <= 1) {
+          return true;
+        } else return false;
+      }
+/*
+explanation of my code:
+my logic behind it was finding out the constraints of what a palindrome can be composed of
+i found that to be a palindrome there could only be one letter group that has an odd amount of characters.
+(like if there are 3 b's, there can be no other letter with an odd amount of appearances.)
+
+1.  I created a 'letters' to house a list of all the unique letters that appear in the string
+2.  Create 'counter' to count how many times there was a letter that had an odd amt of appearances.
+3.  Used forEach() in order to iterate over inputString and create the list of unique characters that would appear in 'letters'
+4.  Used forEach() to iterate over the unique letters.
+  -Then used filter() and .length to find how many times each letter appears in inputString.
+  -I use modulous on the returned length to check if the letter has an odd amount of appearances.
+      -Used logical AND operator to increment oddArrAmt if the length was odd.
+5.  Created conditional for if there is only 1 letter in inputString, just return true;
+      -Conditional returns true if oddArrAmt is <= to 1 since thats the constrain a palindrome has
+      -Else returned false.
+
+
+Given a string, find out if its characters can be rearranged to form a palindrome.
+
+Example
+
+For inputString = "aabb", the output should be
+palindromeRearranging(inputString) = true.
+
+We can rearrange "aabb" to make "abba", which is a palindrome.
+ */
+  </script>
+</body>
+</html>
