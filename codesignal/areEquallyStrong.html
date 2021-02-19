@@ -32,6 +32,15 @@ areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
 For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9, the output should be
 areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false.
 
+top solution:
+seems like the most logical solution
+since both of 'your' arms must equal both of 'friends' arms (the comparison in arms can be either left or right arm),
+just add both of 'your' arms and compare them to the sum of 'friends' arms.
+also check that one of 'your' arms matches atleast one of 'friends' arms.
+
+function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
+    return yourLeft+yourRight === friendsLeft+friendsRight && (yourLeft === friendsLeft || yourLeft === friendsRight);
+}
 
  */
   </script>
