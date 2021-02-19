@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
+        const yours = [yourLeft, yourRight].sort((a, b) => b - a)
+        const friends = [friendsLeft, friendsRight].sort((a, b) => b - a)
+        return yours[0] === friends[0] && yours[1] === friends[1]
+
+        // solution for when there are unknown amount of array elements (obviously in this case there'll be 2)
+        // return yours.every((e,i) => e === friends[i])
+      }
+/*
+Call two arms equally strong if the heaviest weights they each are able to lift are equal.
+
+Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.
+
+Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
+
+Example
+
+For yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10, the output should be
+areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
+For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10, the output should be
+areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
+For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9, the output should be
+areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false.
+
+
+ */
+  </script>
+</body>
+</html>
