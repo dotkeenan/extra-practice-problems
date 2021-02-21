@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // disgusting brute force approach
+    function isIPv4Address(inputString) {
+        const ipNums = inputString.split('.').filter(v => v).map(x => Number(x))
+        if (inputString.replace(/[^.]/g, '').length !== 3) { return false }
+        if (ipNums.join('') !== inputString.split('.').join('')) {
+          return false
+        }
+        return ipNums.every(v => v < 256) && ipNums.length === 4
+      }
+  </script>
+</body>
+</html>
