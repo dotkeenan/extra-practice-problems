@@ -41,9 +41,17 @@ There is no first number.
 
 
 top solution:
+Top solution is basically a slimmed down version of mine.  So I guess i'm not that far off.
+return true IF:
+-the length of 'r' (aka s.split('.')) is 4.
+-every element in 'r' does NOT equal '' empty string
+-every element in 'r' is a number (isNaN attempts to type coerce first.
+Thats why it works even tho it is running isNaN() on a string)
+-each number is between the accepted range of 0 - 255.
+
 function isIPv4Address(s) {
   var  r=s.split(".")
-  return r.length===4&&r.every(x=>x!=""&&!isNaN(x)&&x>=0&&x<256)
+  return r.length === 4 && r.every(x => x != "" && !isNaN(x) && x >= 0 && x < 256)
 }
 */
   </script>
