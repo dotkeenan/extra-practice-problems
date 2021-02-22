@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // first attempt.  only passes 1/6
+    function avoidObstacles(inputArray) {
+        const free = [];
+        let largestGap = 0;
+        const sortedArr = inputArray.sort((a, b) => a - b)
+        for (let i = 0; i <= sortedArr[sortedArr.length - 1] + 1; i++) {
+          if (!sortedArr.includes(i)) {
+            free.push(i)
+          }
+        }
+        console.log(free)
+        for (let i = 1; i < free.length; i++) {
+          let currentGap = Math.abs(free[i] - free[i - 1])
+          if (currentGap > largestGap) {
+            largestGap = currentGap
+          }
+        }
+        return largestGap;
+      }
+
+  </script>
+</body>
+</html>
