@@ -8,25 +8,27 @@
 </head>
 <body>
   <script>
-    // first attempt.  only passes 1/6
     function avoidObstacles(inputArray) {
-        const free = [];
-        let largestGap = 0;
-        const sortedArr = inputArray.sort((a, b) => a - b)
-        for (let i = 0; i <= sortedArr[sortedArr.length - 1] + 1; i++) {
-          if (!sortedArr.includes(i)) {
-            free.push(i)
+        const sortedInput = inputArray.sort((a, b) => a - b);
+        const lastVal = sortedInput[sortedInput.length - 1]
+        for (var i = 1; i <= lastVal + 1; i++) {
+          if (sortedInput.every(v => v % i != 0)) {
+            return i
           }
         }
-        console.log(free)
-        for (let i = 1; i < free.length; i++) {
-          let currentGap = Math.abs(free[i] - free[i - 1])
-          if (currentGap > largestGap) {
-            largestGap = currentGap
-          }
-        }
-        return largestGap;
       }
+/*
+You are given an array of integers representing coordinates of obstacles situated on a straight line.
+
+Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.
+
+Find the minimal length of the jump enough to avoid all the obstacles.
+
+Example
+
+For inputArray = [5, 3, 6, 7, 9], the output should be
+avoidObstacles(inputArray) = 4.
+*/
 
   </script>
 </body>
