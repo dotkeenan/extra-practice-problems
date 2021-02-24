@@ -4,3 +4,6 @@ function changeEnough(change, amountDue) {
 }
 
 module.exports = changeEnough;
+
+// console command to test code.
+// npm test -- convenienceStore.test.js

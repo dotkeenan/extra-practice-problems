@@ -1,4 +1,3 @@
-// const { TestScheduler } = require('jest');
 const changeEnough = require('./convenienceStore.js');
 
 describe('changeEnough', () => {
