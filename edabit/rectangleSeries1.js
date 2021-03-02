@@ -6,10 +6,9 @@ class Rectangle {
     this.height = height;
   }
   toString() {
-    return [`x=${this.x}, y=${this.y}, width=${this.width}, height=${this.height}`]
+    return `[x=${this.x}, y=${this.y}, width=${this.width}, height=${this.height}]`
   }
 }
-console.log('hello', Rectangle.x)
 module.exports = Rectangle;
 
 /*
