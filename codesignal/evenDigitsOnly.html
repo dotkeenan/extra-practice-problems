@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function evenDigitsOnly(n) {
+        return n.toString().split('').every(x => x % 2 === 0 ? true : false)
+      }
+/*
+Check if all digits of the given integer are even.
+
+Example
+
+For n = 248622, the output should be
+evenDigitsOnly(n) = true;
+For n = 642386, the output should be
+evenDigitsOnly(n) = false.
+
+top solution:
+n+'' is a way to convert the number to a string datatype.
+uses string method match() and regex to match any of 1,3,5,7,9.
+match() without any regex flags, it returns an array with a bunch of info, like exec()
+If it doesn't match anything, it returns null (falsey value).
+with the bang operator, if it finds a match (truthy) that means there is an odd integer,
+and we should return 'false'.
+If there's no match, it returns null (but we want to return true, so bang operator is needed)
+
+function evenDigitsOnly(n) {
+return !(n+'').match(/[13579]/)
+}
+*/
+  </script>
+</body>
+</html>
