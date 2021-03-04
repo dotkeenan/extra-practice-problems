@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function arrayReplace(inputArray, elemToReplace, substitutionElem) {
+        return inputArray.map(x => x === elemToReplace ? substitutionElem : x)
+      }
+/*
+Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
+
+Example
+
+For inputArray = [1, 2, 1], elemToReplace = 1, and substitutionElem = 3, the output should be
+arrayReplace(inputArray, elemToReplace, substitutionElem) = [3, 2, 3].
+
+**pseudocode
+iterate over inputArray
+if current iteration === elemToReplace, replace it with substitutionElem
+
+option 1: make an empty array and conditionally push inputArray values into it, and substituting when necessary.
+option 2: map() over the inputArray and replace where necessary.
+
+
+**Top solution:
+same as mine
+  */
+  </script>
+</body>
+</html>
