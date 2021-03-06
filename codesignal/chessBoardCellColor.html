@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function chessBoardCellColor(cell1, cell2) {
+        const oddCol = ['A', 'C', 'E', 'G']
+        const evenCol = ['B', 'D', 'F', 'H']
+
+        const cellChecker = (cell) => {
+          if (oddCol.includes(cell[0]) && cell[1] % 2 === 1) {
+            return 'dark'
+          }
+          if (evenCol.includes(cell[0]) && cell[1] % 2 === 0) {
+            return 'dark'
+          } else {
+            return 'light'
+          }
+        }
+        return cellChecker(cell1) === cellChecker(cell2)
+      }
+/*
+Given two cells on the standard chess board, determine whether they have the same color or not.
+
+Example
+
+For cell1 = "A1" and cell2 = "C3", the output should be
+chessBoardCellColor(cell1, cell2) = true.
+
+For cell1 = "A1" and cell2 = "H3", the output should be
+chessBoardCellColor(cell1, cell2) = false.
+*/
+
+      /*
+      cell is dark if:
+      column is odd and row is odd. (a1, a3, c1, c3 etc)
+      column is even and row is even. (b2, b4, d2, d4 etc)
+
+      make storage for odd column letters a,c,e,g named oddCol
+      make storage for even column letters b,d,f,h named evenCol
+
+      make a helper function that checks if a  cell is light or dark:
+      conditionals to test if the letter is included in oddCol or evenCol and
+      if the numbered row is odd or even, using modulous.
+
+      return 'dark' if both cell and row are odd, or if both cell and row are even.
+      else return 'light'
+
+      return an expression that checks for strict equality between the return values of the
+       helper function on cell1 and cell2
+       */
+
+  </script>
+</body>
+</html>
