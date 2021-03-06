@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function alphabeticShift(inputString) {
+        const alphaArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        return inputString.split('').map((char, i) => char = alphaArr[((alphaArr.indexOf(char) + 1) % alphaArr.length)]).join('')
+      }
+/* pseudocode
+      create an array filled with the alphabet called alphaArr
+      iterate over inputString and use string.prototype.replace() with value and index parameters
+      find the indexOf the current interation within alphaArr.
+      replace the current iteration with alphaArr.indexOf(i + 1)
+      issue when there is a Z since index of z + 1 would be undefined.
+      Use modulous of iteration + 1 with array.length to make it 'wrap' back around to beginning of array.
+*/
+
+/*
+Given a string, your task is to replace each of its characters by the
+next one in the English alphabet; i.e. replace a with b, replace b with c,
+etc (z would be replaced by a).
+
+Example
+
+For inputString = "crazy", the output should be alphabeticShift(inputString) = "dsbaz".
+ */
+
+
+  </script>
+</body>
+</html>
