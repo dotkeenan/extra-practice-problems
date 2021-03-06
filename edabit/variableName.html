@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // gross brute force method
+    function variableName(name) {
+        const symbols = /[-!$%^&*()+|~=`{}\[\]:";'<>?,.\/]/gm;
+        if (name[0].match(/\d/gm) || name[0].match(symbols)) {
+          return false
+        }
+        if (name.match(/\s/gm) || name.match(symbols)) {
+          return false
+        }
+        return true
+      }
+/*
+Correct variable names consist only of English letters, digits and underscores and they can't start with a digit.
+
+Check if the given string is a correct variable name.
+
+Example
+
+For name = "var_1__Int", the output should be
+variableName(name) = true;
+For name = "qq-q", the output should be
+variableName(name) = false;
+For name = "2w2", the output should be
+variableName(name) = false.
+
+
+top solution:
+uses test() to check if 'name' starts with a lowercase character or '_'
+and matches the rest of the string if it contains a-zA-Z0-9_
+if a character is present that doesn't get matched, test() will throw 'false'
+otherwise 'true'
+
+function variableName(name) {
+  return /^[a-z_]\w*$/i.test(name)
+}
+
+*/
+  </script>
+</body>
+</html>
