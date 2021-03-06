@@ -56,7 +56,8 @@ chessBoardCellColor(cell1, cell2) = false.
        */
 /**
  * top solution:
- *
+ * what the hell is Buffer(s)[0]
+ * This is weird
 //Get the color (0=black, 1=white) for a given cell
 var color = s => (Buffer(s)[0] - s[1])%2
 
@@ -64,6 +65,12 @@ var chessBoardCellColor = (a,b) => color(a) == color(b)
 
 *other top solution:
 this makes more since to me
+creates an object that holds the columns and their numerical value.
+creates two variables to hold the sum of the letter columns value,
+and the cell's number.
+
+returns the result of the strict comparison between total1 % 2 and total2 % 2
+Basically it checks if both cells are even.
 
 function chessBoardCellColor(cell1, cell2) {
     let board = {
