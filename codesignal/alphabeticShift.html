@@ -39,9 +39,12 @@ z + 1 will just become 'a'.  indexOf(a) will find the first 'a' and stop there (
 Uses replace() and regex of ./g to match 'any character except linebreak'
 (I feel it should just be a-z and not 'any character')
 It replaces 'any character' with the result of an arrow function:
-the 'x' (not sure where 'x' gets its value) index of c,  + 1.
+the 'x' index (of 'c'),  + 1.
 -in my solution, x would be 'char', and 'char' is the current iteration of the
 map() method that I used.
+-From the replace() documentation, the 2nd argument (replacement) can be a function
+that has a lot of built in arguments.  One of which is the matched substring (from the first argument)
+
 
  function alphabeticShift(s) {
   var c="abcdefghijklmnopqrstuvwxyza"
