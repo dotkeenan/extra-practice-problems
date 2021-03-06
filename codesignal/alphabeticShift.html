@@ -31,7 +31,23 @@ Example
 For inputString = "crazy", the output should be alphabeticShift(inputString) = "dsbaz".
  */
 
+ /*
+ top solution
+Uses just a regular string for the alphabet since strings are iterable.
+-Smart caveat, just adds an 'a' after 'z' for the case when 'z' shows up, since
+z + 1 will just become 'a'.  indexOf(a) will find the first 'a' and stop there (never finds 2nd 'a' after 'z')
+Uses replace() and regex of ./g to match 'any character except linebreak'
+(I feel it should just be a-z and not 'any character')
+It replaces 'any character' with the result of an arrow function:
+the 'x' (not sure where 'x' gets its value) index of c,  + 1.
+-in my solution, x would be 'char', and 'char' is the current iteration of the
+map() method that I used.
 
+ function alphabeticShift(s) {
+  var c="abcdefghijklmnopqrstuvwxyza"
+  return s.replace(/./g,x=>c[c.indexOf(x)+1])
+}
+  */
   </script>
 </body>
 </html>
