@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function circleOfNumbers(n, firstNumber) {
+        let x = 0;
+        const arr = [];
+        while (x < n) {
+          arr.push(x)
+          x++;
+        }
+        return arr[(firstNumber + n / 2) % n]
+      }
+/*
+Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that 0 and n - 1 are neighboring, too).
+
+Given n and firstNumber, find the number which is written in the radially opposite position to firstNumber.
+
+Example
+
+For n = 10 and firstNumber = 2, the output should be
+circleOfNumbers(n, firstNumber) = 7.
+example pic: https://codesignal.s3.amazonaws.com/tasks/circleOfNumbers/img/example.png?_tm=1582003395936
+basically looks like a clock that starts at 0 and ends at 'n'
+*/
+
+/*
+
+*/
+  </script>
+</body>
+</html>
