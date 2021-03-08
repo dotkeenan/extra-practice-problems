@@ -32,8 +32,14 @@ basically looks like a clock that starts at 0 and ends at 'n'
 
 /*
 my own one-liner:
+// I realize that making an array is totally unnecessary
 return [...Array(n).keys()][(firstNumber + n/2) % n]
 
+top solution:
+same as my one-liner, minus the need for making an array.
+function circleOfNumbers(n, firstNumber) {
+  return (n/2+firstNumber)%n
+}
 */
   </script>
 </body>
