@@ -34,7 +34,23 @@ Thus, it will take 3 years for your balance to pass the threshold, so the answer
         return year;
       }
 /*
+top solution:
+I dont fully understand this solution.
+Math.log() functions as ln(x) in mathematics.
+The way that this solution uses it, is like finding the base log
+when given two numbers (x and y).
+Similar to a the example pattern on MDN, it seems to try and find x^z, where
+z === the exponent needed to turn x into 'y'.
+so if x = 5, and y = 625, z = 4, because 5 * 5 * 5 * 5 = 625.
+Im hazy on the (t/d) and (r/100 + 1) portions of this.
+**the natural log of x is the power that is needed to raise 'e' to = x.
+***If you need a logarithm to other bases, use Math.log(x) / Math.log(otherBase)
+So in the solution below, it seems like what's happening is using the base of
+(r/100+1).
 
+function depositProfit(d, r, t) {
+    return Math.ceil(Math.log(t/d)/Math.log(r/100+1));
+}
 */
   </script>
 </body>
