@@ -64,6 +64,26 @@ value as 0.
 and use that as the index of 'a'.  (this works due to what i said above about
 the two arrays being parallel)
 */
+
+/*
+top solution:
+No clue how or why this works...
+all it does is take the length of the argument array, divide it in 2, round up,
+and minus 1 from it.
+The reason for the -1 thing is due to indexing offset. for an array with an even
+amt of elements, it would be offset.  Aka, if a.length === 4,
+then half of that is 2, and a[2] is actually the 3rd element of the array.
+The Math.ceil is for odd numbered a.lengths, since 3/2 is 1.5.  So it rounds it up to 2.
+Again, due to indexing it, it needs to be offset by -1.
+
+But even after all of that... I don't see how that finds the value that has the
+smallest sum of distances between each value...  It literally is just a way to find
+the median of the array elements.
+
+function absoluteValuesSumMinimization(A) {
+    return A[Math.ceil(A.length/2)-1];
+}
+*/
   </script>
 </body>
 </html>
