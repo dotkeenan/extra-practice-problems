@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    Given an array of equal-length strings, you'd like to know if it's possible
+    to rearrange the order of the elements in such a way that each consecutive
+    pair of strings differ by exactly one character. Return true if it's
+    possible, and false if not.
+
+Note: You're only rearranging the order of the strings, not the order of the
+letters within the strings!
+
+Example
+
+For inputArray = ["aba", "bbb", "bab"], the output should be
+stringsRearrangement(inputArray) = false.
+
+There are 6 possible arrangements for these strings:
+
+["aba", "bbb", "bab"]
+["aba", "bab", "bbb"]
+["bbb", "aba", "bab"]
+["bbb", "bab", "aba"]
+["bab", "bbb", "aba"]
+["bab", "aba", "bbb"]
+None of these satisfy the condition of consecutive strings differing by 1
+character, so the answer is false.
+
+For inputArray = ["ab", "bb", "aa"], the output should be
+stringsRearrangement(inputArray) = true.
+
+It's possible to arrange these strings in a way that each consecutive pair of
+strings differ by 1 character (eg: "aa", "ab", "bb" or "bb", "ab", "aa"),
+so return true.
+    */
+    function stringsRearrangement(inputArray) {
+        // compare the strings in each sequence - O(n) where n is the length of each string
+        function differByOne(str1, str2) {
+          let mismatches = 0;
+
+          for (let i = 0; i < str1.length; i++) {
+            if (str1[i] !== str2[i]) mismatches++;
+          }
+          return mismatches === 1;
+        }
+
+        //generate all permutations - O(n!) where n is length of inputArray
+        function getPermutations(arr) {
+          const fullLength = inputArray.length;
+          let sequence = [];
+          let permutations = [];
+
+          function permute(a) {
+            for (let i = 0; i < a.length; i++) {
+              let str = a[i];
+              sequence.push(str);
+              if (sequence.length === fullLength) {
+                permutations.push([...sequence]);
+              } else {
+                let remaining = [...a.slice(0, i), ...a.slice(i + 1)]
+                permute(remaining);
+              }
+              sequence.pop();
+            }
+          }
+          permute(arr);
+          return permutations;
+        }
+
+        let sequences = getPermutations(inputArray);
+
+        for (let sequence of sequences) {
+          let possible = true;
+
+          for (let i = 1; i < sequence.length; i++) {
+            let thisOne = sequence[i];
+            let previousOne = sequence[i - 1];
+
+            if (!differByOne(thisOne, previousOne)) {
+              possible = false;
+              break;
+            }
+          }
+          if (possible) return true;
+        }
+        return false;
+      }
+/*
+Very confusing.
+*/
+  </script>
+</body>
+</html>
