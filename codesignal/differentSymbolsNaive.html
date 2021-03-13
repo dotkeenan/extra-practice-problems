@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Given a string, find the number of different characters in it.
+
+Example
+
+For s = "cabca", the output should be
+differentSymbolsNaive(s) = 3.
+
+There are 3 different characters a, b and c.
+  */
+    function differentSymbolsNaive(s) {
+        return [...new Set(s)].length
+      }
+// my first attempt before learning about Set()
+// function differentSymbolsNaive(s) {
+//     const res = [];
+//     for (let i = 0; i < s.length; i++) {
+//         if (!res.includes(s[i])) {
+//             res.push(s[i]);
+//         }
+//     }
+//     return res.length
+// }
+  </script>
+</body>
+</html>
