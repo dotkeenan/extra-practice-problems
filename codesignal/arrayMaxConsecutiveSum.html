@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // first attempt
+    function arrayMaxConsecutiveSum(inputArray, k) {
+        let max = -Infinity;
+        let currentSum = 0;
+        for (let i = k - 1; i < inputArray.length; i++) {
+          currentSum = 0;
+          for (let j = 1; j < k; j++) {
+            currentSum += inputArray[i - j];
+          }
+          if (inputArray[i] + currentSum > max) {
+            max = inputArray[i] + currentSum;
+          }
+        }
+        return max;
+      }
+
+      /* pseudo code
+      make storage for the max consecutive sum.
+      make storage for the current iterated consecutive sum.
+      Find a way to make loop dynamically stop based on 'k'
+      meaning, if the array is [1,2,3,4] and k = 3, it should only iterate twice: [1,2,3] and [2,3,4]
+      first loop starts at k-1 and stops at inputArray.length.  if inputArray = [1,2,3,4,5] and k=3,
+      it would start at index position 2 (which is the 3rd element).
+
+      2nd forLoop is to dynamically sum the consecutive elements.
+      Start the loop at 1, because we want to first get inputArray[i-1] and we want that 1 to increment until it reaches k amount.
+      Note we end at j < k because we need to offset the index.
+
+      In the loop I use addition assignment to sum the consecutive elements that are not inputArray[i]
+      Afterwards, lowest will be assigned to the entire sum IF it is larger than lowest (which starts at -Infinity).
+       */
+  </script>
+</body>
+</html>
