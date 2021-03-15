@@ -57,8 +57,24 @@ adding upSpeed hits the height threshhold, but the downSpeed makes it go back be
 */
 
 /* top solution:
+if upSpeed is larger than desiredHeight, return 1.
+If not, take the result of desiredHeight - upSpeed, and divide that by
+the result of upSpeed - downSpeed.  Math.ceil() the result of that division
+and add 1.
+
+Walkthrough of test 1:
+(910 - 100) / (100 - 10) + 1 = 10
+Math.ceil(10) = 10.
+
+
 function growingPlant(upSpeed, downSpeed, desiredHeight) {
     return upSpeed > desiredHeight ? 1 : Math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed)) + 1;
+}
+
+Other top solution that doesn't use + 1
+function growingPlant(upSpeed, downSpeed, desiredHeight) {
+    if(upSpeed>=desiredHeight)return 1;
+    return Math.ceil((desiredHeight-downSpeed)/(upSpeed-downSpeed));
 }
 */
   </script>
