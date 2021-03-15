@@ -55,6 +55,12 @@ Make a loop to continually add upspeed and subtract downspeed from the height va
 caveat: there needs to be a conditional between adding the upSpeed and subtracting the downSpeed for cases in which
 adding upSpeed hits the height threshhold, but the downSpeed makes it go back below the threshhold.
 */
+
+/* top solution:
+function growingPlant(upSpeed, downSpeed, desiredHeight) {
+    return upSpeed > desiredHeight ? 1 : Math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed)) + 1;
+}
+*/
   </script>
 </body>
 </html>
