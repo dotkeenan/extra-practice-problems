@@ -46,7 +46,18 @@ Turn the result back into a string, and assign this value to 'value'
 increment 'count'
 
 return count
-  */
+*/
+/*
+top js solution (only 3 votes) basically same as mine
+He/she mutates n instead of assigning n to a variable.
+
+function digitDegree(n) {
+    c = 0
+    while (n.toString().length>1) {
+        n = n.toString().split("").reduce((x,y)=>Number(x)+Number(y))
+        c++}
+    return c}
+*/
   </script>
 </body>
 </html>
