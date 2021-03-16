@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Let's define digit degree of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.
+
+Given an integer, find its digit degree.
+
+Example
+
+For n = 5, the output should be
+digitDegree(n) = 0;
+For n = 100, the output should be
+digitDegree(n) = 1.
+1 + 0 + 0 = 1.
+For n = 91, the output should be
+digitDegree(n) = 2.
+9 + 1 = 10 -> 1 + 0 = 1.
+*/
+    function digitDegree(n) {
+        let count = 0;
+        let value = n.toString();
+        while (value.length > 1) {
+          value = [...value.toString()].reduce((a, b) => Number(a) + Number(b)).toString();
+          count++;
+        }
+        return count;
+      }
+/* Pseudocode
+Create a storage to count the number of times it takes to reach a 1 digit number, named 'count'
+Create a storage for the current value of 'n' after summing its digits, named 'value'.
+    Assign n.toString() as its starting value.
+
+Create a loop that continues to run as long as value.length > 1.
+within the loop:
+turn the number into a string, and split it up by single digits.
+assign 'value' to: the sum of all of array elements together but also convert them to number during the process.
+Turn the result back into a string, and assign this value to 'value'
+increment 'count'
+
+return count
+  */
+  </script>
+</body>
+</html>
