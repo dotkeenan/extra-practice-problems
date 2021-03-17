@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* https://leetcode.com/problems/shuffle-string/
+Given a string s and an integer array indices of the same length.
+
+The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.
+
+Return the shuffled string.
+diagram: https://assets.leetcode.com/uploads/2020/07/09/q1.jpg
+*/
+  var restoreString = function (s, indices) {
+    const res = [];
+    indices.forEach((x, i) => {
+      res[x] = s[i];
+    })
+    return res.join('')
+  };
+  </script>
+</body>
+</html>
