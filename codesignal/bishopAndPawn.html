@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /*
+  Given the positions of a white bishop and a black pawn on the standard chess board, determine whether the bishop can capture the pawn in one move.
+
+The bishop has no restrictions in distance for each move, but is limited to diagonal movement. Check out the example below to see how it can move:
+https://codesignal.s3.amazonaws.com/tasks/bishopAndPawn/img/bishop.jpg?_tm=1581997207350
+
+
+Example
+https://codesignal.s3.amazonaws.com/tasks/bishopAndPawn/img/ex1.jpg?_tm=1581997207686For bishop = "a1" and pawn = "c3", the output should be
+bishopAndPawn(bishop, pawn) = true.
+
+
+https://codesignal.s3.amazonaws.com/tasks/bishopAndPawn/img/ex2.jpg?_tm=1581997207976For bishop = "h1" and pawn = "h3", the output should be
+bishopAndPawn(bishop, pawn) = false.
+
+
+  */
+
+    function bishopAndPawn(bishop, pawn) {
+        const cols = {
+          'a': 1,
+          'b': 2,
+          'c': 3,
+          'd': 4,
+          'e': 5,
+          'f': 6,
+          'g': 7,
+          'h': 8
+        }
+        // find distance between bishop and pawn columns
+        const colDis = Math.abs(cols[bishop[0]] - cols[pawn[0]])
+        const rowDis = Math.abs(Number(bishop[1] - pawn[1]))
+        return colDis === rowDis;
+      }
+      // Other solution that just uses indexes of an array of letters to find
+      // distance between two letter columns.  Less verbose but a little more
+      // confusing with cols.indexOf()
+      function bishopAndPawn(bishop, pawn) {
+        const cols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+        // find distance between bishop and pawn columns
+        const colDis = Math.abs(cols.indexOf(bishop[0]) - cols.indexOf(pawn[0]))
+        const rowDis = Math.abs(Number(bishop[1] - pawn[1]))
+        return colDis === rowDis;
+      }
+/* pseudo code and brainstorm
+a bishop can attack a pawn if:
+the pawn is not on the same letter column or number row, as bishop
+
+the spaces a bishop can attack a pawn, progresses/regresses linearly
+if a pawn is 2 letter columns away, it must be 2 number rows higher or lower than it.
+
+find distance between letters (i.e. c is 2 away from a) (absolute value)
+find distance between row numbers (absolute value)
+if the degree of separation in pawn and bishops letters matches the degree of separation in number row, then it is true.
+aka, if bishop is on d4 and pawn is a, distance between a and d = 3.
+pawn MUST be either 4+3 or 4-3, aka a7 or a1.
+
+make an object with letter to number associations??
+make an array filled with letters?
+
+{a:1, b:2 ... h:8}
+*/
+
+  </script>
+</body>
+</html>
