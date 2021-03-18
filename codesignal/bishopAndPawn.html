@@ -71,6 +71,13 @@ make an array filled with letters?
 {a:1, b:2 ... h:8}
 */
 
+/* top solution:
+Similar to mine.  Just uses charCodeAt() to get value of a letter.
+
+function bishopAndPawn(bishop, pawn) {
+  return Math.abs(bishop[0].charCodeAt()-pawn[0].charCodeAt())===Math.abs(bishop[1]-pawn[1])
+}
+*/
   </script>
 </body>
 </html>
