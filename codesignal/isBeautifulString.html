@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // super disgusting semi brute-force method.
+    function isBeautifulString(inputString) {
+        const sortedStr = inputString.split('').sort();
+        let count = 1;
+        const amts = [];
+
+        const set = new Set(sortedStr);
+
+        // if (!set.has('a')) {return false};
+
+        for (let i = 0; i < Array.from(set).length; i++) {
+          let currChar = Array.from(set)[i].charCodeAt();
+          let prevChar = currChar - 1;
+          console.log(prevChar)
+          console.log(String.fromCharCode(prevChar))
+          if (Array.from(set)[i] !== 'a' && !set.has(String.fromCharCode(prevChar))) {
+            console.log('hi', !set.has(String.fromCharCode(prevChar)))
+            return false;
+          }
+        }
+
+        for (let i = 1; i < sortedStr.length; i++) {
+          if (sortedStr[i] === sortedStr[i - 1]) {
+            count++;
+          } else {
+            amts.push(count);
+            count = 1;
+          }
+        }
+        amts.push(count);
+        const test1 = amts.join('');
+        const test2 = [...amts].sort((a, b) => b - a).join('');
+        return amts.join('') === [...amts].sort((a, b) => b - a).join('');
+      }
+/*
+brainstorm:
+split the string and sort it.
+make a storage named prev to store the amt of times a letter appears.
+make a storage named curr to store the amt of times the current iterated letter has appeared.
+(or potentially just check if array[i] === array[i-1] in the loop)
+
+loop over the array
+make a condition, if array[i] === array[i-1], then increment curr by 1.\
+
+if not, assign curr to prev.
+check if curr > prev, if it is, return false.
+assign 1 to curr.
+
+other way:
+make a counter variable, initialized as 0;
+make an array to store numbers representing the amt of times a character appears.
+iterate over array, start at index 1
+if current iteration is equal to previous iteration, increment a counter.
+if not, push counter into array and reset counter to 1.
+
+
+ISSUE: The previous letters must ALL EXIST IN THE STRING.  So dumb.
+example: bbc is false because there are zero a's and two b's, and the previous
+letter in the alphabet must have more appearances
+*/
+  </script>
+</body>
+</html>
