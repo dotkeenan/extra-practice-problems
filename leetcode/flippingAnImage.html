@@ -72,6 +72,22 @@ Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
       map() to change each sub-array item.
       If it's a 1, make it a 0, and vice versa.
       */
+
+/* top solution:
+maps over the matrix
+modifies each subarray (row) by mapping over the contents of each
+subarray and flips the value of the current subarray iteration.
+Then it reverses the order of the row.
+
+One thing that I don't understand is when porttion => !portion
+portion is either going to be 1 or 0.  !0 === true and !1 === false.
+The code passes, but I don't see how !0 supposedly converts to 1.
+
+var flipAndInvertImage = function(image) {
+    return image.map(row => row.map(portion => !portion).reverse());
+};
+
+*/
   </script>
 </body>
 </html>
