@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
+
+To flip an image horizontally means that each row of the image is reversed.
+
+For example, flipping [1,1,0] horizontally results in [0,1,1].
+To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
+
+For example, inverting [0,1,1] results in [1,0,0].
+
+
+Example 1:
+
+Input: image = [[1,1,0],[1,0,1],[0,0,0]]
+Output: [[1,0,0],[0,1,0],[1,1,1]]
+Explanation: First reverse each row: [[0,1,1],[1,0,1],[0,0,0]].
+Then, invert the image: [[1,0,0],[0,1,0],[1,1,1]]
+Example 2:
+
+Input: image = [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
+Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].
+Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+*/
+
+
+    // my shortened code.  Not sure of the big O notation.
+    var flipAndInvertImage = function (image) {
+        const res = [];
+        image.map(x => x.reverse())
+        image.forEach(y => res.push(y.map(z => z === 1 ? 0 : 1)))
+        return res;
+      };
+// first attempt.  Basically same thing, but written out.
+// var flipAndInvertImage = function(image) {
+//     const res = [];
+//     const answer = [];
+//     for (let j = 0; j < image.length; j++) {
+//         res.push(image[j].reverse())
+//     }
+
+//     for (let i = 0; i < res.length; i++){
+//         answer.push(res[i].map(v => v === 1 ? 0 : 1))
+//     }
+//     return answer;
+// };
+
+
+      /*
+      create a storage named 'res' to store the flipped image
+      iterate over the matrix
+
+      // flip horizontally
+      reverse() each item.
+      //other way:
+      iterate over each item in the matrix in reverse,
+      push them to a temporary array named 'horFlip'
+
+      //invert
+      iterate over matrix
+      iterate over each individual item in matrix
+      map() to change each sub-array item.
+      If it's a 1, make it a 0, and vice versa.
+      */
+  </script>
+</body>
+</html>
