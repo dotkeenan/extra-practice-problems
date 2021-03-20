@@ -82,9 +82,23 @@ Then it reverses the order of the row.
 One thing that I don't understand is when porttion => !portion
 portion is either going to be 1 or 0.  !0 === true and !1 === false.
 The code passes, but I don't see how !0 supposedly converts to 1.
+It makes absolutely zero sense to me.
 
 var flipAndInvertImage = function(image) {
     return image.map(row => row.map(portion => !portion).reverse());
+};
+
+
+A different solution replaced !portion with portion^1
+Bitwise XOR.
+Basically constructs a bitwise result from portion and 1.
+If either (but not both) are 1, then it returns 1.
+If both are 1, then it returns 0.
+Basically it achieves the same thing as portion === 1 ? 0 : 1;
+
+// more understandable version with bitwise XOR
+var flipAndInvertImage = function(image) {
+    return image.map(row => row.map(portion => portion^1).reverse());
 };
 
 */
