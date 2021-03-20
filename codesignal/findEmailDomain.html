@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+An email address such as "John.Smith@example.com" is made up of a local part ("John.Smith"), an "@" symbol, then a domain part ("example.com").
+
+The domain name part of an email address may only consist of letters, digits, hyphens and dots. The local part, however, also allows a lot of different special characters. Here you can look at several examples of correct and incorrect email addresses.
+
+Given a valid email address, find its domain part.
+
+Example
+
+For address = "prettyandsimple@example.com", the output should be
+findEmailDomain(address) = "example.com";
+For address = "fully-qualified-domain@codesignal.com", the output should be
+findEmailDomain(address) = "codesignal.com".
+ */
+    function findEmailDomain(address) {
+        const splitRegex = address.split(/\@/g)
+        const domain = splitRegex[splitRegex.length - 1];
+        const regex = /[\da-zA-Z\-\.]*\.?[com|ru|net|edu|org]/g
+        const res = domain.match(regex)
+        return res[0]
+      }
+/* pseudo code
+      split the string at the LAST occurring '@'
+      Will return an array with two elements, the local part, and the domain part.
+      store array[array.length - 1]
+
+      use regex to capture the _________.com/ru/org/edu part.
+      match() returns an array, so return array[0]
+       */
+  </script>
+</body>
+</html>
