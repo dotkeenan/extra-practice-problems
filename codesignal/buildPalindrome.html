@@ -46,7 +46,48 @@ buildPalindrome(st) = "abcdcba".
       return res
 */
 
+/*  top solution:
+has a helper function to verify if the result is a palindrome or not.
+iterates over length of st
 
+keeps slicing from the beginning of st, til the end.  Verifies if it is
+a palindrome.
+
+if it is, then returns:
+st + st sliced from 0 to 'i', then reverses it, and joins it.
+walkthrough:
+
+we'll start on i = 0 since the first iteration does absolutely nothing
+st = 'abcdc'
+isPalindrome(st) // does nothing since 'abcdc' !== 'cdcba'
+i = 1
+isPalindrome(1, 5) is false // 'bcdc'
+      'bcdc' !== 'cdcb'
+so i = 2
+isPalindrome(2,5) is true // 'cdc'
+so now, return:
+'abcdc' + (['a','b'].reverse().join('')) // 'abcdcba'
+
+This way of logic finds the point in which the values begin to repeat itself
+I'm not 100% sure how it works when there are multiple possible areas of repetition
+like 'abbbaabb' ? this is rambling that might not make sense. look back at it.
+
+
+
+
+function buildPalindrome(st) {
+    if (isPalindrome(st))  return st;
+    for (var i = 0; i < st.length; i++) {
+        if (isPalindrome(st.slice(i, st.length))) {
+            return st + Array.from(st.slice(0, i)).reverse().join('');
+        }
+    }
+}
+
+function isPalindrome(string) {
+    return string == Array.from(string).reverse().join('')
+}
+*/
   </script>
 </body>
 </html>
