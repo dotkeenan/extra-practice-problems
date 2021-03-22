@@ -24,11 +24,19 @@ findEmailDomain(address) = "codesignal.com".
  */
     function findEmailDomain(address) {
         const splitRegex = address.split(/\@/g)
+        return splitRegex[splitRegex.length - 1]
+      }
+
+    /* old solution that doesn't pass 2 tests.  This exercise was messed up
+    and my super simple solution I originally came up with didn't work, but
+    suddenly now it works...
+        function findEmailDomain(address) {
+        const splitRegex = address.split(/\@/g)
         const domain = splitRegex[splitRegex.length - 1];
         const regex = /[\da-zA-Z\-\.]*\.?[com|ru|net|edu|org]/g
         const res = domain.match(regex)
         return res[0]
-      }
+      } */
 /* pseudo code
       split the string at the LAST occurring '@'
       Will return an array with two elements, the local part, and the domain part.
