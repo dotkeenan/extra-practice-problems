@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+
+Example
+
+For st = "abcdc", the output should be
+buildPalindrome(st) = "abcdcba".
+*/
+    function buildPalindrome(st) {
+        let res;
+        let revSt = st.split('').reverse().join('')
+        if (st === revSt) return st;
+
+        for (let i = 0; i < st.length; i++) {
+          revSt = revSt.slice(1)
+          let pal = st + revSt;
+          if (pal === pal.split('').reverse().join('')) {
+            res = pal;
+          }
+        }
+        return res;
+      }
+/* pseudo code
+      create a storage named 'res' initialized as an empty string.
+
+      reverse st and store it in variable named 'revSt'
+
+      create a loop that runs as many times as the length of st
+      in the loop:
+      slice revStr to remove the first letter
+
+      make a storage for the sum of st + revSt, named pal (for palindrome)
+
+      make a conditional, if pal equals the same as reversing pal, then assign 'pal' to 'res'
+
+      return res
+*/
+
+
+  </script>
+</body>
+</html>
