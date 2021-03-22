@@ -26,6 +26,11 @@ findEmailDomain(address) = "codesignal.com".
         const splitRegex = address.split(/\@/g)
         return splitRegex[splitRegex.length - 1]
       }
+
+      // even quicker solution:
+      function findEmailDomain(address) {
+          return address.split('@').pop();
+      }
       // the return is to get the portion after '@' since the split
       // returns two elements.  the local part, and then the domain.
 
