@@ -101,6 +101,12 @@ var flipAndInvertImage = function(image) {
     return image.map(row => row.map(portion => portion^1).reverse());
 };
 
+// better solution from whiteboard wizards
+No need to push to an array.  Just reverse it in place
+var flipAndInvertImage = function(image) {
+    return image.map(i => i.map(v =>  v ? 0 : 1).reverse())
+};
+
 */
   </script>
 </body>
