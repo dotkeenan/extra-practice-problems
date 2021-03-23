@@ -84,7 +84,18 @@ Thus, only 2 candidates can win (the second and the third), which is the answer.
 //     return counter;
 // }
     */
+/* top solution:
+//i explained it above in my solutions notes, but the chained ternary
+is something I want to digest. I never use chained ternaries:
+if k is truthy, return r, else return the result of:
+if r === 1, return 1, else return 0.
 
+function electionsWinners(votes, k) {
+    var max=Math.max(...votes)
+    var r=votes.filter(x=>x+k>max||x===max).length
+    // return k?r:r==1?1:0
+}
+*/
 
   </script>
 </body>
