@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+A media access control address (MAC address) is a unique identifier assigned to network interfaces for communications on the physical network segment.
+
+The standard (IEEE 802) format for printing MAC-48 addresses in human-friendly form is six groups of two hexadecimal digits (0 to 9 or A to F), separated by hyphens (e.g. 01-23-45-67-89-AB).
+
+Your task is to check by given string inputString whether it corresponds to MAC-48 address or not.
+
+Example
+
+For inputString = "00-1B-63-84-45-E6", the output should be
+isMAC48Address(inputString) = true;
+For inputString = "Z1-1B-63-84-45-E6", the output should be
+isMAC48Address(inputString) = false;
+For inputString = "not a MAC-48 address", the output should be
+isMAC48Address(inputString) = false.
+*/
+    function isMAC48Address(inputString) {
+        const input = inputString.split('-').join('')
+        const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+        const hyphens = inputString.replace(/[^\-]/g, '').length
+
+        if (input.length !== 12 || hyphens !== 5) return false;
+
+        for (let i = 0; i < input.length; i++) {
+          if (!digits.includes(input[i])) {
+            return false;
+          }
+        }
+        return true;
+      }
+/* pseudo code
+      split the string at '-', store result in variable named input
+      if input's length is not 12, then return false
+      if the amount of hyphens is not 5, return false
+      // can't just straight up do if (inputString.length !== 17) because there might be a test
+      that removes one of the digits, and adds in another hyphen instead.  Need to check amt of hyphens specifically.
+      create storage that holds all possible values: 0-9 and a-f, named digits
+
+      iterate over the string
+      if the current iteration is not included in 'digits', return false.
+      Issue: inputString is a string so in the 'digits' array, turn all numbers into strings.
+
+      return true.
+
+       */
+  </script>
+</body>
+</html>
