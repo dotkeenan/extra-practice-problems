@@ -52,7 +52,30 @@ isMAC48Address(inputString) = false.
 
       return true.
 
-       */
+*/
+
+/*
+Top solution:
+uses regex and test()
+'^' to signify it must start with the follow capture group:
+a character class: digit from either 0-9 or A-F.
+the capture group repeats {2} times (i.e 1D or F8), followed by a hyphen.
+Repeat the ENTIRE capture group {5} times.
+
+then $ is used to signify that it must end with:
+the same character class as before {2} times.
+
+there are 6 digit pairings, so the regex is saying:
+start with 5 digit pairs, and must end with 1 digit pairing.
+
+test(s) returns true or false, whether it matches that exact formula or not
+
+This solution is much better since it doesn't have to individually validate for
+things like hyphens, etc.  We know the EXACT format and digits it can contain,
+so regex is optimal.
+
+isMAC48Address = s => /^([0-9A-F]{2}-){5}[0-9A-F]{2}$/.test(s)
+*/
   </script>
 </body>
 </html>
