@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Determine if the given character is a digit or not.
+
+Example
+
+For symbol = '0', the output should be
+isDigit(symbol) = true;
+For symbol = '-', the output should be
+isDigit(symbol) = false.
+*/
+
+  function isDigit(symbol) {
+    return RegExp(/[\d]/g).test(symbol)
+  }
+
+/* top solution:
+Forgot about isNaN()...
+
+function isDigit(symbol) {
+    return !isNaN(symbol)}
+*/
+  </script>
+</body>
+</html>
