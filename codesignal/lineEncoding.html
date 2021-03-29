@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function lineEncoding(s) {
+        let tempStr = s[0]
+        const tempStrArr = []
+
+        for (let i = 1; i < s.length; i++) {
+          s[i] === s[i - 1] ? tempStr += s[i] : (tempStrArr.push(tempStr), tempStr = s[i])
+          !s[i + 1] ? tempStrArr.push(tempStr) : null
+
+          // long version of conditional. more readable though.
+          // if (s[i] === s[i-1]) {
+          //     tempStr += s[i]
+          // } else {
+          //     tempStrArr.push(tempStr)
+          //     tempStr = s[i]
+          // }
+          // if (!s[i+1]) {
+          //     tempStrArr.push(tempStr)
+          // }
+        }
+
+        const res = tempStrArr.map(x => {
+          return x.length > 1 ? x.length + x[0] : x
+        })
+        return res.join('')
+      }
+/*
+      create storage for temporary string creation initialized at s[0], named tempStr
+      create an empty array to store each finished tempStr, named 'res'
+
+      iterate over the string starting at i = 1, runs as long as i is less than s.length, increments by 1 each loop.
+
+      if s[i] is the same as s[i - 1], then concatenate tempStr with s[i]
+      if they are NOT the same, push tempStr into res and set tempStr equal to s[i]
+
+      once res contains all the identical character substrings,
+      iterate over res using a map() in order to change each value accordingly
+      within the map, if current iterations length is greater than 1, then concatenation it's length
+      with it's value at the 0th index.
+
+      join res('') with an empty string and return.
+       */
+  </script>
+</body>
+</html>
