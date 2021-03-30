@@ -43,21 +43,52 @@ Finally, all the new strings are concatenated together in the same order and a n
         return res.join('')
       }
 /*
-      create storage for temporary string creation initialized at s[0], named tempStr
-      create an empty array to store each finished tempStr, named 'res'
+create storage for temporary string creation initialized at s[0], named tempStr
+create an empty array to store each finished tempStr, named 'res'
 
-      iterate over the string starting at i = 1, runs as long as i is less than s.length, increments by 1 each loop.
+iterate over the string starting at i = 1, runs as long as i is less than s.length, increments by 1 each loop.
 
-      if s[i] is the same as s[i - 1], then concatenate tempStr with s[i]
-      if they are NOT the same, push tempStr into res and set tempStr equal to s[i]
+if s[i] is the same as s[i - 1], then concatenate tempStr with s[i]
+if they are NOT the same, push tempStr into res and set tempStr equal to s[i]
 
-      once res contains all the identical character substrings,
-      iterate over res using a map() in order to change each value accordingly
-      within the map, if current iterations length is greater than 1, then concatenation it's length
-      with it's value at the 0th index.
+once res contains all the identical character substrings,
+iterate over res using a map() in order to change each value accordingly
+within the map, if current iterations length is greater than 1, then concatenation it's length
+with it's value at the 0th index.
 
-      join res('') with an empty string and return.
-       */
+join res('') with an empty string and return.
+*/
+
+
+// top solution:
+/* 1st Capturing Group(.)
+. - matches any character(except for line terminators)
+\1 - matches the same text as most recently matched by the 1st capturing group
+* - matches the previous token between zero and unlimited times, as many times
+as possible, giving back as needed (greedy)
+
+in example s = 'aabbbc'
+so the regex matches 3 groups, the 'aa', 'bbb', 'c'
+it replaces it with the result of a ternary:
+(i guess callback functions inside of replace() have the element and index available
+to them?
+e = the match, i = the group.)
+if the match === the group, then just return the match. (so like if the match is just
+a single character like 'c', it will just return 'c')
+if the match does not equal the group (like 'bbb' !== 'b'), it returns the
+concatenation of the length of the match + the group, so '3b'
+
+I had thought of regex but did not know how to execute it.  Did not know
+about back referencing, or how the replacer function within the replace() works, or
+which arguments it has access to.
+*/
+
+// lineEncoding = s =>
+//     s.replace(
+//         /(.)\1*/g,
+//     (e, i) => i == e ? i : e.length + i
+//     )
+
   </script>
 </body>
 </html>

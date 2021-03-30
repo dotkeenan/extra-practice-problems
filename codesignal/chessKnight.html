@@ -58,6 +58,43 @@ chessKnight(cell) = 6.
 
         return moves
       }
+
+/* Top solution:
+Created an array holding a matrix resembling a chessboarding, which
+each tile being represented by the amount of possible moves a knight has
+when on it.
+stores the charcode of cell[0] but offset by 97.
+'a' has a charcode of 97.  So this is to convert each letter into it's
+corresponding value of the alphabet, starting at 1.
+a=1, b=2...z=26
+
+returns:
+chessboard at cell[1] offset by -1 because the rows go from 1-8 on a chessboard,
+but index is 0-7.
+Once in the correct row, it returns that row at index of x, which is
+the numerical representation of a letter.  So like 'd' would be index 3.
+
+so if cell = 'd4'
+then chessboard[4-1][3] navigates to the 4th row, and 4th element (3rd index tho)
+and we can see it has 8 possible moves.
+
+function chessKnight(cell) {
+    const chessBoard = [
+        [2,3,4,4,4,4,3,2],
+        [3,4,6,6,6,6,4,3],
+        [4,6,8,8,8,8,6,4],
+        [4,6,8,8,8,8,6,4],
+        [4,6,8,8,8,8,6,4],
+        [4,6,8,8,8,8,6,4],
+        [3,4,6,6,6,6,4,3],
+        [2,3,4,4,4,4,3,2],
+    ]
+
+    const x = cell[0].charCodeAt() - 97;
+    console.log(x)
+    return chessBoard[cell[1] - 1][x]
+}
+*/
   </script>
 </body>
 </html>
