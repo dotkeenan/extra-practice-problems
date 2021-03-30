@@ -95,6 +95,27 @@ function chessKnight(cell) {
     return chessBoard[cell[1] - 1][x]
 }
 */
+
+/* 2nd place solution.  hard to read.
+basically finds the index of cell[0] in a string of 'abcdefgh'
+i = cell[1] but i have no clue why he multiplies by 1.  Only thing I can think of
+is some type of type conversion
+
+He makes an array of all the possible spaces from the 'cell' a knight can move
+then he filters it in which after adding the offsets to the starting position, it still
+falls within range of col 1-8 and rows 1-8.
+returns the length of that array.
+
+function chessKnight(cell) {
+    let j = 'abcdefgh'.indexOf(cell[0])+1,
+    i = cell[1] * 1;
+    return [[2,1],[2,-1],[1,2],[1,-2],[-2,1],[-2,-1],[-1,2],[-1,-2]].filter(el =>
+        i + el[0] > 0 && i + el[0] <= 8 &&
+            j + el[1] > 0 && j + el[1] <= 8
+    ).length;
+}
+
+*/
   </script>
 </body>
 </html>
