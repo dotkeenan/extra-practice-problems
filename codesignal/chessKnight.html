@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Given a position of a knight on the standard chessboard, find the number of
+different moves the knight can perform.
+
+The knight can move to a square that is two squares horizontally and one
+square vertically, or two squares vertically and one square horizontally
+away from it. The complete move therefore looks like the letter L. Check
+out the image below to see all valid moves for a knight piece that is
+placed on one of the central squares.
+
+https://codesignal.s3.amazonaws.com/tasks/chessKnight/img/ex_1.jpg?_tm=1582002568920
+For cell = "a1", the output should be
+chessKnight(cell) = 2.
+
+https://codesignal.s3.amazonaws.com/tasks/chessKnight/img/ex_2.jpg?_tm=1582002569154
+For cell = "c2", the output should be
+chessKnight(cell) = 6.
+*/
+    // My first super dirty solution
+    function chessKnight(cell) {
+        let moves = 0;
+        const columns = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+        const rows = [1, 2, 3, 4, 5, 6, 7, 8]
+        const colNum = columns.indexOf(cell[0])
+        const rowNum = rows.indexOf(Number(cell[1])) + 1
+        const possibleSpots = [
+          columns[(colNum + 1)] + (rowNum + 2),
+          columns[(colNum + 2)] + (rowNum + 1),
+          columns[(colNum - 1)] + (rowNum + 2),
+          columns[(colNum - 2)] + (rowNum + 1),
+          columns[(colNum + 1)] + (rowNum - 2),
+          columns[(colNum + 2)] + (rowNum - 1),
+          columns[(colNum - 1)] + (rowNum - 2),
+          columns[(colNum - 2)] + (rowNum - 1),
+
+        ].filter(x => typeof x === 'string')
+
+        for (let i = 0; i < possibleSpots.length; i++) {
+          let a = possibleSpots[i][0]
+          let b = Number(possibleSpots[i].slice(1))
+          console.log(typeof possibleSpots[i])
+          if (columns.includes(a) && rows.includes(b)) {
+            moves++
+          }
+        }
+
+        console.log(possibleSpots)
+
+        return moves
+      }
+  </script>
+</body>
+</html>
