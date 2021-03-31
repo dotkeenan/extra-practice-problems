@@ -73,6 +73,13 @@ function deleteDigit(n) {
     return Math.max(...[...Array(s.length).keys()]
     .map(i=>Number(s.slice(0,i)+s.slice(i+1))))}
 
+I'm not sure what the point of keys() is though, because you could also remove it
+and just give map an index argument:
+This passes just fine.
+function deleteDigit(n) {
+    s = n.toString()
+    return Math.max(...[...Array(s.length)]
+    .map((x,i)=>Number(s.slice(0,i)+s.slice(i+1))))}
 */
   </script>
 </body>
