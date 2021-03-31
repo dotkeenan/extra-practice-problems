@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.
+
+Example
+
+For n = 152, the output should be
+deleteDigit(n) = 52;
+For n = 1001, the output should be
+deleteDigit(n) = 101.
+*/
+    function deleteDigit(n) {
+        const res = [];
+        const digits = n.toString().split('');
+        for (let i = 0; i < digits.length; i++) {
+          let tempDigits = [...digits];
+          tempDigits.splice(i, 1);
+          res.push(Number(tempDigits.join('')));
+        }
+        return Math.max(...res)
+      }
+/* Pseudocode
+create an empty an array and assign it to a storage named 'res'
+turn the number to a string and split it into individual digits, store it in a storage named 'digits'
+
+iterate over digits
+create a storange named tempDigits which gets assigned a shallow copy of 'digits' so that we can reset the spliced digits each iteration
+
+splice out the current iteration, then join the rest of the array back into a string number
+convert to a number as well, during the joining process.
+
+push the resulting number into res
+
+return the highest value in res.
+*/
+  </script>
+</body>
+</html>
