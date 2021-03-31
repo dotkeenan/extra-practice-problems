@@ -42,6 +42,38 @@ push the resulting number into res
 
 return the highest value in res.
 */
+
+/* top solution:
+turn number to string
+Then in a terribly unreadable 1 liner return:
+It uses the index to progressively contatenate slices, to populate
+an array that is created with the Array() function/method.
+
+the slicing:
+So lets say s = '123'
+the first slice gets nothing, second slice gets '23'
+i becomes 1.
+first slice gets '1', second slice gets '3'
+i becomes 2
+first slice gets '12' second slice gets nothing.
+They all get converted to a number.
+
+The array constructor:
+It creates an array with 'x' amt of elements, where 'x' is s.length
+Using logic, if 's'.length is 3, then there are 3 instances in which a digit
+gets removed from 's'.
+
+keys() is an Array/Object method that returns an ITERATOR that contains keys for each
+index in the array.
+So like [...Array(4).keys()] returns [0,1,2,3]
+So it maps over each index and uses that index value to do the slicing.
+
+function deleteDigit(n) {
+    s = n.toString()
+    return Math.max(...[...Array(s.length).keys()]
+    .map(i=>Number(s.slice(0,i)+s.slice(i+1))))}
+
+*/
   </script>
 </body>
 </html>
