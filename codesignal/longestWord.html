@@ -17,39 +17,50 @@ For text = "Ready, steady, go!", the output should be
 longestWord(text) = "steady".
 */
     function longestWord(text) {
-        const arr = text.match(/[a-z]+/gi);
+        const arr = text.match(/[a-z]+/gi);  //i flag ignores case sensitivity
         return arr.sort((a, b) => b.length - a.length)[0]
         // const filteredText = text.replace(/[^a-zA-Z0-9 ]/g, '').split(' ')
         // return filteredText.sort((a,b) => b.length - a.length)[0]
       }
 
 
+/* top solution from codesignal
+matches consecutive characters between A-Z and a-z.
+-This outputs an array filled with the matches // ['hello', 'there']
+then sorts the array by length in which b > a.  Not sure what the diff is
+between b > a and b - a.
+returns the [0] index of the sorted array (longest).
 
+function longestWord(text) {
+    return text.match(/[A-Za-z]+/g).sort((a,b)=>{return b.length > a.length})[0];
+}
 
-// top solution from coderbyte
-// function longestWord(text) {
-//   var arr = text.match(/[a-z]+/gi);
-//   var sorted = arr.sort(function(a, b) {
-//     return b.length - a.length;
-//   });
-//   return sorted[0];
-// }
+*/
 
-// other old way 220/300 // regex is missing a character somehow
-// function longestWord(text) {
-//     const words = text.replace(/[.,\/#\[\]!$%\^&\*;:'"@{}=\-_`~()]/g,"").split(' ');
-//     return words.reduce((longest, currentWord) => currentWord.length > longest.length ? currentWord: longest)
-//     // Other solution that uses sort()
-//     // return words.sort((a,b) => b.length - a.length)[0]
-// }
+/* top solution from coderbyte
+function longestWord(text) {
+  var arr = text.match(/[a-z]+/gi);
+  var sorted = arr.sort(function(a, b) {
+    return b.length - a.length;
+  });
+  return sorted[0];
+}
 
-// old long way  220/300 // regex is missing a character somehow
-// function longestWord(text) {
-//     const words = text.replace(/[.,\/#\[\]!$%\^&\*;:{}=\-_`~()]/g,"").split(' ');
-//     const wordCounts = words.map(x => x = x.length)
-//     const longestWordCount = Math.max(...wordCounts)
-//     return words[wordCounts.indexOf(longestWordCount)]
-// }
+other old way 220/300 // regex is missing a character somehow
+function longestWord(text) {
+    const words = text.replace(/[.,\/#\[\]!$%\^&\*;:'"@{}=\-_`~()]/g,"").split(' ');
+    return words.reduce((longest, currentWord) => currentWord.length > longest.length ? currentWord: longest)
+    // Other solution that uses sort()
+    // return words.sort((a,b) => b.length - a.length)[0]
+}
+
+old long way  220/300 // regex is missing a character somehow
+function longestWord(text) {
+    const words = text.replace(/[.,\/#\[\]!$%\^&\*;:{}=\-_`~()]/g,"").split(' ');
+    const wordCounts = words.map(x => x = x.length)
+    const longestWordCount = Math.max(...wordCounts)
+    return words[wordCounts.indexOf(longestWordCount)]
+} */
   </script>
 </body>
 </html>
