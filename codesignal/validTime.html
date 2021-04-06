@@ -42,7 +42,29 @@ return the result of if 'hour' and 'min' are both truthy.
 */
 
 /* top solution:
+regex approach
+^ // first capture group must start with:
+a digit between 0-1 (this is the hour but only 00 - 19)
+it can be followed by any digit 0-9, so only hours from 00 - 19
+-OR-
+it can start with a 2, followed by a digit between 0 - 3, so hrs 20-23
 
+Then it must match a semi colon.
+Then the regex for the minutes:
+must be a digit between 0 - 5 // ie 00 - 59 (the ten's place for minutes)
+$ signifies it must end with:
+any digit 0 - 9  (the one's place for minutes)
+
+It runs the test(t) regex string method to test whether the match is true or not.
+
+validTime = t => /^([0-1]\d|2[0-3]):[0-5]\d$/.test(t);
+
+
+2nd top solution:
+
+function validTime(t) {
+    return t.split(":")[0]<24&&t.split(":")[1]<60
+  }
 */
   </script>
 </body>
