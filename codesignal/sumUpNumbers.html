@@ -40,8 +40,12 @@ use a for loop and iterates over the 'numbers' array and use addition assignment
 the running total storage, named 'res'
 */
 
-/*
+/* top solution:
 
+
+function sumUpNumbers(inputString) {
+  return (inputString.match(/\d+/g)||[]).reduce((a,b)=>a+ +b,0)
+}
 */
   </script>
 </body>
