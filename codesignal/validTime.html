@@ -26,7 +26,22 @@ validTime(time) = false.
         const min = 0 <= Number(splitTime[1]) && Number(splitTime[1]) <= 59;
         return hour && min
       }
-/*
+/* pseudo code
+split the time at the colon, so we are left with an array filled with two elements:
+the hour-time as a string, and the minute-time as a string.
+
+Take the hour-time, convert it to a number, return boolean true/false, if the number
+is between 0 and 23 (inclusively) and store the result of the expression in storage
+named 'hour'
+
+Take min-time, convert it to a number, return boolean true/false, if the number
+is between 0 and 59 (inclusively), and store the result of the expression in storage
+named 'min'
+
+return the result of if 'hour' and 'min' are both truthy.
+*/
+
+/* top solution:
 
 */
   </script>
