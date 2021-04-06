@@ -61,9 +61,14 @@ validTime = t => /^([0-1]\d|2[0-3]):[0-5]\d$/.test(t);
 
 
 2nd top solution:
+Kind of similar to my approach
+splits the string into hours and minutes
+tests if hours is less than 24, and if minutes is less than 60.
+This is a lazier approach that just happens to work with the test
+cases.  It would fail if there were negative hours or minutes.
 
 function validTime(t) {
-    return t.split(":")[0]<24&&t.split(":")[1]<60
+    return t.split(":")[0] < 24 && t.split(":")[1] < 60
   }
 */
   </script>
