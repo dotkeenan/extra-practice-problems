@@ -20,7 +20,7 @@ sumUpNumbers(inputString) = 14.
 */
     function sumUpNumbers(inputString) {
         let res = 0;
-        const numbers = inputString.match(/(\d+)/g)
+        const numbers = inputString.match(/(\d+)/g) // the capture group is unnecessary
         if (!numbers) return res;
         numbers.forEach(x => res += Number(x))
         return res;
@@ -34,6 +34,8 @@ create a catch for when there are no numbers in the string, and return res (whic
 make sure their datatype is 'number'
 
 can't use reduce() since some arrays only have 1 element in it.
+-After seeing top solution, I can actually use reduce if I add an 'or' clause
+and return an empty array if the match() comes up empty (falsey).
 
 Instead, create a storage to keep the running total named 'res'
 use a for loop and iterates over the 'numbers' array and use addition assignment to add current iteration (convert to number) value to
@@ -41,7 +43,25 @@ the running total storage, named 'res'
 */
 
 /* top solution:
+Same use of match() and same regex string as my solution.
 
+Gets around the reduce() typeError if the match() is empty and doesn't
+return an array at all.
+
+If the inputString.match() finds numbers, then it will return an array with
+the found matches, if not, it will return an empty array.
+-this way, reduce() won't run into an error if there are no matches.
+
+Next they use a reduce function and incorporates the unary plus operator
+in order to convert 'b' into a number data type
+'a' or previousValue is initialized as the number 0.
+0 is added to the number version of 'b' due to +b.
+
+Also initializing a as 0 fixes the issue in which there is only 1 number
+in the array.
+
+Previously I just had 'a' as the first array element, and 'b' as the 2nd,
+so currentValue (b) was undefined when there was only 1 array element.
 
 function sumUpNumbers(inputString) {
   return (inputString.match(/\d+/g)||[]).reduce((a,b)=>a+ +b,0)
