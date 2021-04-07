@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function differentSquares(matrix) {
+        const unique = []
+
+        for (let i = 1; i < matrix.length; i++) {
+          let tempString = '';
+          for (let j = 1; j < matrix[i].length; j++) {
+            tempString = matrix[i - 1][j - 1].toString() + matrix[i - 1][j].toString() + matrix[i][j - 1].toString() + matrix[i][j].toString()
+            if (!unique.includes(tempString)) { unique.push(tempString) }
+          }
+        }
+        return unique.length
+      }
+/* pseudo code
+      probably deal with a nested loop
+
+      iterate over the matrix,
+      then iterate over the sub array
+
+      initialize both arrays at 1, and use i-1 to get the value before it
+      instead of starting at 0 and checking i + 1 to avoid issues regarding last array index.
+
+      create an empty array to store all the unique 2x2 squares, named 'unique'
+
+      //this is purely for visualization, not how I will actually represent the squares
+      # = the level of the matrix
+      letter = semblence of index position within the level's sub array
+
+      just push in a string version of the square, like '1a1b2a2b'
+
+      Only push a unique square combination into 'unique' if it is not already included in 'unique'.
+      Need to compare the equality of the strings.
+
+      return length of 'unique'.
+       */
+  </script>
+</body>
+</html>
