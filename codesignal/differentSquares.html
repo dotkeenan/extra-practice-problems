@@ -8,6 +8,36 @@
 </head>
 <body>
   <script>
+/*  description
+Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+
+Example
+
+For
+
+matrix = [[1, 2, 1],
+          [2, 2, 2],
+          [2, 2, 2],
+          [1, 2, 3],
+          [2, 2, 1]]
+the output should be
+differentSquares(matrix) = 6.
+
+Here are all 6 different 2 × 2 squares:
+
+1 2
+2 2
+2 1
+2 2
+2 2
+2 2
+2 2
+1 2
+2 2
+2 3
+2 3
+2 1
+*/
     function differentSquares(matrix) {
         const unique = []
 
@@ -21,27 +51,43 @@
         return unique.length
       }
 /* pseudo code
-      probably deal with a nested loop
+probably deal with a nested loop
 
-      iterate over the matrix,
-      then iterate over the sub array
+iterate over the matrix,
+then iterate over the sub array
 
-      initialize both arrays at 1, and use i-1 to get the value before it
-      instead of starting at 0 and checking i + 1 to avoid issues regarding last array index.
+initialize both arrays at 1, and use i-1 to get the value before it
+instead of starting at 0 and checking i + 1 to avoid issues regarding last array index.
 
-      create an empty array to store all the unique 2x2 squares, named 'unique'
+create an empty array to store all the unique 2x2 squares, named 'unique'
 
-      //this is purely for visualization, not how I will actually represent the squares
-      # = the level of the matrix
-      letter = semblence of index position within the level's sub array
+//this is purely for visualization, not how I will actually represent the squares
+# = the level of the matrix
+letter = semblence of index position within the level's sub array
 
-      just push in a string version of the square, like '1a1b2a2b'
+just push in a string version of the square, like '1a1b2a2b'
 
-      Only push a unique square combination into 'unique' if it is not already included in 'unique'.
-      Need to compare the equality of the strings.
+Only push a unique square combination into 'unique' if it is not already included in 'unique'.
+Need to compare the equality of the strings.
 
-      return length of 'unique'.
-       */
+return length of 'unique'.
+  */
+
+/*
+
+
+function differentSquares(a) {
+    var s = new Set;
+    for( var i=0; i<a.length-1; i++ ) {
+        for( var j=0; j<a[0].length-1; j++ ) {
+            var hash = a[i][j] + 10*a[i][j+1] + 100*a[i+1][j] + 1000*a[i+1][j+1];
+            s.add( hash );
+        }
+    }
+
+    return s.size;
+}
+*/
   </script>
 </body>
 </html>
