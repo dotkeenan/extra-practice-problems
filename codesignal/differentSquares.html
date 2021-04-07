@@ -73,8 +73,26 @@ Need to compare the equality of the strings.
 return length of 'unique'.
   */
 
-/*
+/* top solution
+Does something very similar to me
+uses Set() in order to make sure all contents in the array are unique.
+does the same nested loops but instead initializes at 0, and stops at length - 1.
+Also the way he/she accesses the array elements and adds them, is very similar
 
+The clever thing he/she did was for each successive part of the 2x2 square,
+was to multiply it by an increases magnitude of 10 (10, 100, 1000, etc)
+
+So when they are all added up together, it mimics having added them as a string
+like if the 2x2 square was comprised of 1,2,3,4 (but reversed)
+it would come out to be 1 + 20 + 300 + 4000, which = 4321
+
+I guess reversing the order is just a matter of preference. (starting from
+the front and compiling the square in order like 1234, instead of 4321)
+
+uses the .add() method of a Set that only adds unique things to the array-like object.
+it ignores duplicates.
+
+then he'she returns the .size property of set, which is like .length
 
 function differentSquares(a) {
     var s = new Set;
