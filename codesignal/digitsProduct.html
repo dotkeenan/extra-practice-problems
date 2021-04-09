@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+Given an integer product, find the smallest positive (i.e. greater than 0) integer the product of whose digits is equal to product. If there is no such integer, return -1 instead.
+
+Example
+
+For product = 12, the output should be
+digitsProduct(product) = 26;
+For product = 19, the output should be
+digitsProduct(product) = -1.
+For product = 243, the output should be digitsProduct(product) = 399
+*/
+    // https://www.youtube.com/watch?v=sN9bYQQJZ7A
+    function digitsProduct(product) {
+        // edge cases
+        if (product === 0) return 10;
+        else if (product < 10) return product;
+
+        let smallPos = 0
+        while (product > 9) {
+          let orig = product;
+          for (let i = 9; i > 1; i--) {
+            if (product % i === 0) {
+              let nextDigit = product / i;
+              nextDigit = digitsProduct(nextDigit);
+              if (nextDigit === -1) return -1;
+              smallPos = smallPos * 10 + nextDigit;
+              product = i;
+              break;
+            }
+          }
+          if (product == orig) return -1;
+        }
+        return smallPos * 10 + product;
+      }
+  /*  explanation of code, and recursion
+  Uses a for loop that iterates from 9 to 2.
+  The idea behind it is to keep finding the highest digit that is a factor of 'product'
+  and to put them at the end of the final number, because we want the SMALLEST integer, who's digits multiply
+  to become 'product'
+
+  ex:  product = 243
+  243 % 9 === 0
+  nextDigit = 243/9 // 27
+  recursively run digitsProduct(27);
+
+  first recursive run:
+  27 % 9 === 0
+  nextDigit = 27/9 = 3
+  recursively run digitsProduct(3)
+
+  second recursive run:
+  gets triggered: else if (product < 10) return product
+  steps out of 2nd recursive run and continues to if(nextDigit === -1) return -1;
+
+  smallPos = 0 * 10 + 3 // 3
+  product = 9
+
+  if(9 === 27) return -1;
+  break;
+
+  Starts next iteration of while loop but product is not > 9 // 9 !> 9
+
+  so it just returns the last line, which is 3 * 10 + product // 39
+
+  So we finished all recursion and are back out in the first run of the while loop(?)
+
+  at this point, nextDigit: 39, i: 9, orig: 243, product: 243, smallPos: 0
+  and we are at the line right after nextDigit = digitsProduct(nextDigit)
+
+  smallPos = 39, product = 9
+  break
+
+  start next while loop iteration, but 9 !> 9, so we go down to the return, which is
+  39 * 10 + 9 // 399
+  3 * 9 * 9 = 243
+   */
+
+/* solutions
+
+
+
+crappy version that kinda just runs an unnecessary amount of times, and uses
+a hard coded loop count that just happens to pass the tests. (10000)
+function digitsProduct(product) {
+    for(let i = 1; i < 10000; i++) {
+        if([...i.toString()].reduce((a,b) => a * b, 1) === product){
+            console.log([...i.toString()])
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+*/
+
+  /*  brain storm
+  Find a way to get all factors of 'product'
+
+  create a loop that iterates from 1 to 'product'
+  divide 'product' by 'i', and if it divides without remainder,
+  store the pair of (i, and the result of 'product'/i)
+  -store as a concatenated string in an array
+
+  once the array is filled with all the factor pairs,
+  return the lowest value in the array
+  (may have to convert all the array contents to numbers)
+
+  issues:
+  Approached and understood the problem wrong.  Each singular digit in the number is used in the product
+  so for like 360, I was trying to submit something like 3 * 120, and would return 3120.
+  but it's expecting 3 * 1 * 2 * 0.
+  i need to find the lowest number in which the product of all individual digits is === product
+   */
+  </script>
+</body>
+</html>
