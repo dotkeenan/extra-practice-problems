@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // UNFINISHED
+    function fileNaming(names) {
+        const namesSet = new Set(names)
+        const uniqueNames = [...namesSet]
+        console.log(uniqueNames)
+        for (let i = 0; i < uniqueNames.length; i++) {
+          let tempArr = names.filter(x => x === uniqueNames[i])
+          tempArr.map((x, i) => {
+            if (i > 0) {
+              x => x + `(${i})`
+            }
+          })
+          tempArr.forEach(x => {
+            names.splice(names.indexOf(uniqueNames[i]), 1, x)
+          })
+        }
+        return names
+      }
+/*
+      iterate over names starting at i = 1
+      check if the current iteration exists already in
+      the names array
+
+      if it does
+      filter the duplications into their own array.
+
+      create a nested loop to iterate over the duplicates
+
+      map over the duplicates and add (#) appropriately,
+      based off index (BUT SKIP THE FIRST ONE)
+
+      Now... some how replace each duplicate in order, with the mapped version
+      iterate over over the mapped array
+
+      use splice() on 'names'
+      index to where to splice will be found with indexOf()
+       */
+  </script>
+</body>
+</html>
