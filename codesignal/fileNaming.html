@@ -8,43 +8,103 @@
 </head>
 <body>
   <script>
-    // UNFINISHED
+/* https://app.codesignal.com/arcade/intro/level-12/sqZ9qDTFHXBNrQeLC
+You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of (k), where k is the smallest positive integer such that the obtained name is not used yet.
+
+Return an array of names that will be given to the files.
+
+Example
+
+For names = ["doc", "doc", "image", "doc(1)", "doc"], the output should be
+fileNaming(names) = ["doc", "doc(1)", "image", "doc(1)(1)", "doc(2)"].
+*/
+
+  function fileNaming(names) {
+    const list = new Array
+    names.forEach(x => {
+      if (!list.includes(x)) {
+        list.push(x)
+      } else {
+        for (let i = 1; i < names.length; i++) {
+          if (list.includes(x + "(" + i + ")")) continue;
+          list.push(x + "(" + i + ")");
+          break;
+        }
+      }
+    })
+    return list
+  }
+  /* code explanation
+  create a new Array and assign it to a storage named 'list'
+  use a forEach loop to iterate over 'names' argument.
+  If 'list' does not contain the current element, push that element
+  into 'list'.
+  If it DOES contain it, then:
+  create a loop that will dynamically set the correct duplicate number and
+  concatenate it with the element.
+  Create a loop that starts at 1 (since duplicates start with (1) in this case)
+  and the loop runs as long as i < names.length (or 16 due to the guaranteed constraints)
+
+  Now check if that duplication already exists in 'list' (like if doc(1) already is in 'listl')
+  If it already exists, 'continue' to the next iteration (i++)
+  Keep checking until it finds an unused duplication number, and then
+  push it (x + "(" + i + ")") into 'list' and 'break', or else it will keep
+  running until names.length, which we don't want.
+
+  Notes:
+  the for loop was a smart way to iterate through duplication numbersz
+
+
+
+  */
+
+
+
+/*     // terrible first attempt
     function fileNaming(names) {
         const namesSet = new Set(names)
         const uniqueNames = [...namesSet]
         console.log(uniqueNames)
         for (let i = 0; i < uniqueNames.length; i++) {
           let tempArr = names.filter(x => x === uniqueNames[i])
-          tempArr.map((x, i) => {
-            if (i > 0) {
-              x => x + `(${i})`
+          console.log('tempArr before map:', tempArr)
+          // tempArr.map((x,i) => x = x + `(${i})`)
+          tempArr.map((x, i) => x = x + `(${i})`)
+          const mappedArr = tempArr.map((x, i) => {
+            if (tempArr.length > 1 && i > 0) {
+              return x = x + `(${i})`
+            } else {
+              return x
             }
           })
-          tempArr.forEach(x => {
-            names.splice(names.indexOf(uniqueNames[i]), 1, x)
+          console.log('mappedArr:', mappedArr)
+          mappedArr.forEach(x => {
+            console.log('indexes:', names.indexOf(uniqueNames[i]))
+            return names.splice(names.indexOf(uniqueNames[i]), 1, x)
           })
         }
         return names
-      }
-/*
-      iterate over names starting at i = 1
-      check if the current iteration exists already in
-      the names array
+      } */
 
-      if it does
-      filter the duplications into their own array.
+/* Pseudocode // for first bad attempt. dont learn from this
+iterate over names starting at i = 1
+check if the current iteration exists already in
+the names array
 
-      create a nested loop to iterate over the duplicates
+if it does
+filter the duplications into their own array.
 
-      map over the duplicates and add (#) appropriately,
-      based off index (BUT SKIP THE FIRST ONE)
+create a nested loop to iterate over the duplicates
 
-      Now... some how replace each duplicate in order, with the mapped version
-      iterate over over the mapped array
+map over the duplicates and add (#) appropriately,
+based off index (BUT SKIP THE FIRST ONE)
 
-      use splice() on 'names'
-      index to where to splice will be found with indexOf()
-       */
+Now... some how replace each duplicate in order, with the mapped version
+iterate over over the mapped array
+
+use splice() on 'names'
+index to where to splice will be found with indexOf()
+  */
   </script>
 </body>
 </html>
