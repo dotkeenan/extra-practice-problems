@@ -46,7 +46,21 @@ Other letters can be obtained in the same manner.
       use parseInt with a radix of 2, to convert it to a character code
       Then convert it to an alphanumeric character with String.fromCharCode
       Add and assign the result of that expression to binString
-       */
+*/
+
+/* Top solution:
+Use regex to match any character, up to 8 times.
+This will return an array filled with strings of characters with length of 8.
+
+then use reduce() to build a string, where a is initialized with '', and b is
+the 8 length string, parsed using radix of 2, then converted to an alphanumeric
+character with fromCharCode()
+
+function messageFromBinaryCode(code) {
+  return code.match(/.{8}/g).reduce((a,b)=>a+String.fromCharCode(parseInt(b,2)),"")
+}
+
+*/
   </script>
 </body>
 </html>
