@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function messageFromBinaryCode(code) {
+        let binString = '';
+        const splitCodes = [];
+        for (let i = 0; i < code.length; i += 8) {
+          splitCodes.push(code.substr(i, 8))
+        }
+        splitCodes.map(x => {
+          binString += String.fromCharCode(parseInt(x, 2))
+        })
+        return binString;
+      }
+/* pseudocode
+      create a storage for the end result string, named binString
+      create a storage for the individual codes when splitting the 'code' into lengths of 8, named splitCodes.  initialize as an empty array.
+
+      create a loop that will push portions of 'code' into 'splitCodes'
+      the loop is initialized at i = 0, has a condition that runs as long as i is less than the length of the 'code',
+      and has a final step of adding 8 to i.
+
+      In the loop, push the portion of 'code' starting at 'i', and going the length of 8 characters.
+
+      map over the splitCodes array in order to convert each string of code into a letter.
+      use parseInt with a radix of 2, to convert it to a character code
+      Then convert it to an alphanumeric character with String.fromCharCode
+      Add and assign the result of that expression to binString
+       */
+  </script>
+</body>
+</html>
