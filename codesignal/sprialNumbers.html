@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function spiralNumbers(n) {
+        /* create the matrix */
+        const matrix = []
+        for (let i = 0; i < n; i++) {
+          matrix.push(Array(n))
+        }
+
+        /* bounds */
+        let top = 0;
+        let bottom = n - 1;
+        let left = 0;
+        let right = matrix[0].length - 1;
+        let size = n * n
+        let counter = 1;
+
+        /* assign values to the matrix in a spiral-like fashion */
+        while (counter <= size) {
+          for (let i = left; i <= right && counter <= size; i++) {
+            matrix[top][i] = counter;
+            counter++
+          }
+          top++
+          for (let i = top; i <= bottom && counter <= size; i++) {
+            matrix[i][right] = counter;
+            counter++
+          }
+          right--
+          for (let i = right; i >= left && counter <= size; i--) {
+            matrix[bottom][i] = counter;
+            counter++
+          }
+          bottom--
+          for (let i = bottom; i >= top && counter <= size; i--) {
+            matrix[i][left] = counter;
+            counter++
+          }
+          left++
+        }
+
+        return matrix;
+      }
+/*
+      create the matrix
+
+      define the bounds of the matrix: top bottom left right
+
+      create a counter variable that stores which number should be added next to the matrix, initialized at 1
+
+      create a size variable that stores the max amount of matrix elements there will be for that function call.
+
+      create a loop that runs as long as the amount of values added to the matrix <= the max amount of
+      values that can be in the matrix (n * n) since its a square.
+
+      within the loop:
+
+      create nested loops that iterate around each side of the matrix, assigning the values to counter.
+      End the loop once it reaches the appropriate bound.  Also check if counter <= size.
+      increment counter after each assignment
+
+      after a row is complete, increment or decrement the bounds appropriately so that
+      matrix positions won't be overwritten once they are assigned.
+
+      return matrix
+
+       */
+  </script>
+</body>
+</html>
