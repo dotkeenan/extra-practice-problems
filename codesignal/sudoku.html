@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* https://app.codesignal.com/arcade/intro/level-12/tQgasP8b62JBeirMS
+Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid contains all of the digits from 1 to 9.
+
+This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.
+
+Example
+
+For
+grid = [[1, 3, 2, 5, 4, 6, 9, 8, 7],
+        [4, 6, 5, 8, 7, 9, 3, 2, 1],
+        [7, 9, 8, 2, 1, 3, 6, 5, 4],
+        [9, 2, 1, 4, 3, 5, 8, 7, 6],
+        [3, 5, 4, 7, 6, 8, 2, 1, 9],
+        [6, 8, 7, 1, 9, 2, 5, 4, 3],
+        [5, 7, 6, 9, 8, 1, 4, 3, 2],
+        [2, 4, 3, 6, 5, 7, 1, 9, 8],
+        [8, 1, 9, 3, 2, 4, 7, 6, 5]]
+the output should be
+sudoku(grid) = true;
+
+For
+grid = [[1, 3, 2, 5, 4, 6, 9, 2, 7],
+        [4, 6, 5, 8, 7, 9, 3, 8, 1],
+        [7, 9, 8, 2, 1, 3, 6, 5, 4],
+        [9, 2, 1, 4, 3, 5, 8, 7, 6],
+        [3, 5, 4, 7, 6, 8, 2, 1, 9],
+        [6, 8, 7, 1, 9, 2, 5, 4, 3],
+        [5, 7, 6, 9, 8, 1, 4, 3, 2],
+        [2, 4, 3, 6, 5, 7, 1, 9, 8],
+        [8, 1, 9, 3, 2, 4, 7, 6, 5]]
+the output should be
+sudoku(grid) = false.
+
+The output should be false: each of the nine 3 × 3 sub-grids should contain all of the digits from 1 to 9.
+These examples are represented on the image below.
+*/
+// first attempt passes 9/11 tests, no clue how it doesn't pass.
+    function sudoku(grid) {
+        let top = 0;
+        let bottom = 8
+        let left = 0;
+        let right = 8
+        let counter = 0
+        const correct = '123456789'
+
+        for (let i = 0; i < 9; i++) {
+          let rowString = [...grid[i]].sort((a, b) => a - b).join('')
+          console.log('rowString:', rowString)
+          if (rowString !== correct) {
+            console.log('failed valid row test')
+            return false;
+          }
+        }
+
+
+        while (counter < 9) {
+          let tempArr = []
+          // add each value in a vertical column into tempArr
+          for (let i = top; i <= bottom; i++) {
+            // console.log('grid[i][left]', grid[i][left])
+            // console.log(i)
+            tempArr.push(grid[i][left])
+          }
+          // sort tempArr and turn it into a string and compare it to 'correct'
+          console.log('tempArr:', tempArr)
+          if ([...tempArr].sort((a, b) => a - b).join('') !== correct) {
+            console.log('failed valid column test')
+            return false
+          }
+          // progress to the next vertical column to the right.
+          left++
+          counter++
+        }
+        return true
+      }
+/*
+      create bounds for top bottom left right
+      create a variable named 'counter' which will keep track of how many vertical columns have been checked
+      create a variable named 'correct' to store what an ordered, correct sudoku row/column should look like,
+      but as a string '123456789'
+
+      create a loop to check each horizontal row if there is only one appearance of 1-9
+      return 'false' if it ever fails.
+
+      create a while loop to run as long as < 9 columns have been checked
+      create a storage named 'tempArr' to store the current iterations' row/col
+      check each vertical column starting from the left and ending on the right.
+
+      create a nested loop that starts with the left bound and runs as long as i < 9, and increments by 1
+      -within the loop, add each iterate to tempArr
+
+      once the vertical row is finished,
+      sort tempArr, convert it to a string,
+      compare the string to 'correct'.  If it's right move on to the next vertical row,
+      if not, return false immediately.
+
+       */
+  </script>
+</body>
+</html>
