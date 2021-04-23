@@ -21,7 +21,16 @@ Each child will eat 3 pieces. So the answer is 9.
     function candies(n, m) {
         return Math.floor(m / n) * n
       }
+/* top solution:
+total candies - (totalCandies % children)
+total candies - the remainder after dividing m by n.
+so like 14 candies, 3 children.
+14 - (14/3 // 2) === 12.
 
+function candies(n, m) {
+    return m - m % n;
+}
+ */
   </script>
 </body>
 </html>
