@@ -17,6 +17,15 @@ addTwoDigits(n) = 11. */
     function addTwoDigits(n) {
         return (n + '').split('').reduce((a, b) => Number(a) + Number(b))
       }
+/* top solution:
+n % 10 returns the 1's place number
+Math.floor(n/10) returns the 10's place by dividing by 10, and rounding down.
+adds them together.
+
+function addTwoDigits(n) {
+    return n%10 + Math.floor(n/10)
+}
+ */
   </script>
 </body>
 </html>
