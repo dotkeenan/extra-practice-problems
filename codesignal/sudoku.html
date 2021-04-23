@@ -44,46 +44,102 @@ sudoku(grid) = false.
 The output should be false: each of the nine 3 × 3 sub-grids should contain all of the digits from 1 to 9.
 These examples are represented on the image below.
 */
-// first attempt passes 9/11 tests, no clue how it doesn't pass.
-    function sudoku(grid) {
-        let top = 0;
-        let bottom = 8
-        let left = 0;
-        let right = 8
-        let counter = 0
-        const correct = '123456789'
-
-        for (let i = 0; i < 9; i++) {
-          let rowString = [...grid[i]].sort((a, b) => a - b).join('')
-          console.log('rowString:', rowString)
-          if (rowString !== correct) {
-            console.log('failed valid row test')
-            return false;
-          }
+  function sudoku(grid) {
+    const correct = '123456789'
+    function checkRow(grid) {
+      for (let i = 0; i < 9; i++) {
+        let rowString = [...grid[i]].sort((a, b) => a - b).join('')
+        console.log('rowString:', rowString)
+        if (rowString !== correct) {
+          console.log('failed valid row test')
+          return false;
         }
-
-
-        while (counter < 9) {
-          let tempArr = []
-          // add each value in a vertical column into tempArr
-          for (let i = top; i <= bottom; i++) {
-            // console.log('grid[i][left]', grid[i][left])
-            // console.log(i)
-            tempArr.push(grid[i][left])
-          }
-          // sort tempArr and turn it into a string and compare it to 'correct'
-          console.log('tempArr:', tempArr)
-          if ([...tempArr].sort((a, b) => a - b).join('') !== correct) {
-            console.log('failed valid column test')
-            return false
-          }
-          // progress to the next vertical column to the right.
-          left++
-          counter++
-        }
-        return true
       }
-/*
+      return true;
+    }
+
+    function checkColumn(grid) {
+      let top = 0;
+      let bottom = 8
+      let left = 0;
+
+      while (left < 9) {
+        let tempArr = []
+        for (let i = top; i <= bottom; i++) {
+          tempArr.push(grid[i][left])
+        }
+        // console.log('tempArr str:', [...tempArr].sort((a,b) => a - b).join(''))
+        if ([...tempArr].sort((a, b) => a - b).join('') !== correct) {
+          // console.log('failed valid column test')
+          return false
+        }
+        left++
+      }
+      return true;
+    }
+
+    function check3x3(grid) {
+      let left = 0;
+      let row3x3 = 0;
+
+      // get 3 rows of 3 horizontal 3x3 (everything)
+      for (let k = 0; k < 3; k++) {
+        // get 3 3x3's in a horizontal row
+        for (let h = 0; h < 3; h++) {
+          let temp3x3 = []
+          // get 1 3x3
+          for (let j = 0; j < 3; j++) {
+            // get 3x1 (one horizontal row of 3)
+            for (let i = left; i < left + 3; i++) {
+              temp3x3.push(grid[row3x3][i])
+            }
+            row3x3++
+          }
+          // console.log(temp3x3)
+          // immediately return false if a 3x3 isn't correct.
+          if (correct !== [...temp3x3].sort((a, b) => a - b).join('')) return false;
+          // move horizontally 3 spaces over to start the next 3x3
+          left += 3
+          // reset row3x3 so that on the next loop it doesnt start from the lowest row of the 3x3
+          row3x3 -= 3;
+        }
+        // progress to the next three row of 3x3's below.
+        row3x3 += 3
+        // reset horizontal positioning after completed a row of three 3x3's.
+        left = 0;
+      }
+      return true;
+    }
+    return checkRow(grid) && checkColumn(grid) && check3x3(grid)
+  }
+
+
+
+
+  /* pseudocode for check 3x3
+  create a loop that runs a total 3 times, one for each ROW of three, 3x3 grids
+
+  //sub loop 1 repeated 3x for each 3x3 in the current row.
+
+  //sub loop 2 to get one full 3x3
+
+  //sub loop 3 a subloop that iterates over one row of one 3x3
+  add each iterated value to an array named temp3x3,
+  increment the row until all 3 rows are added to tempt 3x3
+
+  Once the full 3x3 has been added to the array,
+  compare 'correct' with the string version of the array.  If not equal, return false
+
+  then increment 'left' by 3 and repeat subloop 3 on each.
+
+  once 3 3x3's are done,
+  increase row3x3 by 3, to move everything down to the next horizontal row of 3x3's.
+
+  return true
+   */
+
+/* pseudo code to the other portions... except my code is more updated and modular,
+with 3 total helper functions.
       create bounds for top bottom left right
       create a variable named 'counter' which will keep track of how many vertical columns have been checked
       create a variable named 'correct' to store what an ordered, correct sudoku row/column should look like,
@@ -105,6 +161,7 @@ These examples are represented on the image below.
       if not, return false immediately.
 
        */
+
 /* a solution
 function sudoku(grid) {
   return (
