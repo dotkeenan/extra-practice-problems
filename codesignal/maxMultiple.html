@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* description
+Given a divisor and a bound, find the largest integer N such that:
+
+N is divisible by divisor.
+N is less than or equal to bound.
+N is greater than 0.
+It is guaranteed that such a number exists.
+
+Example
+
+For divisor = 3 and bound = 10, the output should be
+maxMultiple(divisor, bound) = 9.
+
+The largest integer divisible by 3 and not larger than 10 is 9.
+*/
+    function maxMultiple(divisor, bound) {
+        for (let i = bound; i >= divisor; i--) {
+          if (i % divisor === 0) return i;
+        }
+      }
+  </script>
+</body>
+</html>
