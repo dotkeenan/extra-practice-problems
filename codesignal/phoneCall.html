@@ -70,8 +70,6 @@ Thus, the longest call you can make is 1 + 9 + 4 = 14 minutes long.
     //     return Math.floor(minutes + b + c)
     //   }
 /* pseudocode
-
-/*
 quick catchall where if s < min1, return 0
 
 convert the amt of money into possible minutes
@@ -95,7 +93,34 @@ within it, subtract min11 from wallet
 increment minutes
 
  */
-*/
+
+ /* top solution
+same as my solution, quick catchall to return 0 if s < min1
+
+immediately subtract min1 from s
+
+check if s is less than min2_10 * 9, if it is,
+then use bitwise OR to either return S / min2_10 + 1, or 0.
+
+the first expression returns how many min2_10 minutes you get, and also the first
+minute that costs min1.  If the expression is less than 1, then return 0.
+This is in the event that min >= S > min2_10, which won't happen due to the + 1,
+it's basically just being used for the Math.floor() rounding nature of it.
+
+If the above if statment is false, then subtract min2_10 * 9 from S.
+
+return s / min 11 + 10 | 0
+The 10 is from the first minute, and the 9 x min2_10 minutes, and
+then you just add S / min11 to it, rounding down, using bitwise OR.
+
+ function phoneCall(min1, min2_10, min11, S) {
+    if (S < min1) return 0;
+    S -= min1;
+    if (S < min2_10 * 9) return S / min2_10 + 1 | 0;
+    S -= min2_10 * 9;
+    return S / min11 + 10 | 0;
+}
+ */
   </script>
 </body>
 </html>
