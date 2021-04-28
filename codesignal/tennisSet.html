@@ -62,7 +62,23 @@ This set will continue until one of these players wins their 7th game, so this c
       check if either score is 6.  If it is, check if the other score is less than 5. return true if yes, false if no.
 
       return false by default
-       */
+*/
+
+/* top solution:
+find the higher and lower score and set them to max and min respectively
+test the two win conditions:
+1. if someone has 6, the other person must have less than 5
+2. if someone has 7, the other person must have more than 4, but less than 7
+(must be 5 or 6)
+these two tests are the same rules/win conditions I came up with,
+but mine likes wayyyy fricken uglier.
+
+function tennisSet(score1, score2) {
+    var max = Math.max(score1, score2),
+        min = Math.min(score1, score2);
+    return  (max == 6 && min < 5) || (max == 7 && min >= 5 && min <=6);
+}
+ */
   </script>
 </body>
 </html>
