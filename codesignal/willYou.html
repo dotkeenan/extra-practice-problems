@@ -34,6 +34,13 @@ Mary doesn't believe that not beautiful people can be loved.
         return !(yAndB === loved)
       }
 /*
+after reviewing it, its completely unnecessary to have that ternary,
+since young && beautiful would already evaluate to true or false.
+
+also instead of using bang operator, i could just do yAndB !== loved, but
+logically it doesn't make as much sense.
+ */
+/*
       tricky wording, but basically return false if it aligns with Mary's beliefs
       return true if it contradicts Mary's beliefs.
 
@@ -45,6 +52,13 @@ Mary doesn't believe that not beautiful people can be loved.
 
       return the OPPOSITE of the result of the comparison between yAndB and loved. (due to the weird ass wording).
        */
+/* top solution:
+
+
+function willYou(young, beautiful, loved) {
+    return (young && beautiful) != loved;
+}
+ */
   </script>
 </body>
 </html>
