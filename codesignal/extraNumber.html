@@ -26,6 +26,26 @@ The two equal numbers are a and c. The third number (b) equals 7, which is the a
           }
         }
       }
+
+/* top solution:
+some weird genius bitwise XOR solution
+ex: extraNumber(3, 5, 3)
+bitwise conversions:
+3 === ...011
+5 === ...101
+3 === ...011
+
+(3^5) === ...110 or 6
+so then 6^3 === 101 or 5.
+
+5 is the non repeating number.
+
+I have absolutely no idea how this works.  Will look up later.
+
+function extraNumber(a, b, c) {
+    return (a^b)^c
+}
+*/
   </script>
 </body>
 </html>
