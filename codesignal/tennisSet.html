@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*
+In tennis, the winner of a set is based on how many games each player wins. The first player to win 6 games is declared the winner unless their opponent had already won 5 games, in which case the set continues until one of the players has won 7 games.
+
+Given two integers score1 and score2, your task is to determine if it is possible for a tennis set to be finished with a final score of score1 : score2.
+
+Example
+
+For score1 = 3 and score2 = 6, the output should be
+tennisSet(score1, score2) = true.
+
+Since player 1 hadn't reached 5 wins, the set ends once player 2 has won 6 games.
+
+For score1 = 8 and score2 = 5, the output should be
+tennisSet(score1, score2) = false.
+
+Since both players won at least 5 games, the set would've ended once one of them won the 7th one.
+
+For score1 = 6 and score2 = 5, the output should be
+tennisSet(score1, score2) = false.
+
+This set will continue until one of these players wins their 7th game, so this can't be the final score.
+ */
+    // this is not pretty...
+    function tennisSet(score1, score2) {
+        if (score1 > 7 || score2 > 7) return false;
+        if (score1 === 7 || score2 === 7) {
+          if (score1 === 5 || score1 === 6 || score2 === 5 || score2 === 6) {
+            return true
+          } else {
+            return false
+          }
+        }
+        if (score1 === 6 || score2 === 6) {
+          if (score1 < 5 || score2 < 5) {
+            return true
+          } else {
+            return false;
+          }
+        }
+        return false;
+      }
+/*
+      rules:
+      first player to 6 wins
+      if other player already has 5, then first to 7 points.
+      no player will EVER have more than 7 points
+      No player will ever have more than 6 points if the other player has less than 5.
+
+      pseudocode:
+      check if either score is greater than 7.  immediately return no if it is.
+      check if either score is 7, if it is, check if either score is 5 or 6.  return true if yes, false if no.
+      check if either score is 6.  If it is, check if the other score is less than 5. return true if yes, false if no.
+
+      return false by default
+       */
+  </script>
+</body>
+</html>
