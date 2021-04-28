@@ -54,6 +54,24 @@ So the answer is false.
 
       return false at the end if nothing returns true above.
        */
+
+//  top solution:
+/*
+use the some() to test against each array element if atleast 1 or more, evaluate to
+true.
+an array of individual operators is created using the spread operator on the string
+
+within the some(), it tests if when using eval() on a template literal of
+the operation of A on B will strictly equal C.
+
+eval() is generally not used due to security issues in browsers, but it seems the
+quickest way to turn a string operator into a normal mathematical one.
+ */
+
+// function arithmeticExpression(A, B, C) {
+//     return [...'+-*/'].some(op => eval(`${A}${op}${B}`) === C)
+// }
+
   </script>
 </body>
 </html>
