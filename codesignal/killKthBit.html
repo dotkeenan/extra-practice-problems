@@ -27,18 +27,22 @@ The 4th bit is 0 already (looks like the Mad Coder forgot to encrypt this number
         return n & ~(1 << k - 1);
       }
 /* notes:
-       & Sets each bit to 1 if both bits are 1.  If one is 1 and the other is 0, it changes it to 0.
-       ~ inverts all the bits
-      << Shifts left by pushing zeros in from the right and let the leftmost bits fall off
-      k-1 is due to the fact that you want the kth bit, but you start at 1, not 0, so you need to -1 to compensate for the offset
+ & Sets each bit to 1 if both bits are 1.  If one is 1 and the other is 0, it changes it to 0.
+ ~ inverts all the bits
+<< Shifts left by pushing zeros in from the right and let the leftmost bits fall off
+k-1 is due to the fact that you want the kth bit, but you start with 1 (1 in bitwise is just ...0001) so you need to -1 to compensate for the offset
 
-      return n and (set each bit to 1 if both bits are 1) the opposite of the bit at the kth bit.
-      so if n = 37, that converts to 100101.
-      we want to convert the kth bit to 0 if it is 1, but ignore it if it's already 0.
-      & ~(bit selection) basically flips the bit of whatever it was at that kth position.
-      I dont understand tho, if it's a 0, won't it get inverted to 1?
-      And what if n happens to be 1, then both 1's would return a 1 due to &.
-       */
+return n and (set each bit to 1 if both bits are 1) the opposite of the bit at the kth bit.
+so if n = 37, that converts to 100101.
+and if k=3, (1 << k-1) converts to 100
+
+we want to convert the kth bit to 0 if it is 1, but ignore it if it's already 0.
+& ~(bit selection) basically flips value of every bit in the (1 << k-1), so 100 becomes 011.
+
+so in the end we have the epression 100101 & 011
+since & only returns a 1 if both bits in the same place are 1,
+it evaluates to 100001, which converts to 33.
+*/
   </script>
 </body>
 </html>
