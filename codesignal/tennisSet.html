@@ -30,7 +30,8 @@ tennisSet(score1, score2) = false.
 
 This set will continue until one of these players wins their 7th game, so this can't be the final score.
  */
-    // this is not pretty...
+
+    // extremely ugly first attempt.
     function tennisSet(score1, score2) {
         if (score1 > 7 || score2 > 7) return false;
         if (score1 === 7 || score2 === 7) {
@@ -49,6 +50,9 @@ This set will continue until one of these players wins their 7th game, so this c
         }
         return false;
       }
+
+    // better solution for visibility
+
 /*
       rules:
       first player to 6 wins
