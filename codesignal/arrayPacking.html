@@ -53,6 +53,15 @@ join the array so its one long string.
 parseInt(result , 2) in order to convert the long binary number into a integer.
 radix of 2 is what turns it into binary.
 */
+
+/* top solution:
+No clue whats going on here.
+I recognize 256 as a bit integer, and all I can think is that it's somehow being used
+to evaluate each integer in 'a' as a binary number?
+function arrayPacking(a) {
+    return a.reduce((value, byte, i) => value + byte * Math.pow(256, i));
+}
+*/
   </script>
 </body>
 </html>
