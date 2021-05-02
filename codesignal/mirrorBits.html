@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* description
+Reverse the order of the bits in a given integer.
+
+Example
+
+For a = 97, the output should be
+mirrorBits(a) = 67.
+
+97 equals to 1100001 in binary, which is 1000011 after mirroring, and that is 67 in base 10.
+
+For a = 8, the output should be
+mirrorBits(a) = 1.
+*/
+    function mirrorBits(a) {
+        const mirrored = a.toString(2).split('').reverse().join('')
+        return parseInt(mirrored, 2)
+        /* One liner
+        return parseInt(a.toString(2).split('').reverse().join(''), 2) */
+
+      }
+
+/* brainstorm
+convert 'a' into binary form
+since it is in string form, reverse the string.
+join the string
+parse the reversed binary number.
+  */
+  </script>
+</body>
+</html>

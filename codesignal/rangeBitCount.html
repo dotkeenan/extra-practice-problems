@@ -41,7 +41,24 @@ Use replaceAll() to replace all 0's with empty string '', and return the length 
 result of the expression.
  */
 
-/* top solution: */
+/* top solution:
+create an empty string
+use a while loop in order to iterate over values between and including 'a' and 'b',
+and adding each one's binary form to the empty string.
+
+return the length - 1 of the string split() at '1'.
+
+
+
+function rangeBitCount(a, b) {
+    var packed = "";
+    while(a <= b){
+        packed += a.toString(2);
+        a++;
+    }
+    return packed.split('1').length-1;
+}
+*/
   </script>
 </body>
 </html>
