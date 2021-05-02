@@ -26,6 +26,20 @@ Given a = 2 and b = 7 the array is: [2, 3, 4, 5, 6, 7]. Converting the numbers t
         const bitArr = arr.map(x => x.toString(2))
         return bitArr.join('').replaceAll('0', '').length
       }
+/* notes
+need to create an counting array that starts at 'a' and ends with 'b'
+use a for loop and push values of i into the empty array, named 'arr'.
+
+need to convert each array element into it's binary representation.
+map over the properly filled array and use toString(2) to turn them into string
+representations of their binary form.
+
+need to count how many 1's exist in the array.
+join the array into one long string.
+
+Use replaceAll() to replace all 0's with empty string '', and return the length of the
+result of the expression.
+ */
 
 /* top solution: */
   </script>
