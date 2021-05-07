@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function swapAdjacentBits(n) {
+        return ((n & 0xAAAAAAAA) >> 1) | ((n & 0x55555555) << 1);
+      }
+/*
+      Explanation
+
+      Let’s take n = 13, for example.
+      1310 = 11012
+
+      (11012 & 10102) >> 1 extracts the higher bits and shifts to the lower bit position.
+
+      11012 & 10102 = 10002
+      10002 >> 1 = 01002
+      (11012 & 01012) << 1 extracts the lower bits and shifts to the higher bit position.
+
+      11012 & 01012 = 01012
+      01012 << 1 = 10102
+      So, we combine the two, and we get our swapped bits.
+
+      01002 | 10102 = 11102
+       */
+  </script>
+</body>
+</html>
