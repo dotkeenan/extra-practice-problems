@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function countSumOfTwoRepresentations2(n, l, r) {
+        const res = new Set();
+        for (let i = l; i <= r; i++) {
+          if (n - i <= r && n - i >= l) {
+            let max = Math.max(n - i, i)
+            let min = Math.min(n - i, i)
+            res.add('' + min + max)
+          }
+        }
+        return res.size;
+      }
+
+
+      /* pseudo code
+      create a storage named 'res' that stores unique pairs have a sum of n.
+      loop over numbers starting at l and ending if i is less than or equal to r
+
+      check if the result of n - i is less than or equal to r and if n - i is greater than or equal to l,
+      if it is, concatenate string versions of  i and n - i (but sort them first somehow), and add them to 'res'.
+
+      loop over 'res', remove any duplicates.
+      return length of res.
+
+
+      weird situations:
+      when the addends are the same number. (n=6, 3 and 3 are a sum but same number)
+      when the addends are just reversed pairs, like if n=5, 2 and 3, and 3 and 2.
+       */
+  </script>
+</body>
+</html>
