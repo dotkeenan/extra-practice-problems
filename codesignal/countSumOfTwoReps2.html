@@ -46,6 +46,13 @@ There are just two ways to write 6 as A + B, where 2 ≤ A ≤ B ≤ 4: 6 = 2 + 
       when the addends are the same number. (n=6, 3 and 3 are a sum but same number)
       when the addends are just reversed pairs, like if n=5, 2 and 3, and 3 and 2.
        */
+
+/* top solution
+
+function countSumOfTwoRepresentations2(n, l, r) {
+    return Math.max(Math.min(Math.floor(n / 2) - l, r - Math.ceil(n / 2)) + 1, 0);
+}
+*/
   </script>
 </body>
 </html>
