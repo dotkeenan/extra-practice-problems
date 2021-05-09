@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* description
+You are given two numbers a and b where 0 ≤ a ≤ b. Imagine you construct an array of all the integers from a to b inclusive. You need to count the number of 1s in the binary representations of all the numbers in the array.
+
+Example
+
+For a = 2 and b = 7, the output should be
+rangeBitCount(a, b) = 11.
+
+Given a = 2 and b = 7 the array is: [2, 3, 4, 5, 6, 7]. Converting the numbers to binary, we get [10, 11, 100, 101, 110, 111], which contains 1 + 2 + 1 + 2 + 2 + 3 = 11 1s.
+ */
+    function rangeBitCount(a, b) {
+        const arr = [];
+        for (let i = a; i <= b; i++) {
+          arr.push(i)
+        }
+        const bitArr = arr.map(x => x.toString(2))
+        return bitArr.join('').replaceAll('0', '').length
+      }
+/* notes
+need to create an counting array that starts at 'a' and ends with 'b'
+use a for loop and push values of i into the empty array, named 'arr'.
+
+need to convert each array element into it's binary representation.
+map over the properly filled array and use toString(2) to turn them into string
+representations of their binary form.
+
+need to count how many 1's exist in the array.
+join the array into one long string.
+
+Use replaceAll() to replace all 0's with empty string '', and return the length of the
+result of the expression.
+ */
+
+/* top solution:
+create an empty string
+use a while loop in order to iterate over values between and including 'a' and 'b',
+and adding each one's binary form to the empty string.
+
+return the length - 1 of the string split() at '1'.
+
+
+
+function rangeBitCount(a, b) {
+    var packed = "";
+    while(a <= b){
+        packed += a.toString(2);
+        a++;
+    }
+    return packed.split('1').length-1;
+}
+*/
+  </script>
+</body>
+</html>
