@@ -29,15 +29,24 @@ You will cast your first marble and get $2, after which the numbers will become 
         return total;
       }
 
-      /*
-      create a storage named 'total', initialized as 0, which will store the amt of money acquired.
-      create a while loop to run as long as n > 0
-      inside the loop, multiply a and b, and add that to 'total'
-      then increment a and b by 1.
-      decrement n
+/*
+create a storage named 'total', initialized as 0, which will store the amt of money acquired.
+create a while loop to run as long as n > 0
+inside the loop, multiply a and b, and add that to 'total'
+then increment a and b by 1.
+decrement n
 
-      return total.
-       */
+return total.
+*/
+
+/* top solution:
+uses recursion to achieve the same thing I did above with my while loop.
+Still need to properly learn recursion.
+
+function magicalWell(a, b, n) {
+    return n != 0 ? a * b + magicalWell(++a, ++b, --n) : 0;
+}
+*/
   </script>
 </body>
 </html>
