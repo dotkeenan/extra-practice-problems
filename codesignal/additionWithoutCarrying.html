@@ -72,7 +72,34 @@ There is no digit in the first number corresponding to the leading digit of the 
   return the Number version of 'res'
    */
 
-/*
+/* top solution:
+set result to 0
+set num to 1 (represents the power of 10, or rather a way to add digits
+in a string like, concatenating fashion)
+while loop that runs as long as param1 + param 2 > 0.
+each iteration multiplies num by 10 (adding a tens place).
+addition of para1 and param2 and take the remainder of it when divided by 'num'
+
+the whole next subtraction assignment is big brain
+it keeps subtracting the last digits value from the param.
+so if param1 was 1234, it would go:
+1230, 1200, 1000, 0.
+
+By doing all of this, with the whole power of 10 thing as well,
+this person avoided having to conver to strings and back to numbers like I did.
+
+
+function additionWithoutCarrying(param1, param2) {
+    var result = 0,
+        num = 1;
+    while (param1 + param2 > 0) {
+        num *= 10;
+        result += (param1 + param2) % num;
+        param1 -= param1 % num;
+        param2 -= param2 % num;
+    }
+    return result;
+}
 
 */
   </script>
