@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function additionWithoutCarrying(param1, param2) {
+        const strParam1 = param1.toString(), strParam2 = param2.toString()
+        let shortestParam = strParam1.length > strParam2.length ? strParam2 : strParam1
+        let longestParam = strParam1.length > strParam2.length ? strParam1 : strParam2
+        let res = '';
+        /* if they are the same length, just perform the operation */
+        if (strParam1.length === strParam2.length) {
+          for (let i = 0; i < strParam1.length; i++) {
+            res += ((Number(strParam1[i]) + Number(strParam2[i])) % 10)
+          }
+        } else {
+          /* add leading zeroes to the shorter param and add each digit */
+          let zeros = '0'.repeat(longestParam.length)
+          shortestParam = zeros.slice(shortestParam.length) + shortestParam
+          for (let i = 0; i < longestParam.length; i++) {
+            let remainder = ((Number(longestParam[i]) + Number(shortestParam[i])) % 10)
+            console.log(remainder)
+            res += remainder
+          }
+        }
+        return Number(res);
+      }
+/*
+      add all the numbers from right to left, then perform modulous of 10 on the result
+
+      issues:
+      when numbers are not the same digits, add leading zeroes until it matches the longest number
+
+       */
+  </script>
+</body>
+</html>
