@@ -8,6 +8,29 @@
 </head>
 <body>
   <script>
+/* description
+A little boy is studying arithmetic. He has just learned how to add two integers, written one below another, column by column. But he always forgets about the important part - carrying.
+
+Given two integers, your task is to find the result which the little boy will get.
+
+Note: The boy had learned from this site, so feel free to check it out too if you are not familiar with column addition.
+
+Example
+
+For param1 = 456 and param2 = 1734, the output should be
+additionWithoutCarrying(param1, param2) = 1180.
+
+   456
+  1734
++ ____
+  1180
+The boy performs the following operations from right to left:
+
+6 + 4 = 10 but he forgets about carrying the 1 and just writes down the 0 in the last column
+5 + 3 = 8
+4 + 7 = 11 but he forgets about the leading 1 and just writes down 1 under 4 and 7.
+There is no digit in the first number corresponding to the leading digit of the second one, so the boy imagines that 0 is written before 456. Thus, he gets 0 + 1 = 1.
+*/
     function additionWithoutCarrying(param1, param2) {
         const strParam1 = param1.toString(), strParam2 = param2.toString()
         let shortestParam = strParam1.length > strParam2.length ? strParam2 : strParam1
@@ -30,13 +53,28 @@
         }
         return Number(res);
       }
+  /*
+  create storages named strParam1 and strParam2, and assign the string versions of param1 and param2 to them
+  create storage named shortestParam to store the value shortest length parameter
+  create storage named longestParam to store the longest length paramater
+  create a storage named res to store the string representation of the addition without carrying
+
+  create a conditional, if param1 and param2 are equal in length, then loop over the length of the params
+  and take the remainder after adding the current digits of param1 and param2 together.
+  add that result to 'res'
+
+  if the conditional is false,
+  Add leading zeros to the shortestParam and store the result in a storage named 'zeros'
+  create a loop running the length of the longestParam
+  create a storage named 'remainder' and assign it the remainder after adding the numeric version of the current digits of param1 and param2 without carrying.
+  add and assign 'remainder' to 'res'
+
+  return the Number version of 'res'
+   */
+
 /*
-      add all the numbers from right to left, then perform modulous of 10 on the result
 
-      issues:
-      when numbers are not the same digits, add leading zeroes until it matches the longest number
-
-       */
+*/
   </script>
 </body>
 </html>
