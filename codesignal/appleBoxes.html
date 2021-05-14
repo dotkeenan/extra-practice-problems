@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function appleBoxes(k) {
+        let res = 0;
+
+        while (k > 0) {
+          if (k % 2 === 0) {
+            res += k ** 2;
+          } else {
+            res -= k ** 2;
+          }
+          k--
+        }
+        return res;
+      }
+/*
+add when even
+subtract when odd
+
+create a storage named 'res' initialized at 0, which will store the cumulative total of
+red apples - yellow apples
+
+create a loop that runs k times.
+on each iteration, if k is odd, then subtract k * k from res
+if k is even, add k * k to res.
+decrement k
+
+return res
+*/
+  </script>
+</body>
+</html>
