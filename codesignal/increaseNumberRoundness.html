@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function increaseNumberRoundness(n) {
+        let nString = n.toString()
+        for (let i = 1; i < nString.length - 1; i++) {
+          if (nString[i] === '0' && nString[i - 1] !== '0' && nString[i + 1] !== '0') {
+            return true;
+          }
+        }
+        return false;
+      }
+/* brainstorm
+need to check if there are any non-trailing zeros.
+if there is, then return false.
+
+If there is a non-trailing zero, you should always be able to swap it with the right most
+non-zero digit to increase its roundness.
+
+*/
+
+/* pseudocode
+convert n to a string and loop over it.
+start at i = 1 and continue as long as i < nString.length - 1
+if nString[i] is string 0, check if nString[i - 1] and nString[i+1] are string, non-zero numbers.
+
+If they are, then return true.
+else return false.
+
+*/
+  </script>
+</body>
+</html>
