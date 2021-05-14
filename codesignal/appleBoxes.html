@@ -49,6 +49,18 @@ decrement k
 
 return res
 */
+
+/* top solution
+k * (k+1) / 2 is a known algorithm to get the sum of each number
+counting up to k. (i.e if k = 5, 1+2+3+4+5 = 15.)
+
+I guess somehow when dealing with k ** 2,
+it's like the equivalent of adding the sum of numbers leading up to k???
+
+function appleBoxes(k) {
+    return k * (k + 1) / (k % 2 ? -2 : 2);
+}
+*/
   </script>
 </body>
 </html>
