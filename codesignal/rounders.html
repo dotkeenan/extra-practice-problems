@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function rounders(n) {
+        let pow = 10;
+        let res = 0;
+        while (n % pow !== n) {
+          if (n % pow < 5 * (pow / 10)) {
+            n -= n % pow
+          } else {
+            n -= n % pow
+            n += pow * 1
+          }
+          pow *= 10
+        }
+        return n;
+      }
+      function rounders(n) {
+        let pow = 10;
+        let res = 0;
+        while (n % pow !== n) {
+          if (n % pow < 5 * (pow / 10)) {
+            n -= n % pow
+          } else {
+            n -= n % pow
+            n += pow * 1
+          }
+          pow *= 10
+        }
+        return n;
+      }
+/* brainstorm/ pseudocode
+create a storage named pow initialized at 10, to store the power which will be used to
+modulous n by.
+create storage named res initialized at 0, to store the result
+
+create a while loop that runs as long as n % pow does not equal n.
+(basically loop will stop once power gets too large.  A power larger larger than n will just return n when using modulous.)
+
+in the loop:
+if the remainder of n divided by pow is less than 5 * (pow/10) // due to the multiplcation assignment of pow, in the code block, need to revert pow back to a lower power of 10 before it was increased.  (hard to explain, just need to console log n % pow < 5 to see that it doesn't work that way)
+
+assign n the remainder of n divided by pow
+
+if remainder of n divided by pow is equal or grather than 5,
+assign n the result of n minus the remainder of n divided by pow
+assign n the result of pow multiplied by 1
+
+after either if or else, multiply and assign 10 to pow.
+
+return n
+
+*/
+  </script>
+</body>
+</html>
