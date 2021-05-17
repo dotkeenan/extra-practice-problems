@@ -44,6 +44,12 @@ countBlackCells(n, m) = 7.
         if (n == 1 || m == 1) return n * m;
         return n + m - gcd(n, m) + (gcd(n, m) - 1) * 2;
       }
+/* top solution
+function countBlackCells(n, m) {
+    var gcd = (a, b) => b == 0 ? a : gcd(b, a % b);
+    return n + m + gcd(n, m) - 2;
+}
+*/
   </script>
 </body>
 </html>
