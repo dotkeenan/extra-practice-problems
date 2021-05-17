@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* description
+When a candle finishes burning it leaves a leftover. makeNew leftovers can be combined to make a new candle, which, when burning down, will in turn leave another leftover.
+
+You have candlesNumber candles in your possession. What's the total number of candles you can burn, assuming that you create new candles as soon as you have enough leftovers?
+
+Example
+
+For candlesNumber = 5 and makeNew = 2, the output should be
+candles(candlesNumber, makeNew) = 9.
+
+Here is what you can do to burn 9 candles:
+
+burn 5 candles, obtain 5 leftovers;
+create 2 more candles, using 4 leftovers (1 leftover remains);
+burn 2 candles, end up with 3 leftovers;
+create another candle using 2 leftovers (1 leftover remains);
+burn the created candle, which gives another leftover (2 leftovers in total);
+create a candle from the remaining leftovers;
+burn the last candle.
+Thus, you can burn 5 + 2 + 1 + 1 = 9 candles, which is the answer.
+*/
+    function candles(candlesNumber, makeNew) {
+        let leftovers = candlesNumber;
+        let candles = candlesNumber;
+
+        while (leftovers >= makeNew) {
+          let newCandles = Math.floor(leftovers / makeNew)
+          candles += newCandles
+          leftovers = newCandles + (leftovers % makeNew)
+        }
+        return candles;
+      }
+
+      /* pseudocode
+
+      create storage for leftovers initialized as candlesNumber.
+      create storage for candles initialized as candlesNumber
+
+      run a loop that continues as long as there are enough leftovers to make a new candle.
+      divide leftovers by makeNew, round that result down, and assign to a storage named newCandles
+      add and assign newCandles to candles
+      assign leftovers the result newCandles added to remainder of newCandles divided by makeNew
+
+      return candles
+       */
+  </script>
+</body>
+</html>
