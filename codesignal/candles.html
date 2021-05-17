@@ -53,6 +53,17 @@ Thus, you can burn 5 + 2 + 1 + 1 = 9 candles, which is the answer.
 
       return candles
        */
+/*  top solution:
+Not quite sure how this works or if its just some known mathematical
+algorithm.
+if candles = 5 and makeNew = 2,
+return 5 + (4/1) = 9.  It's correct... but not sure the math behind it.
+
+
+function candles(candles, makeNew) {
+    return candles + Math.floor((candles - 1) / (makeNew - 1));
+}
+*/
   </script>
 </body>
 </html>
