@@ -26,12 +26,27 @@ firstReverseTry(arr) = [5, 2, 3, 4, 1].
         return arr;
       }
 /* pseudocode
-      if array is empty, return arr.
-      create a storage named temp, to store the last array element
-      assign the last array element to the first array element
-      assign the first array to temp
-      return arr
-       */
+if array is empty, return arr.
+create a storage named temp, to store the last array element
+assign the last array element to the first array element
+assign the first array to temp
+return arr
+*/
+
+/* top solution:
+top solution creates an array that stores the first and last array elements,
+then assigns an array with the flipped order values of the last element and first element
+
+I didn't know you could re-assign array elements like this...
+setting an array containing array elements to another array with values.
+
+then just have a catch for when arr is empty, else return arr.
+
+function firstReverseTry(arr) {
+    [arr[0], arr[arr.length-1]] = [arr[arr.length-1], arr[0]];
+    return arr[0] === undefined ? [] : arr;
+}
+*/
   </script>
 </body>
 </html>
