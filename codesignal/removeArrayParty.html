@@ -21,9 +21,19 @@ removeArrayPart(inputArray, l, r) = [2, 3, 5].
         return inputArray
       }
 /* pseudocode
-      splice parts of the array, starting at l, and deleting r-l+1 amount of elements.
-      return inputArray
-       */
+splice parts of the array, starting at l, and deleting r-l+1 amount of elements.
+return inputArray
+*/
+
+/* top solution:
+same thing as mine.
+
+function removeArrayPart(inputArray, l, r) {
+    var toRemove = r - l + 1;
+    inputArray.splice(l, toRemove);
+    return inputArray;
+}
+ */
   </script>
 </body>
 </html>
