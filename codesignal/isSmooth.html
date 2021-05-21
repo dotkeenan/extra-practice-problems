@@ -57,6 +57,24 @@ if the result is the same as the first/last array element, return true
 return false.
 */
 
+/* top solution
+store arr.length - 1 into variable 'l' (i use the same idea of arr.length - 1)
+
+What's happening here is a less verbose version of mine
+first just checks that the first element and last element are the same
+then also cleverly combines the code to process an even or odd length array.
+if the l % 2 == 0 (its even), then add the value of the middle of the array (rounded down) to
+the value of the middle array rounded up.
+(basically this means it will add the two middle values of the array)
+if l % 2 is truthy, then it will just be 0, and won't affect
+when the arr.length is odd.
+
+function isSmooth(arr) {
+    l = arr.length-1;
+    return arr[0]==arr[l] && arr[0] == arr[Math.floor(l/2)] + (l%2?arr[Math.ceil(l/2)]:0);
+}
+*/
+
   </script>
 </body>
 </html>
