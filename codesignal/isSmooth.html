@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isSmooth(arr) {
+        if (arr[0] !== arr[arr.length - 1]) return false;
+        if (arr.length % 2 === 0) {
+          let upper = Math.ceil((arr.length - 1) / 2)
+          let lower = Math.floor((arr.length - 1) / 2)
+          if (arr[upper] + arr[lower] === arr[0]) return true;
+        }
+        if (arr.length % 2 === 1) {
+          let middle = Math.ceil((arr.length - 1) / 2)
+          console.log(arr[middle])
+          if (arr[middle] === arr[0]) return true
+        }
+        return false;
+      }
+/* pseudocode
+quick check to see if first and last array elements are the same.  If not, return false.
+
+if array length is even,
+take the array length - 1, and divide it by 2,
+store the rounded up version and rounded down version into variables named upper and lower.
+add the array element at position 'upper' and array element at position 'lower'
+if the result is the same as the first/last element, return true.
+
+if the array length is odd,
+take the array length, divide it by 2 - 1, and round up.
+if the result is the same as the first/last array element, return true
+
+return false.
+*/
+
+  </script>
+</body>
+</html>
