@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function replaceMiddle(arr) {
+        if (arr.length % 2 === 1) return arr;
+        const midLower = Math.floor((arr.length - 1) / 2);
+        const midUpper = Math.ceil((arr.length - 1) / 2);
+        const sum = arr[midLower] + arr[midUpper]
+        arr.splice(midLower, 2, sum);
+        return arr;
+      }
+
+      /* pseudocode
+      if the array length is odd, just return arr
+      create a storage named midLower and set it equal to the length of the array minus 1, divided by 2, and rounded down
+      create a storage named midUpper and set it equal to the length of the array minus 1, divided by 2, and rounded up.
+      the minus 1 is to offset for 0 indexing.
+
+      remove 2 array elements, starting at midLower index
+       */
+  </script>
+</body>
+</html>
