@@ -54,6 +54,65 @@ if x divided by i DOES have a remainder, and fails the nested while loop conditi
 
 return false at the very end.
 */
+
+/* top solution:
+same quick check if n === 1, return true;
+
+create a loop that intializes i as 2, runs conditionally if 'i' is less than
+or equal to the square root of n, and a final expression of i++
+-This loop's purpose is to test all the possible numbers 2 and the square root of n,
+in order to power them by 'j' later.
+-This was the correct way to not use a restrictive hard cap of '20' like i did.
+Because the largest value of i will always be the number where that number multiplied
+by itself, equals n.  (e.g for 144, 12 * 12.  Loop would run as long as i <= 12)
+
+There is an inner for loop that initializes j as 2, and runs as long as
+i ** j < n, and final expression of j++
+-This loops purpose is to test all the possible powers in order to find when i ** j === n
+
+pretty bad explanation but a sample run through;
+n = 125, so 5**3 means that it would return true
+
+i = 2,
+i <= 11.180339887498949 (square root of 125)// true so continue loop
+
+j=2
+Math.pow(i, j) < n // 2 ** 2 === 4, and 4 < 125
+so now j will keep incrementing as follows:
+2 ** 2 // 4
+2 ** 3 // 8
+2 ** 4 // 16
+2 ** 5 // 32
+2 ** 6 // 64
+2 ** 2 // 128 is greater than 125, so inner loop ends and
+outter loop increments to 3,
+and it goes through the same thing as above, like
+3 ** 2
+3 ** 3... etc.
+After more iterations, it gets to 5 ** 3, and the conditional
+in the nested for loop is true, so it returns true.
+
+I'm not sure if this is slower, faster, or same as my solution.
+Both have nested loops but the solutions outter loop condition is better.
+
+Also a weird thing to note, is you can have a for loop without putting the code in a
+code block?
+
+the nested loop in the solution below has no code block and just
+runs the below code as if it was in a code block.
+I guess its similar to have you can have an 'if' conditional without a code block?
+like:
+if (true) return 'hello';
+
+function isPower(n) {
+    if (n == 1) return true;
+    for (i = 2; i <= Math.sqrt(n); i++) {
+        for (j = 2; Math.pow(i, j) < n; j++);
+        if (Math.pow(i, j) == n) return true;
+    }
+    return false;
+}
+*/
   </script>
 </body>
 </html>
