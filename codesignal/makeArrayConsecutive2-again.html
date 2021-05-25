@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* description
+Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
+
+Example
+
+For statues = [6, 2, 3, 8], the output should be
+makeArrayConsecutive2(statues) = 3.
+
+Ratiorg needs statues of sizes 4, 5 and 7.
+*/
+    function makeArrayConsecutive2(statues) {
+        statues.sort((a, b) => a - b);
+        const totalStatues = statues[statues.length - 1] - statues[0] + 1;
+        return totalStatues - statues.length;
+    }
+
+/* pseudocode
+sort the statues array
+subtract the first array element from the last element and store it in a variable named totalStatues
+subtract the length of the statues array from totalStatues and return that value.
+*/
+
+/* top solution:
+more efficient way than mine
+uses spread operator to much subtract the min value from the max value of the array
+then subtract the length of the array from the result, and add 1 to offset.
+
+
+function makeArrayConsecutive2(sequence) {
+    return Math.max(...sequence) - Math.min(...sequence) - sequence.length + 1;
+}
+*/
+  </script>
+</body>
+</html>
