@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/* description
+Determine if the given number is a power of some non-negative integer.
+
+Example
+
+For n = 125, the output should be
+isPower(n) = true;
+For n = 72, the output should be
+isPower(n) = false.
+*/
+    function isPower(n) {
+        if (n === 1) return true;
+        let i = 2
+        while (i <= 20) {
+          let x = n;
+          while (x % i === 0) {
+            x = x / i;
+            if (x === i) {
+              return true;
+            };
+          }
+          i++
+        }
+        return false;
+      }
+
+/* pseudocode
+create a quick catch for if n === 1, return true;
+
+initialize a storage named 'i', as 2.
+
+create a loop that runs as long as i is less than or equal to 20
+(n is a number between 0 and 401, so the largest possible value of i is 20,
+since 20 * 20 = 400)
+create a storage named 'x' and set it equal to 'n'
+
+create nested loop that runs as long as x divides by i with no remainder.
+
+within the loop, reassign x to the result of x divided by i
+
+check if x equals i.  If it does, return true;
+
+if x divided by i DOES have a remainder, and fails the nested while loop conditional, then increment i.
+
+return false at the very end.
+*/
+  </script>
+</body>
+</html>
