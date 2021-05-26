@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function isSumOfConsecutive2(n) {
+        let count = 0;
+        for (let i = 1; i < Math.ceil(n / 2); i++) {
+          let sum = i;
+          for (let j = i + 1; sum <= n; j++) {
+            sum += j;
+            if (sum === n) count++;
+            if (sum > n) break;
+          }
+        }
+        return count;
+      }
+/*
+example code trace
+n = 9
+
+i = 1
+sum = 1
+j = 2
+sum = 1 + 2
+j = 3
+sum = 3 + 3
+j = 4
+sum = 6 + 4
+10 > 9 so break.
+count = 0 still
+
+i = 2
+sum = 2
+j = 3
+sum = 5
+j = 4
+sum = 5 + 4
+9 === 9
+count = 1;
+
+i = 3 fails
+i = 4
+sum = 4
+j = 5
+sum = 4 + 5
+count = 2
+
+*/
+
+/* pseudocode
+create a storage named 'count' and initialize it as 0.  This keeps track of how many ways that consecutive integers add up to 'n'.
+create a loop that initializes 'i' as 1 and goes until n (probably should stop sooner but unsure of a definite hard cap
+probably about n/2 rounded upwards.)
+
+create a storage named sum and initialize it to 0.
+
+on each iteration, create a nested loop that initializes j as i + 1 and runs as long as 'sum' is less than or equal to 'n'
+within the loop, add j to sum and re-assign the result of it to sum.
+if res equals n, increment 'count'.
+if res > than 'n', stop the loop and return to the outter loop.
+
+return count
+*/
+  </script>
+</body>
+</html>
