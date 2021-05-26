@@ -82,6 +82,85 @@ if res > than 'n', stop the loop and return to the outter loop.
 
 return count
 */
+
+/* top solution:
+Not completely sure on the method and thought process behind this.  Traced code
+below the function and I can see that it works... Just not sure what the
+idea is.
+
+function isSumOfConsecutive2(n) {
+
+    c=0 //counter
+    l=1 //smallest number to be added ('left')
+    r=2 //biggest number to be added ('right')
+    s=3 //sum of all numbers in range [l,r] (including l and r)
+
+    while(1) {
+
+        if(l==r) return c // rangesize < 2 -> no more fitting ranges can be found -> return counter
+
+        if(s==n) c++ // found a fitting range
+
+        if(s<=n) s += ++r // sum is too small: grow to right side
+
+        if(s>n) s -= l++ // sum is too big: shrink from left side
+
+    }
+}
+
+trace:
+n = 9
+
+3rd if conditional runs:
+3 <= 9
+r = 3
+s = 3 + 3 // 6
+
+3rd if runs again
+6 <= 9
+r = 4
+s = 6 + 4
+
+4th if runs:
+s = 9
+l = 2
+
+2nd if runs
+s == n
+counter = 1
+
+3rd if runs
+9 <= 9
+s = 9 + 5 // 14
+r = 5
+
+4th runs
+14 > 9
+s = 12
+l = 3
+
+4th runs again
+12 > 9
+s = 12 - 3 // 9
+l = 4
+
+2nd runs
+9 === 9
+counter = 2
+
+3rd runs
+9 <= 9
+s = 9 + 6 // 15
+r = 6
+
+4th runs
+15 > 9
+s = 15 - 5 // 10
+l = 6
+
+1st runs
+6 === 6, returns 2.
+*/
   </script>
 </body>
 </html>
