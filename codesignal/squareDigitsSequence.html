@@ -74,6 +74,35 @@ assign 'square' to 'currSum'
 return sums.length + 1
 (+1 is to account for the duplicate value that ends the sequence, but never gets added to the array).
 */
+
+/* top solution:
+uses Set() in order to create an array-like object that only has unique values
+while loop that uses the same logic: run as long as the set doesn't include
+the next value in the sequence.
+
+Within the loop, similar logic to my solution:
+add the current iteration to the set.
+re-assigns a0 instead of making a variable like I did.
+converts a0 to a string, the splits it, the maps over the indivitual string digits
+converts the string digit to a number and squares it.
+then uses reduce() in order to sum the squared digits together.
+
+the return is also similar to mine with the +1 adjustment.
+
+function squareDigitsSequence(a0) {
+    let used = new Set();
+
+    while (!used.has(a0)) {
+        used.add(a0);
+        a0 = a0.toString()
+            .split('')
+            .map(x => parseInt(x) ** 2)
+            .reduce((a, b) => a + b)
+    }
+
+    return used.size + 1;
+}
+*/
   </script>
 </body>
 </html>
