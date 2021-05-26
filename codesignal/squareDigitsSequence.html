@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function squareDigitsSequence(a0) {
+        let currSum = a0.toString();
+        const sums = [];
+
+        while (!sums.includes(currSum)) {
+          sums.push(currSum)
+          let square = currSum.split('').map(x => {
+            return x = Math.pow(Number(x), 2)
+          }).reduce((acc, cur) => acc + cur).toString()
+          currSum = square;
+        }
+        return sums.length + 1;
+      }
+/* pseudocode
+Can't think of a way to do this without lots of
+converting between string and number.
+Tried thinking of a way to cut up the numbers using powers of 10, but couldn't come up with something.
+
+create a storage named sums and initialize it as an empty array.
+
+create a storage named currSum and initialize it as a0 converted to a string.
+
+create a loop that runs as long as 'sums' does not contain currSum.
+within the loop:
+push currSum into sums.
+
+create a storage named square and set it equal to the following:
+split curSum into an array of individual string digits
+
+map over the array and square each digit as a NUMBER
+
+reduce the array down to a single number by adding the digits together, and then converting it into a string.
+
+assign 'square' to 'currSum'
+
+return sums.length + 1
+(+1 is to account for the duplicate value that ends the sequence, but never gets added to the array).
+*/
+  </script>
+</body>
+</html>
