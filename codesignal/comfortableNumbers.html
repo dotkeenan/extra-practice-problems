@@ -81,6 +81,47 @@ Thus, there are 2 pairs of numbers comfortable with each other within the segmen
        */
 
 /* top solution
+create a pair counter
+
+loop over the values between and including 'l' and 'r'
+
+create a nested loop that iterates between and including i+1 and r.
+-the inner loop is to check the numbers after i, up until and including 'r'
+
+check if:
+i + sumDigits(i) /this is the upper bound/ is less than j (initialized at i + 1)
+AND if j - sumDigits(j) /the lower bound/ is less than i.
+
+if so, increment pairs.
+
+
+trace:
+l = 10, r = 12
+i = 10, j = 11
+10 + 1 >= 11 && 11 - 2 <= 10
+pairs = 1
+
+i = 10, j = 12
+10 + 1 !>= 12 && 12 - 3 <= 10 // condition not met
+
+j = 13, and condition for nested loop is not met, so increment i and loop again
+
+i = 11, j = 12
+11 + 2 >= 12 && 12 - 3 <= 11 //true
+pairs = 2
+
+i = 11, j = 13 // condition not met for nested loop, return to outer loop
+
+i = 12, j = 13 // condition not met for nested loop, and not met for outer loop.
+return pairs // 2
+
+So what seems to be happening:
+check if both i and i + 1 are in the range.
+checks if i + 1 is below the upper bound of i
+-(doesn't check if i + 1 is above the lower bound, because it always will be)
+checks if i is above the lower bound of i+1.
+-(doesn't check if i is below the upperbound because it always will be)
+
 
 
 function comfortableNumbers(l, r) {
