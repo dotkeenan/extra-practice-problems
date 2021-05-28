@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function pagesNumberingWithInk(current, numberOfDigits) {
+        let usedDigits = 0;
+        while (usedDigits <= numberOfDigits) {
+          let currDigiAmt = current.toString().split('').length
+          let nextDigiAmt = (current + 1).toString().split('').length
+          usedDigits += currDigiAmt
+
+          if (usedDigits + nextDigiAmt > numberOfDigits) {
+            return current;
+          }
+          current++;
+        }
+      }
+/* pseudocode
+create a storage named usedDigits, initialized as 0.  Used to store how many digits have been used already.
+
+create a loop that runs as long as the usedDigits is less than or equal to numberOfDigits
+inside the loop:
+
+create storage named currDigitAmt in order to store the amount of digits that 'current' has.
+
+create a storage named nextDigitAmt to store the amount of digits that the number after 'current' has.
+
+add and assign currDigitAmt to usedDigits
+
+Create a conditional that will return current, if usedDigits + nextDigitAmt is greater than numberOfDigits
+-This will return the last number I will be able to print, before we run out of ink, because it checks if the next page's digits will exceed the amount of digits worth of ink I have left.
+
+increment current to the next number.
+*/
+  </script>
+</body>
+</html>
