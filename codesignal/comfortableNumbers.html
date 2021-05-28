@@ -79,6 +79,31 @@ Thus, there are 2 pairs of numbers comfortable with each other within the segmen
       This is wrong.  I'm only checking pairs that are next to each other, but s(11) is comfortable with 10 and 12, not just 10.  Need to re-do.
 
        */
+
+/* top solution
+
+
+function comfortableNumbers(l, r) {
+    var pairs = 0
+for (i=l;i<=r;i++) {
+    for (j=i+1;j<=r;j++) {
+        if (i+sumDigits(i) >= j && j-sumDigits(j)<=i) {
+        pairs++
+        }
+    }
+}
+    return pairs
+}
+
+function sumDigits(n) {
+    var sum = 0
+while (n) {
+    sum += n % 10;
+    n = Math.floor(n / 10);
+}
+    return sum
+}
+*/
   </script>
 </body>
 </html>
