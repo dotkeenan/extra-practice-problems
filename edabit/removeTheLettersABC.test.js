@@ -1,4 +1,4 @@
-const removeABC = require('./tileTeamworkTactics')
+const removeABC = require('./removeTheLettersABC')
 describe('Remove the Letters ABC', () => {
   test('1', () => {
     expect(removeABC("This might be a bit hard")).toBe("This might e  it hrd")
