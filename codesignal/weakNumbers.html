@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function weakNumbers(n) {
+        //  amt of all the divisors for each num between 1 and n
+        const divisorAmts = [];
+        // list of all the weaknesses of each iteration of 'i'
+        const weaknesses = [];
+        // iterate over all numbers between 1 and n
+        for (let i = 1; i <= n; i++) {
+          // temporary storage for amt of divisors of current iteration of 'i'
+          let weaknessCount = 0;
+          let divisors = new Set()
+          // find divisors
+          for (let j = 1; j <= Math.ceil(i / 2); j++) {
+            if (i % j === 0) {
+              divisors.add(i).add(j)
+            }
+          }
+          divisorAmts.push(divisors.size)
+
+          // find amt of weaknesses current iteration of 'i' has
+          divisorAmts.forEach(x => {
+            if (x > divisors.size) {
+              weaknessCount++
+            }
+          })
+          weaknesses.push(weaknessCount);
+        }
+        return [Math.max(...weaknesses), weaknesses.filter(x => x === Math.max(...weaknesses)).length]
+      }
+/*
+      create storage for the amt of all the divisors for each number between 1 and n, named divisorAmts
+      create storage for the amt of weaknesses each number between 1 and n has, named weaknesses
+
+      create a loop that iterates over all the numbers between/including 1 and n.
+      in the loop:
+      create a storage to keep track of the amt of weaknesses the current iteration of 'i' has, named weaknessCount
+      create a new Set named divisors, to only allow unique values into it.
+      create a nested loop that iterates over all the numbers between/including 1 and i/2 rounded upwards
+      -this is to find all the possible unique divisors that 'i' has.  No need to go all the way up to i, since divisors will begin repeat themselves after the halfway point (e.g for 6, it would find 2*3 then 3*2)
+      inside nested loop:
+          if 'i' divided by 'j' has no remainder, then they are divisors and should be added to the set.
+      after nested loop:
+      push the size of the 'divisors' set to divisorAmts
+
+      Find how many weaknesses each iteration of 'i' has (a weakness is when a previous iteration of 'i' has more divisors than the current iteration of 'i')
+      iterate over each of divisorAmts elements and compare to see if there are any elements that are greater than the
+      amount of the current iterations divisors.
+      If there are, increment weaknessCount
+
+      push weaknessCount into weaknesses in order to keep track of all the iterations of i's weaknesses.
+
+      Return an array with two elements: the largest number within the weaknesses storage,
+      and the amount of times that weakness appears.
+*/
+  </script>
+</body>
+</html>
