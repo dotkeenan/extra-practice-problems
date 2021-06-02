@@ -88,6 +88,78 @@ As you can see, the maximal weakness is 2, and there are 2 numbers with that wea
       Return an array with two elements: the largest number within the weaknesses storage,
       and the amount of times that weakness appears.
 */
+
+/* top solution:
+Find divisors section:
+clever way to create an object that just increments a counter one time
+whenever i / j has no remainder.  It takes into account the fact that there
+will always be dual pairs, like 2*3 and 3*2, so it increments 1 time for each
+for a total of 2 divisors.
+
+Find Weaknesses section:
+uses a while loop with a nested for loop that compares m[n] < m[l]
+at this point, m is an object that looks like:
+{
+  1:1,
+  2:2,
+  3:2,
+  4:3,
+  5:2,
+  6:4,
+  7:2,
+  8:4,
+  9:3
+}
+So it starts by comparing m[9] // 3, with m[8] // 4
+m[8] is greater so count++ (count is the weakness counter)
+the nested loop goes all the way down until m[1], so it checks if each
+past iteration has more divisors.
+After that, it pushes count into arr, which stores all the weaknesses,
+resets count (since its just a temporary counter for each iteration),
+and decrements n, so the next iteration of the while loop will start by
+comparing m[8] < m[7].
+
+Find weakest and its quantity section:
+Simply just finds the largest weakness with Math.max
+Interesting approach to find that amount of times the largest weakness appears:
+uses a for in loop to iterate over the array and finds where the current iteration
+is equal to the largest weakness, then increments count.
+They re-used the same 'count' variable that was used in the while loop to
+store each individual iteration of i's weakness.
+Not sure if this is good or bad... re-using the same variable for two different purposes.
+
+ weakNumbers=(n)=> {
+    let count = 0;
+    let m = {};
+    let arr=[];
+
+// Find divisiors
+    for (let i = 1; i <= n; i++) {
+        m[i] = 0;
+        for (let j = 1; j <= i; j++) {
+            if (i % j === 0) m[i]++;
+        }
+    }
+
+// Find Weakness
+    while (n > 0) {
+        for (let l = n - 1; l > 0; l--) {
+            if (m[n] < m[l]) count++;
+        }
+        arr.push(count);
+        count=0;
+        n--;
+    }
+
+// Find weakest and its quantity
+    let weakness = Math.max(...arr);
+    for (let k in arr){
+      if(weakness === arr[k]) count++;
+    }
+    return [weakness,count]
+}
+
+*/
   </script>
 </body>
 </html>
