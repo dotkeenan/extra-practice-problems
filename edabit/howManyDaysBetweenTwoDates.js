@@ -1,6 +1,5 @@
-const getDays = (a, b) => {
-  if (a >= b || (b-a) > 6) return false;
-  return true;
+const getDays = (date1, date2) => {
+
 }
 
 module.exports = getDays
