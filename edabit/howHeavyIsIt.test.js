@@ -16,7 +16,7 @@ describe('How Heavy Is It?', () => {
     expect(weight(100, 30)).toBe(942.48)
     })
   test('6', () => {
-    expect((weight(200, 300)).toBe(37699.11)
+    expect(weight(200, 300)).toBe(37699.11)
     })
   test('7', () => {
     expect(weight(15, 23)).toBe(16.26)
