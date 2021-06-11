@@ -1,4 +1,4 @@
-const possibleBonus = require('./lengthOfNestedArray')
+const getLength = require('./lengthOfNestedArray')
 describe('Length of Nested Array', () => {
   test('1', () => {
     expect(getLength([1, [2,3]])).toBe(3)
