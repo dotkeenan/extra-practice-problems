@@ -3,6 +3,7 @@ const longest7SegmentWord = (arr) => {
   const filtered = arr.filter(x => !x.match(regex))
   if(filtered.length === 0) return '';
   return filtered.reduce((a,b) => a.length < b.length ? b : a)
+  // sort is apparently super slow, avoid using that.
   // return filtered.sort((a,b) => b.length - a.length)[0]
 }
 
