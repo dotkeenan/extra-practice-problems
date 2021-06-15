@@ -2,31 +2,27 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 function Toggle(props) {
-  const [toggleButton, setToggleButton] = useState("OFF");
+  const [toggleButton, setToggleButton] = useState(true);
+  const [toggleColor, setToggleColor] = useState(false);
 
   const handleClick = () => {
-    if (toggleButton === "OFF") setToggleButton("ON");
-    else setToggleButton("OFF");
+    setToggleButton(!toggleButton);
+    setToggleColor(!toggleColor);
   };
 
   return (
     <button
       style={
-        toggleButton === "OFF"
-          ? { backgroundColor: "red" }
-          : { backgroundColor: "green" }
+        toggleColor ? { backgroundColor: "red" } : { backgroundColor: "green" }
       }
       onClick={handleClick}
     >
-      {toggleButton}
+      {toggleButton ? "ON" : "OFF"}
     </button>
   );
 }
 
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById("root")
-);
+ReactDOM.render(<Toggle />, document.getElementById("root"));
 
 /*
 React Button Toggle
