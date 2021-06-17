@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+   * @param {string} path
+   * @return {boolean}
+   */
+      var isPathCrossing = function (path) {
+        let lastCurr = [0, 0];
+        const coords = [[0, 0]]
+        const unique = new Set()
+        for (let i = 0; i <= path.length; i++) {
+          console.log(lastCurr)
+          switch (path[i]) {
+            case 'N':
+              lastCurr[1]++
+              coords.push([...lastCurr])
+              break;
+            case 'E':
+              lastCurr[0]++
+              coords.push([...lastCurr])
+              break;
+            case 'S':
+              lastCurr[1]--
+              coords.push([...lastCurr])
+              break;
+            case 'W':
+              lastCurr[0]--
+              coords.push([...lastCurr])
+              break;
+          }
+        }
+        console.log(coords)
+        // first solution with nested loop
+        // for (let j = 0; j < coords.length - 1; j++) {
+        //     for (let k = j + 1; k < coords.length; k++) {
+        //         if (coords[j][0] === coords[k][0] && coords[j][1] === coords[k][1]) {
+        //             return true
+        //         }
+        //     }
+        // }
+        // return false;
+
+        // second solution using map and a set and comparing lengths/size.  Slower than nested loop.
+        const stringCoords = coords.map(x => '' + x[0] + x[1])
+        stringCoords.forEach(x => unique.add(x))
+        return unique.size === stringCoords.length ? false : true;
+      };
+  </script>
+</body>
+</html>
