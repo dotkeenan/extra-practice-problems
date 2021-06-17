@@ -53,6 +53,70 @@
         stringCoords.forEach(x => unique.add(x))
         return unique.size === stringCoords.length ? false : true;
       };
+
+/* top solution done without reference:
+var isPathCrossing = function(path) {
+    const position = [0,0]
+    const history = new Set()
+    history.add('00')
+    for(const e of path) {
+        let [x,y] = position;
+        if(e === 'N') y++
+        if(e === 'E') x++
+        if(e === 'S') y--
+        if(e === 'W') x--
+
+        let newPosition = `${x}${y}`
+        position[0] = x
+        position[1] = y
+
+        if(history.has(newPosition)) return true
+        history.add(newPosition)
+    }
+    return false;
+};
+*/
+
+/* top solution:
+creates storaged named position, initialized to [0,0] to store the current position.
+creates a new Set() named record
+adds '00', the starting position, to the set.
+loops over path using for of loop
+deconstructs current position's coordinates and assigns them to x and y
+Bunch of if statments that increase/decrease the current position based on the direction
+(similar to my switch case)
+Converts them back into a concatenated string version by using a template literal
+re assigns current position with the new values of x and y.
+Makes a check using has(), a method of Set(), that checks if a value already
+exists in the Set or not.
+If it already exists, then just return true (yes, already visited that coord)
+if not, then add newPosition to the Set(), named record.
+
+var isPathCrossing = function(path) {
+    const position = [0, 0]
+    const record = new Set()
+    record.add('00')
+    for (const p of path) {
+        let [x, y] = position
+        if (p === 'S')
+            y--
+        if (p === 'N')
+            y++
+        if (p === 'W')
+            x--
+        if (p === 'E')
+            x++
+        const newPosition = `${x}${y}`
+        position[0] = x
+        position[1] = y
+
+        if (record.has(newPosition))
+            return true
+        record.add(newPosition)
+    }
+    return false
+};
+*/
   </script>
 </body>
 </html>
