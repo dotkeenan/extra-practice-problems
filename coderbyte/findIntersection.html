@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // first messy attempt: works.
+    function FindIntersection(strArr) {
+        let res = [];
+        const str1 = strArr[0].split(',')
+        const str2 = strArr[1].split(',')
+        for (let i = 0; i < str2.length; i++) {
+          if (str1.includes(str2[i])) {
+            res.push(str2[i])
+          }
+        }
+        // code goes here
+        return res.join(',').replace(/\s/g, "")
+      }
+
+      // keep this function call here
+      console.log(FindIntersection(readline()));
+  </script>
+</body>
+</html>
