@@ -62,7 +62,47 @@ Output: false
 
       // keep this function call here
       TreeConstructor(readline());
+/* Explanation attempt:
+create a helper function named node() that's in charge of creating a new node
+It creates an object and fills out the object with the value, parent status, left node
+status, right node status.
 
+In the main function, first turn the weirdly formatted strArr into an actual
+array of arrays that contain two numbers inside.
+original strArr = ['(1,4)','(2,4)','(3,5)']
+after conversion= [[1,4], [2,4], [3,5]]
+
+create variable named 'tree' and set it to empty object.  This will house the
+binary search tree.
+
+for loop that iterates over strArr:
+creates the nodes with some conditionals:
+basically if nodes don't exist for the current iteration within 'tree',
+then go ahead and create them by calling node(strArr[i][0] or str[i][0])
+
+do a quick check to see if the node has a parent, if so, just return false.
+
+Next, check if the parent already has 2 children, if not, fill in empty spaces (create leaves):
+Check if the node's left and right property within 'tree' are null.
+If null, then assign tree[strArr[i][0]] to the tree[strArr[i][1]] (assign the leaf to the parent node)
+
+ELSE IF (if left node already exists for that parent):
+then assign it to the right leaf node.
+
+ELSE (if both left and right nodes are already occupied)
+return false; (because there are already 2 child nodes. can't fit anymore)
+
+then change the hasParent property for the current iteration to true;
+in my example above, this whole iteration was for [1,4].  The format for this
+problem was that the first array element is the child node, and 2nd is the parent node.
+so tree['1'].hasParent = true.
+
+if it passes all those conditionals for all iterations, return true.
+
+I guess this problem didn't require that nodes can only have 1 less than or equal child
+and one greater child.  This solution doesn't address that at all.
+
+*/
 
 
 
