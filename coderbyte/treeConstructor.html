@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function node(val) {
+        const obj = {}
+        obj.val = val;
+        obj.hasParent = false;
+        obj.left = null;
+        obj.right = null;
+        return obj;
+      }
+
+      function TreeConstructor(strArr) {
+        // parse strArr;
+        strArr = strArr.map(item => {
+          item = item.replace(/[() ]+/g, '');
+          return item.split(',');
+        });
+
+        const tree = {};
+
+        for (let i = 0; i < strArr.length; i++) {
+          // instantiate nodes
+          if (tree[strArr[i][0]] === undefined) { tree[strArr[i][0]] = node(strArr[i][0]); }
+          if (tree[strArr[i][1]] === undefined) { tree[strArr[i][1]] = node(strArr[i][1]); }
+
+          // quick check to make sure nodes can't have multiple parents
+          if (tree[strArr[i][0]].hasParent === true) { return false; }
+
+          // check to see if parent has 2 children already, fill in empty spaces if not
+          if (tree[strArr[i][1]].left === null) {
+            tree[strArr[i][1]].left = tree[strArr[i][0]];
+          } else if (tree[strArr[i][1]].right === null) {
+            tree[strArr[i][1]].right = tree[strArr[i][0]];
+          } else {
+            return false;
+          }
+          tree[strArr[i][0]].hasParent = true;
+        }
+        return true;
+      }
+
+      // keep this function call here
+      TreeConstructor(readline());
+
+
+
+
+    /* went in blind without knowledge of binary tree search:
+function TreeConstructor(strArr) {
+
+  const nodes = strArr.map(x => {
+    return x.replace(/[()]/g, '').split(',')
+  })
+
+  nodes.forEach(x => {
+    x[0] = Number(x[0])
+    x[1] = Number(x[1])
+  })
+
+  for (let i = 0; i < nodes.length; i++) {
+    const tempArr = nodes.filter(x => nodes[i][1] === x[1])
+    console.log('tempArr', tempArr)
+    if (tempArr.length > 2) return 'false';
+    if (tempArr.length > 1) {
+      let childNodes = [tempArr[0][0], tempArr[1][0]].sort((a,b) => a - b)
+      if (childNodes[0] > tempArr[0][1] || childNodes[1] <= tempArr[0][1]) {
+        return 'false';
+      }
+    }
+  }
+  // nodes.forEach((x,i) => {
+  //   const tempArr = nodes.filter(x => nodes[i][1] === x[1])
+  //   console.log(tempArr)
+  //   if (tempArr.length > 2) return false;
+  //   if (tempArr.length > 1) {
+  //     let childNodes = [tempArr[0][0], tempArr[1][0]].sort((a,b) => a - b)
+  //     if (childNodes[0] > tempArr[0][1] || childNodes[1] <= tempArr[0][1]) {
+  //       return false;
+  //     }
+  //   }
+  // })
+  return 'true';
+}
+
+// keep this function call here
+console.log(TreeConstructor(readline()));
+
+/*
+for each element in strArr:
+each parent should only have two elements: one less than or equal to the parent, and one greater.
+test to see that for each el[1], there are only 2 el[1]'s (one <= and one >)
+
+ */
+  </script>
+</body>
+</html>
