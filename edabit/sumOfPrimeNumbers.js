@@ -1,25 +1,15 @@
-function isPrime(val){
-
-  //test if number is prime
-  for(var i=2; i < val; i++){
-    if(val % i === 0){
-      return false;
-    }
+const isPrime = val => {
+  for (let i = 2; i < val; i++) {
+    if (val % i === 0) return false;
   }
   return true;
 }
 
-function sumPrimes(arr) {
-  var answer = 0;
-
-  //loop through all numbers from 2 to input value
-  for (let j = 0; j < arr.length; j++) {
-    if (arr[j] === 1) continue
-      //sum only prime numbers, skip all others
-      if(isPrime(arr[j])){
-        answer += arr[j];
-      }
-
+const sumPrimes = arr => {
+  let answer = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 1) continue;
+    if (isPrime(arr[i])) answer+= arr[i]
   }
   return answer;
 }
