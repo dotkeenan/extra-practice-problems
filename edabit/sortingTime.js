@@ -17,16 +17,22 @@ const sortArray = (arr) => {
 module.exports = sortArray;
 
 /*
-make a storage named smallest initialized at arr[0]
+make a storage named smallest.
 make a storage named res intitalized to an empty array.
-loop over 'arr'
-re-assign smallest if arr[i] is smaller
 
-after one full loop, splice out 'smallest' from arr.
-push 'smallest' into 'arr'.
-splice out smallest
+create a loop that runs as long as there are items in 'arr':
+assign arr[0] to 'smallest'
 
-loop over arr and keep doing the same thing until nothing left
-in arr.
+loop over 'arr':
+re-assign smallest if arr[i] is smaller than 'smallest'
+
+after one full loop over 'arr':
+push 'smallest' into 'res', in order to create an ascending order.
+splice out smallest from 'arr' using indexOf()
+
+the while loop will eventually stop once 'arr' has no more elements
+inside of it.
+
+return 'res'.
 
 */
