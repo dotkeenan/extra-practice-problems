@@ -8,7 +8,19 @@ fibonacci(1) → 1
 fibonacci(2) → 1
 */
 
-/*
+function fibonacci(n){
+  if (n < 2){
+    if (n < 1) {
+      return 0
+    }
+        return 1;
+    }else{
+        return fibonacci(n-2) + fibonacci(n-1);
+  }
+}
+
+
+/* non recursive version:
 function fibonacci(n){
   const fibNums = [0,1]
   for (let i = 0; i < n-1; i++) {
