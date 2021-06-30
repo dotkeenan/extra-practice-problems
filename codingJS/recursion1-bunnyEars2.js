@@ -14,5 +14,14 @@ function bunnyEars2(bunnies){
 console.log(bunnyEars2(11))
 
 /*
+Not sure how you are supposed to start with figuring out a recursive function.
+I started with defining the endpoint of recursion: if bunnies===0, then return 0;
+I know that you start with a single input of how many bunnies there are, so I know
+that in this situation, I need call bunnyEars2 with bunnies-1 as the argument.
+When bunnyEars2(0) eventually gets called, it will return 0, and be able to go back up
+through all the recursion and become actual values.
+
+The conditional is just for this particular exercise that says that when the bunnies line up,
+every even numbered bunny counts as 3 ears, and every odd counts as 2.
 
 */
