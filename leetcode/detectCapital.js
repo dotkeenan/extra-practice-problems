@@ -32,3 +32,11 @@ one that must start with a capital letter, and the rest must be lowercase.
 return the result of testing 'word' against all 3 regular expressions with logical or
 operator. (even if 1 is true, return true.  else return false)
 */
+
+/* top solution (in java)
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        return word.matches("[A-Z]*|.[a-z]*");
+    }
+}
+*/
