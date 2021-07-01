@@ -23,3 +23,12 @@ var detectCapitalUse = function(word) {
     const normCaps = /^[A-Z][a-z]+$/
     return allCaps.test(word) || noCaps.test(word) || normCaps.test(word)
 };
+/*
+create 3 regular expressions:
+one that must be all uppercase from start to finish
+one that must be all lowercase from start to finish
+one that must start with a capital letter, and the rest must be lowercase.
+
+return the result of testing 'word' against all 3 regular expressions with logical or
+operator. (even if 1 is true, return true.  else return false)
+*/
