@@ -17,3 +17,9 @@ Example 2:
 Input: word = "FlaG"
 Output: false
 */
+var detectCapitalUse = function(word) {
+    const allCaps = /^[A-Z]+$/g
+    const noCaps = /^[a-z]+$/g
+    const normCaps = /^[A-Z][a-z]+$/
+    return allCaps.test(word) || noCaps.test(word) || normCaps.test(word)
+};
