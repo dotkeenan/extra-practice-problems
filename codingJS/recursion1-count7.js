@@ -7,3 +7,19 @@ count7(717) → 2
 count7(7) → 1
 count7(123) → 0
 */
+
+function count7(n){
+  if (Math.floor(n/10) === 0) {
+    return n === 7 ? 1 : 0
+  }
+  return n % 10 === 7 ? 1 + count7(Math.floor(n/10)) : count7(Math.floor(n/10))
+}
+
+/*
+Keep removing the 1's place from the number.
+Check if that removed number is a 7 or not.
+If it is a 7, return 1 + the result of the function recursively called with the
+1's place removed from 'n'.
+If not a 7, just return the function recursively called with the 1's place removed from
+'n'
+*/

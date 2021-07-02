@@ -20,7 +20,7 @@ Output: false
 var detectCapitalUse = function(word) {
     const allCaps = /^[A-Z]+$/g
     const noCaps = /^[a-z]+$/g
-    const normCaps = /^[A-Z][a-z]+$/
+    const normCaps = /^[A-Z][a-z]+$/g
     return allCaps.test(word) || noCaps.test(word) || normCaps.test(word)
 };
 /*
