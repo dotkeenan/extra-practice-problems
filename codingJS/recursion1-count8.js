@@ -7,3 +7,16 @@ count8(8) → 1
 count8(818) → 2
 count8(8818) → 4
 */
+function count8(n){
+  if (Math.floor(n/10) === 0) {
+    return n === 8 ? 1 : 0
+  }
+  if (n % 10 === 8) {
+    if (n % 100 === 88) {
+      return 2 + count8(Math.floor(n/10))
+    }
+    return 1 + count8(Math.floor(n/10))
+  } else {
+      return count8(Math.floor(n/10))
+  }
+}
