@@ -11,3 +11,10 @@ function powerN(base, n) {
   if (n === 1) return base
   return base * powerN(base, n - 1)
 }
+
+/*
+end condition: if n === 1, return base.  Meaning just multiply by the base
+one last time.
+
+recursion: decrease n by 1, each call.
+*/
