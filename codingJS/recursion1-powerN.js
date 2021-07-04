@@ -7,3 +7,7 @@ powerN(3, 1) → 3
 powerN(3, 2) → 9
 powerN(3, 3) → 27
 */
+function powerN(base, n) {
+  if (n === 1) return base
+  return base * powerN(base, n - 1)
+}
