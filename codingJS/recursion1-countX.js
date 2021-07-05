@@ -15,3 +15,13 @@ function countX(str){
     return countX(str.slice(0, str.length-1))
   }
 }
+/*
+Create the recursion-ending condition where if the string length is 0, return 0.
+
+create a conditional where if the last letter in the string is an 'x',
+then return 1 + the function run recursively with the 'str' with the last letter
+taken off.
+
+if the last letter is NOT an 'x', then return recursively called function with
+'str' with the last letter removed.
+*/
