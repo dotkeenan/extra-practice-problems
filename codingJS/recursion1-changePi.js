@@ -12,3 +12,11 @@ function changePi(str){
   if ((/pi/g).test(str) === false) return str;
   return changePi(str.replace('pi', '3.14'))
 }
+
+/*
+same as previous exercise changeXY:
+
+replace() replaces the first found occurance of the argument and replaces with the 2nd
+keep running replace() recursively, and use test() to check if 'pi' exists in 'str'
+if not, then just return str since there are no more 'pi'
+*/
