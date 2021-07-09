@@ -7,3 +7,7 @@ noX('xaxb') → ab
 noX('abc') → abc
 noX('xx') →
 */
+function noX(str){
+  if ((/x/).test(str) === false) return str;
+  return noX(str.replace('x', ''))
+}
