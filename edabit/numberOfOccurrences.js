@@ -1,5 +1,13 @@
 const numberOfOccurrences = (obj) => {
-
+  const res = {};
+  for (const key in obj) {
+    if (!(obj[key] in res)) {
+      res[obj[key]] = 1;
+    } else {
+      res[obj[key]]++
+    }
+  };
+  return res;
 }
 
 module.exports = numberOfOccurrences;
