@@ -16,3 +16,12 @@ function array11(nums, i){
     return array11(nums, i+1)
   }
 }
+
+/*
+recursion ending condition: if there are no more array elements, then return 0;
+if the current iterations array element is 11, then return '1' and
+the the result of the recursively called function with 'i' incremented by 1.
+
+if it's not 11, then just return the result of the recursively called function,
+with 'i' incremented by 1.
+*/
