@@ -7,3 +7,12 @@ array11([1, 2, 11], 0) → 1
 array11([11, 11], 0) → 2
 array11([1, 2, 3, 4], 0) → 0
 */
+
+function array11(nums, i){
+  if (nums[i] === undefined) return 0;
+  if (nums[i] === 11) {
+    return 1 + array11(nums, i+1)
+  } else {
+    return array11(nums, i+1)
+  }
+}
