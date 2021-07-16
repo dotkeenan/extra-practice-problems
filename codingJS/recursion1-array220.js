@@ -12,3 +12,15 @@ function array220(nums, i){
   if (nums[i+1] === nums[i] * 10) return true
   return array220(nums, i+1)
 }
+
+/* explanation
+The function relies on checking the follow iteration.  So if the follow iteration
+does not exist, then that means it made it through the entire array without
+finding a case where there was number that was followed by the same number multiplied by 10
+So if it makes it to the end of the array, return false;
+
+If it EVER finds a case where the following number is the previous number * 10, return true
+
+if neither get satisfied, call the function recursively with incrementing i, in order
+to traverse the array.
+*/
