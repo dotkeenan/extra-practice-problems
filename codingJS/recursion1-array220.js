@@ -7,3 +7,8 @@ array220([1, 2, 20], 0) → true
 array220([3, 30], 0) → true
 array220([3], 0) → false
 */
+function array220(nums, i){
+  if (nums[i+1] === undefined) return false;
+  if (nums[i+1] === nums[i] * 10) return true
+  return array220(nums, i+1)
+}
